@@ -35,7 +35,7 @@ public class LoginPageObject extends PageObjectBase{
 
 	public boolean estaTelaLogin() {
 		
-		logger.info("Verificando se esta na tela de login");
+		log.mensagemgeral("Verificando se esta na tela de login");
 		
 		botao_login = elementoPresente(bt_login_localizador);
 		

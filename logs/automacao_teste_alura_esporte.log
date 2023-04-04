@@ -1,13 +1,20 @@
-2023-04-03 22:05:10.034 [main] INFO br.com.inm.appesporte.mobile.config.Log - Inicio teste: Cadastro usuário
-2023-04-03 22:05:25.721 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela login instanciado
-2023-04-03 22:05:25.975 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
-2023-04-03 22:05:29.923 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando se esta na tela de login
-2023-04-03 22:05:30.093 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (5e78b23f-b76d-451e-b047-b37846c7225f)] -> id: br.com.alura.aluraesporte:id/login_botao_logar] encontrado.
-2023-04-03 22:05:30.097 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
-2023-04-03 22:05:30.105 [main] INFO br.com.inm.appesporte.mobile.config.Log - Inicio teste: Não cadastrar usuário
-2023-04-03 22:05:30.105 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela de login incializada
-2023-04-03 22:05:30.737 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
-2023-04-03 22:05:33.656 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando mensagem de erro
-2023-04-03 22:05:34.179 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (5e78b23f-b76d-451e-b047-b37846c7225f)] -> id: br.com.alura.aluraesporte:id/erro_cadastro] encontrado.
-2023-04-03 22:05:34.204 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
-2023-04-03 22:05:34.257 [main] INFO br.com.inm.appesporte.mobile.config.Log - Retorno tela de login
+2023-04-03 23:14:45.015 [main] INFO br.com.inm.appesporte.mobile.config.Log - Gerador de massa iniciado para localização pt-br
+2023-04-03 23:14:45.036 [main] INFO br.com.inm.appesporte.mobile.config.Log - /n----Inicio novo teste: Cadastro usuário /n
+2023-04-03 23:14:54.583 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela login instanciado
+2023-04-03 23:14:54.911 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
+2023-04-03 23:14:55.412 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): GolduckAbóbora
+2023-04-03 23:14:55.967 [main] INFO br.com.inm.appesporte.mobile.config.Log - Primeiro nome criado(a): Lorenzo
+2023-04-03 23:14:59.080 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando se esta na tela de login
+2023-04-03 23:14:59.242 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (5a56392b-4e7e-469d-a15a-33f069097f18)] -> id: br.com.alura.aluraesporte:id/login_botao_logar] encontrado
+2023-04-03 23:14:59.246 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
+2023-04-03 23:14:59.256 [main] INFO br.com.inm.appesporte.mobile.config.Log - Construtor chamado porém com o gerador já inicializado
+2023-04-03 23:14:59.259 [main] INFO br.com.inm.appesporte.mobile.config.Log - /n----Inicio novo teste: Não cadastrar usuário /n
+2023-04-03 23:14:59.259 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela de login incializada
+2023-04-03 23:14:59.877 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
+2023-04-03 23:14:59.878 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): PidgeotAmeixa
+2023-04-03 23:14:59.878 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): CharmanderTurquesa
+2023-04-03 23:15:01.146 [main] INFO br.com.inm.appesporte.mobile.config.Log - Primeiro nome criado(a): Liz
+2023-04-03 23:15:04.240 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando mensagem de erro
+2023-04-03 23:15:04.774 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (5a56392b-4e7e-469d-a15a-33f069097f18)] -> id: br.com.alura.aluraesporte:id/erro_cadastro] encontrado
+2023-04-03 23:15:04.804 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
+2023-04-03 23:15:04.902 [main] INFO br.com.inm.appesporte.mobile.config.Log - Retorno tela de login

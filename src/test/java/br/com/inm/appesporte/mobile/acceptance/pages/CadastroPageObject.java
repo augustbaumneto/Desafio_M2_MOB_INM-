@@ -58,7 +58,7 @@ public class CadastroPageObject extends PageObjectBase{
 		
 		String retorno = "";
 		
-		logger.info("Verificando mensagem de erro");
+		log.mensagemgeral("Verificando mensagem de erro");
 		msg_erro_cadastro_senha = elementoPresente(msg_errocadastro_localizador);
 		
 		if (msg_erro_cadastro_senha!=null)
