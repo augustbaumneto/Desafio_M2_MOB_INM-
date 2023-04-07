@@ -10,9 +10,7 @@ Funcionalidade: Login no aplicativo
   Cenário: Login com usuário e senha inválidos
     Dado que eu estou na tela de login
     E tenha um usuário já cadastrado
-    Quando eu preencho o campo usuário com um usuário inválido
-    E preencho o campo senha com uma senha inválida
-    E clico no botão logar
+    Quando eu tento realizar o login com usuário inválido e senha inválida
     Então eu vejo uma mensagem de erro informando que o usuário ou senha estão incorretos
 
   Cenário: Login com usuário válido e senha inválida

@@ -18,6 +18,7 @@ public class LoginPageObject extends PageObjectBase{
 		super();
 		bt_cadastro_localizador = By.id("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
 		bt_login_localizador = By.id("br.com.alura.aluraesporte:id/login_botao_logar");
+		//buscarElementos();
 	}
 
 	@Override
@@ -32,14 +33,34 @@ public class LoginPageObject extends PageObjectBase{
 	}
 	
 
-	public boolean estaTelaLogin() {
+	public boolean contemBotaoLogin() {
 		
-		LOG.mensagemgeral("Verificando se esta na tela de login");
+		LOG.mensagemgeral("Verificando se aprenseta o botão de login");
 		
 		botao_login = elementoPresente(bt_login_localizador);
 		
 		return (botao_login != null);
 		
+	}
+
+	public void preencherUsuario(String usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void preencherSenha(String senha) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void clicarNoBotaoLogin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean verificarMensagemDeErro(String mensagem) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

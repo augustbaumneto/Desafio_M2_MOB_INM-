@@ -72,7 +72,7 @@ public class FeatureCadastro
     	telacadastro.buscarElementos();
     	telalogin = telacadastro.Cadastrar(massa.geraPrimeiroNome(),senha1,senha1);
     	    	  	
-        assertTrue(telalogin.estaTelaLogin());
+        assertTrue(telalogin.contemBotaoLogin());
         
         log.mensagemgeral("Validação do cadastro efetuada");
         
