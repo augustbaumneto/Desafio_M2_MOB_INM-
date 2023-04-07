@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
-import io.appium.java_client.AppiumDriver;
-
 
 public class CadastroPageObject extends PageObjectBase{
 
@@ -21,8 +19,8 @@ public class CadastroPageObject extends PageObjectBase{
 	private final By bt_cadastrar_localizador;
 	private final By msg_errocadastro_localizador;
 	
-	public CadastroPageObject(AppiumDriver driver) {
-		super(driver);
+	public CadastroPageObject() {
+		super();
 		cmp_nome_localizador=By.id("br.com.alura.aluraesporte:id/input_nome");
 		cmp_senha_localizador=By.id("br.com.alura.aluraesporte:id/input_senha");
 		cmp_confirmarsenha_localizador=By.id("br.com.alura.aluraesporte:id/input_confirmar_senha");
@@ -51,14 +49,14 @@ public class CadastroPageObject extends PageObjectBase{
 	public LoginPageObject Cadastrar(String usuario, String senha, String confirmasenha) {
 		preencherElementos(usuario, senha, confirmasenha);
 		clicarCadastro();
-		return new LoginPageObject(driver);
+		return new LoginPageObject();
 	}
 
 	public String verificamensagemerro() {
 		
 		String retorno = "";
 		
-		log.mensagemgeral("Verificando mensagem de erro");
+		LOG.mensagemgeral("Verificando mensagem de erro");
 		msg_erro_cadastro_senha = elementoPresente(msg_errocadastro_localizador);
 		
 		if (msg_erro_cadastro_senha!=null)

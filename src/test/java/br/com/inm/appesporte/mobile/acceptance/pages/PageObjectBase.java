@@ -12,29 +12,54 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import br.com.inm.appesporte.mobile.config.Log;
 import io.appium.java_client.AppiumDriver;
 
+/**
+ * 
+ * Classe base para os pageObjects
+ * 
+ * @author August Neto
+ *
+ */
 public abstract class PageObjectBase {
 
-	protected Log log = new Log();
+	//Log das page objects
+	protected final static Log LOG = new Log();
 	
 	protected final AppiumDriver driver;
 	
+	//Elemento para configurar o tempo de espera
 	private WebDriverWait espera;
 	
-	protected PageObjectBase(AppiumDriver driver) {
-		this.driver = driver;
-		espera = new WebDriverWait(driver,Duration.ofSeconds(2));
+	private final int TEMPO_ESPERAELEMENTO_SEG = 2;
+	
+	/**
+	 * Construtor padrão
+	 */
+	protected PageObjectBase() {
+	
+		this.driver = AppiumDriverFactory.Instance().getAppiumDriver();
+		espera = new WebDriverWait(driver,Duration.ofSeconds(TEMPO_ESPERAELEMENTO_SEG));
+		
 	}
 
+	/**
+	 * Método de busca padrão de elementos
+	 */
 	public abstract void buscarElementos();
 	
+	/**
+	 * Método padrão de verificar se o elemento esta presente 
+	 * 
+	 * @param localizador do elemento
+	 * @return Retorna o elemento se tiver presente, senão retorna null
+	 */
 	protected WebElement elementoPresente(By localizador) {
 		
 		try {
 			WebElement elemento = espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
-			log.mensagemElementoEncontrado(elemento);
+			LOG.mensagemElementoEncontrado(elemento);
 			return elemento;
 		} catch (TimeoutException e) {
-			log.erroExcecaoLancada(e);
+			LOG.erroExcecaoLancada(e);
 			return null;
 		}
 		

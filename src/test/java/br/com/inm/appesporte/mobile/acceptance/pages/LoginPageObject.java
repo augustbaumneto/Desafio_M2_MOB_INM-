@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
-import io.appium.java_client.AppiumDriver;
 
 public class LoginPageObject extends PageObjectBase{
 	
@@ -15,8 +14,8 @@ public class LoginPageObject extends PageObjectBase{
 	private final By bt_login_localizador;
 	
 	
-	public LoginPageObject(AppiumDriver driver) {
-		super(driver);
+	public LoginPageObject() {
+		super();
 		bt_cadastro_localizador = By.id("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
 		bt_login_localizador = By.id("br.com.alura.aluraesporte:id/login_botao_logar");
 	}
@@ -29,13 +28,13 @@ public class LoginPageObject extends PageObjectBase{
 	 
 	public CadastroPageObject clicarCadastrar() {
 		botaocadastro.click();
-		return new CadastroPageObject(driver);
+		return new CadastroPageObject();
 	}
 	
 
 	public boolean estaTelaLogin() {
 		
-		log.mensagemgeral("Verificando se esta na tela de login");
+		LOG.mensagemgeral("Verificando se esta na tela de login");
 		
 		botao_login = elementoPresente(bt_login_localizador);
 		

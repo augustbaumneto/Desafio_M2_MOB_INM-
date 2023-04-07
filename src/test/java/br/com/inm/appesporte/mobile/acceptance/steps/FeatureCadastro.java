@@ -5,11 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverConfig;
 import br.com.inm.appesporte.mobile.acceptance.pages.CadastroPageObject;
 import br.com.inm.appesporte.mobile.acceptance.pages.LoginPageObject;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
-import io.appium.java_client.AppiumDriver;
 import br.com.inm.appesporte.mobile.config.Log;
 
 
@@ -25,11 +23,9 @@ public class FeatureCadastro
     {
     	
     	
-    	log.inicioNovoTeste("Não cadastrar usuário");
+    	log.inicioNovoTeste("Não cadastrar usuário"); 
     	
-    	AppiumDriver driver = AppiumDriverConfig.Instance().driver; 
-    	
-    	LoginPageObject telalogin = new LoginPageObject(driver); 
+    	LoginPageObject telalogin = new LoginPageObject(); 
     	
     	log.mensagemgeral("Driver e tela de login incializada");
     	
@@ -60,9 +56,9 @@ public class FeatureCadastro
     public void efetuar_cadastro_usuario_e_senhas_validos()
     {
     	log.inicioNovoTeste("Cadastro usuário");
-    	AppiumDriver driver = AppiumDriverConfig.Instance().driver; 
     	
-    	LoginPageObject telalogin = new LoginPageObject(driver); 
+    	
+    	LoginPageObject telalogin = new LoginPageObject(); 
     	
     	log.mensagemgeral(("Driver e tela login instanciado"));
     	

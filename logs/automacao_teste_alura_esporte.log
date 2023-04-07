@@ -1,20 +1,21 @@
-2023-04-03 23:14:45.015 [main] INFO br.com.inm.appesporte.mobile.config.Log - Gerador de massa iniciado para localização pt-br
-2023-04-03 23:14:45.036 [main] INFO br.com.inm.appesporte.mobile.config.Log - /n----Inicio novo teste: Cadastro usuário /n
-2023-04-03 23:14:54.583 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela login instanciado
-2023-04-03 23:14:54.911 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
-2023-04-03 23:14:55.412 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): GolduckAbóbora
-2023-04-03 23:14:55.967 [main] INFO br.com.inm.appesporte.mobile.config.Log - Primeiro nome criado(a): Lorenzo
-2023-04-03 23:14:59.080 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando se esta na tela de login
-2023-04-03 23:14:59.242 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (5a56392b-4e7e-469d-a15a-33f069097f18)] -> id: br.com.alura.aluraesporte:id/login_botao_logar] encontrado
-2023-04-03 23:14:59.246 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
-2023-04-03 23:14:59.256 [main] INFO br.com.inm.appesporte.mobile.config.Log - Construtor chamado porém com o gerador já inicializado
-2023-04-03 23:14:59.259 [main] INFO br.com.inm.appesporte.mobile.config.Log - /n----Inicio novo teste: Não cadastrar usuário /n
-2023-04-03 23:14:59.259 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela de login incializada
-2023-04-03 23:14:59.877 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
-2023-04-03 23:14:59.878 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): PidgeotAmeixa
-2023-04-03 23:14:59.878 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): CharmanderTurquesa
-2023-04-03 23:15:01.146 [main] INFO br.com.inm.appesporte.mobile.config.Log - Primeiro nome criado(a): Liz
-2023-04-03 23:15:04.240 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando mensagem de erro
-2023-04-03 23:15:04.774 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (5a56392b-4e7e-469d-a15a-33f069097f18)] -> id: br.com.alura.aluraesporte:id/erro_cadastro] encontrado
-2023-04-03 23:15:04.804 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
-2023-04-03 23:15:04.902 [main] INFO br.com.inm.appesporte.mobile.config.Log - Retorno tela de login
+2023-04-06 22:26:44.870 [main] INFO br.com.inm.appesporte.mobile.config.Log - Gerador de massa iniciado para localização pt-br
+2023-04-06 22:26:44.890 [main] INFO br.com.inm.appesporte.mobile.config.Log -       Inicio novo teste: Cadastro usuário
+2023-04-06 22:26:57.503 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver inicializado com sucesso! URL Appium: http://192.168.56.1:4724/wd/hub, Aplicativo: C:\B\Auto\Projetos_de_automacao\treina_Alura_Appium\AluraAppium\src\main\resources\alura_esporte.apk
+2023-04-06 22:26:57.527 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela login instanciado
+2023-04-06 22:26:57.884 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
+2023-04-06 22:26:58.201 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): MagnetonAbóbora
+2023-04-06 22:26:58.713 [main] INFO br.com.inm.appesporte.mobile.config.Log - Primeiro nome criado(a): Sophie
+2023-04-06 22:27:01.212 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando se esta na tela de login
+2023-04-06 22:27:01.387 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (f70ab467-d255-4efa-9c07-b6f2e80b35aa)] -> id: br.com.alura.aluraesporte:id/login_botao_logar] encontrado
+2023-04-06 22:27:01.389 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
+2023-04-06 22:27:01.397 [main] INFO br.com.inm.appesporte.mobile.config.Log - Construtor chamado porém com o gerador já inicializado
+2023-04-06 22:27:01.399 [main] INFO br.com.inm.appesporte.mobile.config.Log -       Inicio novo teste: Não cadastrar usuário
+2023-04-06 22:27:01.399 [main] INFO br.com.inm.appesporte.mobile.config.Log - Driver e tela de login incializada
+2023-04-06 22:27:01.988 [main] INFO br.com.inm.appesporte.mobile.config.Log - Avanço tela de Cadastro
+2023-04-06 22:27:01.989 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): RattataLavanda
+2023-04-06 22:27:01.989 [main] INFO br.com.inm.appesporte.mobile.config.Log - Senha criado(a): MagikarpEscarlate
+2023-04-06 22:27:02.694 [main] INFO br.com.inm.appesporte.mobile.config.Log - Primeiro nome criado(a): Sílvia
+2023-04-06 22:27:05.878 [main] INFO br.com.inm.appesporte.mobile.config.Log - Verificando mensagem de erro
+2023-04-06 22:27:05.924 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento [[AppiumDriver:  on ANDROID (f70ab467-d255-4efa-9c07-b6f2e80b35aa)] -> id: br.com.alura.aluraesporte:id/erro_cadastro] encontrado
+2023-04-06 22:27:06.405 [main] INFO br.com.inm.appesporte.mobile.config.Log - Validação do cadastro efetuada
+2023-04-06 22:27:06.455 [main] INFO br.com.inm.appesporte.mobile.config.Log - Retorno tela de login
