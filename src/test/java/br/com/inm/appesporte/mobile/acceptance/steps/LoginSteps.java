@@ -23,8 +23,8 @@ public class LoginSteps {
 	private Log log = new Log();
 	private GeradorMassa massa = new GeradorMassa();
 	
-    private LoginLogics loginLogics;
-    private CadastroLogics cadastroLogics;
+    private LoginLogics loginlogics;
+    private CadastroLogics cadastrologics;
     
 	private String usuario;
 	private String senha;
@@ -32,8 +32,8 @@ public class LoginSteps {
     
     @Dado("que eu estou na tela de login")
     public void queEuEstouNaTelaDeLogin() {
-    	loginLogics = new LoginLogics();
-    	loginLogics.abrirPaginaDeLogin();
+    	loginlogics = new LoginLogics();
+    	loginlogics.abrirPaginaDeLogin();
     	log.mensagemgeral("Step Dado que eu estou na tela de login realizado com sucesso");
     }
 
@@ -41,21 +41,21 @@ public class LoginSteps {
     public void tenhaUmUsuarioJaCadastrado() {
         usuario = massa.geraPrimeiroNome();
         senha = massa.geraSenha();
-        cadastroLogics =loginLogics.acessaCadastro();
-        loginLogics = cadastroLogics.cadastraUsuario(usuario,senha);
-        assertTrue(loginLogics.estaPaginaLogin());
+        cadastrologics =loginlogics.acessaCadastro();
+        loginlogics = cadastrologics.cadastraUsuario(usuario,senha);
+        assertTrue(loginlogics.estaPaginaLogin());
         log.mensagemgeral("Step tenha um usuário já cadastro realizado com sucesso");
     }
 
     @Quando("eu tento realizar o login com usuário inválido e senha inválida")
     public void euTentoRealizaroLogincomUsuárioInválidoeSenhaInválida() {
-        loginLogics.realizarLoginComUsuarioESenha(massa.geraPrimeiroNome(), massa.geraSenha());
+        loginlogics.realizarLoginComUsuarioESenha(massa.geraPrimeiroNome(), massa.geraSenha());
         log.mensagemgeral("Step eu preencho o campo com um usuário inválido realizado com sucesso");
     }
 
     @Entao("eu vejo uma mensagem de erro informando que o usuário ou senha estão incorretos")
     public void euVejoUmaMensagemDeErroInformandoQueOUsuarioOuSenhaEstaoIncorretos() {
-        assertTrue(loginLogics.verificarMensagemDeErro("Usuário ou senha inválidos."));
+        assertTrue(loginlogics.verificarMensagemDeErro("Usuário ou senha inválidos."));
         log.mensagemgeral("Step eu vejo mensagem de erro com usuário ou senha incorretos realizado com sucesso");
     }
 

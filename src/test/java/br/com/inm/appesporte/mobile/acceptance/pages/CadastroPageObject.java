@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 
 public class CadastroPageObject extends PageObjectBase{
 
-	private WebElement camponome;
-	private WebElement camposenha;
-	private WebElement campoconfirmarsenha;
+	private WebElement campo_nome;
+	private WebElement campo_senha;
+	private WebElement campo_confirmarsenha;
 	private WebElement botao_cadastrar;
 	private WebElement msg_erro_cadastro_senha;
 	
@@ -30,29 +30,29 @@ public class CadastroPageObject extends PageObjectBase{
 	
 	@Override
 	public void buscarElementos() {
-    	camponome = driver.findElement(cmp_nome_localizador);
-    	camposenha = driver.findElement(cmp_senha_localizador);
-    	campoconfirmarsenha = driver.findElement(cmp_confirmarsenha_localizador);
+    	campo_nome = driver.findElement(cmp_nome_localizador);
+    	campo_senha = driver.findElement(cmp_senha_localizador);
+    	campo_confirmarsenha = driver.findElement(cmp_confirmarsenha_localizador);
     	botao_cadastrar = driver.findElement(bt_cadastrar_localizador);
 	}
 
 	private void preencherElementos(String usuario, String senha, String confirmasenha) {
-		camponome.sendKeys(usuario);
-    	camposenha.sendKeys(senha);
-    	campoconfirmarsenha.sendKeys(confirmasenha);
+		campo_nome.sendKeys(usuario);
+    	campo_senha.sendKeys(senha);
+    	campo_confirmarsenha.sendKeys(confirmasenha);
 	}
 
 	private void clicarCadastro() {
 		botao_cadastrar.click();
 	}
 	
-	public LoginPageObject Cadastrar(String usuario, String senha, String confirmasenha) {
+	public LoginPageObject cadastrar(String usuario, String senha, String confirmasenha) {
 		preencherElementos(usuario, senha, confirmasenha);
 		clicarCadastro();
 		return new LoginPageObject();
 	}
 
-	public String verificamensagemerro() {
+	public String verificaMensagemErro() {
 		
 		String retorno = "";
 		

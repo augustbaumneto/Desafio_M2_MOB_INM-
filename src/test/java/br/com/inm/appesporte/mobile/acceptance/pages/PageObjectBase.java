@@ -44,7 +44,7 @@ public abstract class PageObjectBase {
 	/**
 	 * Método de busca padrão de elementos
 	 */
-	public abstract void buscarElementos();
+	protected abstract void buscarElementos();
 	
 	/**
 	 * Método padrão de verificar se o elemento esta presente 

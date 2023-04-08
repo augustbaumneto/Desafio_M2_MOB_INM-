@@ -38,10 +38,10 @@ public class FeatureCadastro
     	String senha2 = massa.geraSenha();
     	
     	telacadastro.buscarElementos();
-    	telacadastro.Cadastrar(massa.geraPrimeiroNome(),senha1,senha2);
+    	telacadastro.cadastrar(massa.geraPrimeiroNome(),senha1,senha2);
     	
     	
-        assertEquals(telacadastro.verificamensagemerro(), "Senhas não conferem");
+        assertEquals(telacadastro.verificaMensagemErro(), "Senhas não conferem");
         
         log.mensagemgeral("Validação do cadastro efetuada");
         
@@ -70,7 +70,7 @@ public class FeatureCadastro
     	String senha1 = massa.geraSenha();
     	
     	telacadastro.buscarElementos();
-    	telalogin = telacadastro.Cadastrar(massa.geraPrimeiroNome(),senha1,senha1);
+    	telalogin = telacadastro.cadastrar(massa.geraPrimeiroNome(),senha1,senha1);
     	    	  	
         assertTrue(telalogin.contemBotaoLogin());
         

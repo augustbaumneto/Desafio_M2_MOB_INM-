@@ -14,11 +14,30 @@ import br.com.inm.appesporte.mobile.config.Log;
 public class LoginLogics {
 
 	
-	private LoginPageObject loginPage;
+	private LoginPageObject loginpage;
 	private CadastroPageObject cadastropage;
 	
 	
 	private static Log log = new Log();
+	
+	/**
+	 * Construtor que mantem o controle de página
+	 * 
+	 * @param loginpage
+	 */
+	public LoginLogics(LoginPageObject loginpage) {
+		this();
+		this.loginpage = loginpage;
+	}
+	
+	/**
+	 * Construtor padrão
+	 */
+	public LoginLogics() {
+		loginpage = new LoginPageObject();
+		
+	}
+	
 	
 	/**
 	 * Verifica se esta na página de login e inicializa a página.
@@ -26,10 +45,8 @@ public class LoginLogics {
 	 */
 	public void abrirPaginaDeLogin() {
 		log.mensagemgeral("Acessando tela de login");
-		loginPage = new LoginPageObject(); 
-		loginPage.buscarElementos();
 		estaPaginaLogin();
-	} //TODO resolver problema do driver
+	}
 
 	/**
 	 *   Realiza o login com o usuario e senha fornecidos
@@ -39,9 +56,9 @@ public class LoginLogics {
 	 */
 	public void realizarLoginComUsuarioESenha(String usuario, String senha) {
 		log.mensagemgeral("Enviado usuario "+usuario+" e "+senha+" para tentar efetuar login");
-		loginPage.preencherUsuario(usuario);
-        loginPage.preencherSenha(senha);
-        loginPage.clicarNoBotaoLogin();
+		loginpage.preencherUsuario(usuario);
+        loginpage.preencherSenha(senha);
+        loginpage.clicarNoBotaoLogin();
 	}
 
 	/**
@@ -52,7 +69,8 @@ public class LoginLogics {
 	 */
 	public boolean verificarMensagemDeErro(String mensagem) {
 		log.mensagemgeral("Verificando mensagem de erro no login");
-		return loginPage.verificarMensagemDeErro(mensagem);
+		log.mensagemgeral("Mensagem esperada: "+mensagem);
+		return loginpage.verificarMensagemDeErro(mensagem);
 	}
 
 	/**
@@ -62,7 +80,7 @@ public class LoginLogics {
 	 */
 	public CadastroLogics acessaCadastro() {
 		log.mensagemgeral("Acessando tela de cadastro");
-		cadastropage = loginPage.clicarCadastrar();
+		cadastropage = loginpage.clicarCadastrar();
 		return new CadastroLogics(cadastropage);
 	}
 
@@ -73,7 +91,7 @@ public class LoginLogics {
 	 */
 	public boolean estaPaginaLogin() {
 		log.mensagemgeral("Verificando se esta na página de login");
-		return loginPage.contemBotaoLogin();
+		return loginpage.contemBotaoLogin();
 	}
 
 }
