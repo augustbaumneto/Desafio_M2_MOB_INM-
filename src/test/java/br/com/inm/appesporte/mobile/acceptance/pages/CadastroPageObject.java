@@ -38,10 +38,17 @@ public class CadastroPageObject extends PageObjectBase{
 	 */
 	@Override
 	protected void buscarElementos() {
-    	campo_nome = elementoPresente(cmp_nome_localizador);
-    	campo_senha = elementoPresente(cmp_senha_localizador);
-    	campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
-    	botao_cadastrar = elementoPresente(bt_cadastrar_localizador);
+		campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
+		if (campo_confirmarsenha==null) {
+			LOG.mensagemgeral("Página Cadastro não carregada");
+		}else {
+			campo_nome = elementoPresente(cmp_nome_localizador);
+	    	campo_senha = elementoPresente(cmp_senha_localizador);
+	    	botao_cadastrar = elementoPresente(bt_cadastrar_localizador);
+			LOG.mensagemgeral("Elementos iniciais instanciados");
+		}
+		
+    	
 	}
 
 	

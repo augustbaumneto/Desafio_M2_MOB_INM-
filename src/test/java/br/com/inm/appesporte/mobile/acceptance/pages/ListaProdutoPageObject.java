@@ -36,9 +36,12 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	 */
 	@Override
 	protected void buscarElementos() {
-		aba_produtos = elementoPresente(aba_idrotulos_localizador);
-		btn_sair = elementoPresente(btn_idsair_localizador);
-		LOG.mensagemgeral("Elementos iniciais instanciados");
+		if (!contemAbaProdutos()) {
+			LOG.mensagemgeral("Página lista produto não carregada");
+		}else {
+			btn_sair = elementoPresente(btn_idsair_localizador);
+			LOG.mensagemgeral("Elementos iniciais instanciados");
+		}
 	}
 
 	/**

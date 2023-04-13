@@ -48,11 +48,15 @@ public class LoginPageObject extends PageObjectBase{
 	 */
 	@Override
 	protected void buscarElementos() {
-		botao_cadastro = elementoPresente(bt_cadastro_localizador);
-		botao_login = elementoPresente(bt_login_localizador);
-		campo_idusuario = elementoPresente(cmp_idusuario_localizador);
-		campo_senha = elementoPresente(cmp_senha_localizador);
-		LOG.mensagemgeral("Elementos iniciais instanciados");
+		if (!contemBotaoLogin()) {
+			LOG.mensagemgeral("Página Login não carregada");
+		}else {
+			botao_cadastro = elementoPresente(bt_cadastro_localizador);
+			campo_idusuario = elementoPresente(cmp_idusuario_localizador);
+			campo_senha = elementoPresente(cmp_senha_localizador);
+			LOG.mensagemgeral("Elementos iniciais instanciados");
+		}
+
 	}
 	 
 	/**
