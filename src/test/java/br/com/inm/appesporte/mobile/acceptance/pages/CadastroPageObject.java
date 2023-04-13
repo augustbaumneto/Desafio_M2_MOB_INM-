@@ -19,6 +19,9 @@ public class CadastroPageObject extends PageObjectBase{
 	private final By bt_cadastrar_localizador;
 	private final By msg_errocadastro_localizador;
 	
+	/**
+	 * Construtor padrão
+	 */
 	public CadastroPageObject() {
 		super();
 		cmp_nome_localizador=By.id("br.com.alura.aluraesporte:id/input_nome");
@@ -26,16 +29,22 @@ public class CadastroPageObject extends PageObjectBase{
 		cmp_confirmarsenha_localizador=By.id("br.com.alura.aluraesporte:id/input_confirmar_senha");
 		bt_cadastrar_localizador=By.id("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
 		msg_errocadastro_localizador=By.id("br.com.alura.aluraesporte:id/erro_cadastro");
+		buscarElementos();
+		
 	}
 	
+	/**
+	 * Método de busca dos elementos iniciais da tela
+	 */
 	@Override
-	public void buscarElementos() {
-    	campo_nome = driver.findElement(cmp_nome_localizador);
-    	campo_senha = driver.findElement(cmp_senha_localizador);
-    	campo_confirmarsenha = driver.findElement(cmp_confirmarsenha_localizador);
-    	botao_cadastrar = driver.findElement(bt_cadastrar_localizador);
+	protected void buscarElementos() {
+    	campo_nome = elementoPresente(cmp_nome_localizador);
+    	campo_senha = elementoPresente(cmp_senha_localizador);
+    	campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
+    	botao_cadastrar = elementoPresente(bt_cadastrar_localizador);
 	}
 
+	
 	private void preencherElementos(String usuario, String senha, String confirmasenha) {
 		campo_nome.sendKeys(usuario);
     	campo_senha.sendKeys(senha);

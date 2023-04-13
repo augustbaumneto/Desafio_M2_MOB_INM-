@@ -61,4 +61,15 @@ public class Log {
 	public void erroExcecaoLancada(Exception e) {
 		logger.error("Elemento não encontrado", e);
 	}
+	
+	/**
+	 * Método que imprime no log que o paramatro não é válido
+	 * 
+	 * @param parametro o parametro incorreto
+	 * @param valor o valor do parametro
+	 */
+	public void erroParametroNaoValido(String parametro, Object valor) {
+		logger.error("Parametro {} não válido para o valor {}", parametro, valor);
+	}
+	
 }

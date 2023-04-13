@@ -1,6 +1,7 @@
 package br.com.inm.appesporte.mobile.acceptance.logics;
 
 import br.com.inm.appesporte.mobile.acceptance.pages.CadastroPageObject;
+import br.com.inm.appesporte.mobile.acceptance.pages.ListaProdutoPageObject;
 import br.com.inm.appesporte.mobile.acceptance.pages.LoginPageObject;
 import br.com.inm.appesporte.mobile.config.Log;
 
@@ -16,6 +17,7 @@ public class LoginLogics {
 	
 	private LoginPageObject loginpage;
 	private CadastroPageObject cadastropage;
+	private ListaProdutoPageObject listaprodutopage;
 	
 	
 	private static Log log = new Log();
@@ -40,7 +42,7 @@ public class LoginLogics {
 	
 	
 	/**
-	 * Verifica se esta na página de login e inicializa a página.
+	 * Verifica se esta na página de login.
 	 * 
 	 */
 	public void abrirPaginaDeLogin() {
@@ -53,24 +55,26 @@ public class LoginLogics {
 	 * 
 	 * @param usuario
 	 * @param senha
+	 * @return o objeto que a classe logic da tela de lista de produtos
 	 */
-	public void realizarLoginComUsuarioESenha(String usuario, String senha) {
-		log.mensagemgeral("Enviado usuario "+usuario+" e "+senha+" para tentar efetuar login");
+	public ListaProdutosLogics realizarLoginComUsuarioESenha(String usuario, String senha) {
+		log.mensagemgeral("Tentativa de login com usuário: "+usuario+" e senha: "+senha);
 		loginpage.preencherUsuario(usuario);
         loginpage.preencherSenha(senha);
-        loginpage.clicarNoBotaoLogin();
+        listaprodutopage = loginpage.clicarNoBotaoLogin();
+        return new ListaProdutosLogics(listaprodutopage);
 	}
 
 	/**
 	 * Verifica se é apresentado a mensagem de erro informada
 	 * 
-	 * @param string: mensagem que deve ser exibida
 	 * @return True se a mensagem for apresentad
 	 */
-	public boolean verificarMensagemDeErro(String mensagem) {
+	public boolean verificarMensagemDeErro() {
 		log.mensagemgeral("Verificando mensagem de erro no login");
-		log.mensagemgeral("Mensagem esperada: "+mensagem);
-		return loginpage.verificarMensagemDeErro(mensagem);
+		
+		return loginpage.verificarMensagemDeErro();
+		
 	}
 
 	/**
@@ -85,9 +89,9 @@ public class LoginLogics {
 	}
 
 	/**
-	 * Retorna verdadeiro se estiver na página de login
+	 * Verifica se esta na pagina de login
 	 * 
-	 * @return
+	 * @return Retorna verdadeiro se estiver na página de login
 	 */
 	public boolean estaPaginaLogin() {
 		log.mensagemgeral("Verificando se esta na página de login");

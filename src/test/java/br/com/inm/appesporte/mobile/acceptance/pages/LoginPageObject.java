@@ -48,17 +48,17 @@ public class LoginPageObject extends PageObjectBase{
 	 */
 	@Override
 	protected void buscarElementos() {
-		botao_cadastro = driver.findElement(bt_cadastro_localizador);
-		botao_login = driver.findElement(bt_login_localizador);
-		campo_idusuario = driver.findElement(cmp_idusuario_localizador);
-		campo_senha = driver.findElement(cmp_senha_localizador);
+		botao_cadastro = elementoPresente(bt_cadastro_localizador);
+		botao_login = elementoPresente(bt_login_localizador);
+		campo_idusuario = elementoPresente(cmp_idusuario_localizador);
+		campo_senha = elementoPresente(cmp_senha_localizador);
 		LOG.mensagemgeral("Elementos iniciais instanciados");
 	}
 	 
 	/**
 	 * Método que clica no botão cadastrar
 	 * 
-	 * @return a páginad de cadastro
+	 * @return a página de cadastro
 	 */
 	public CadastroPageObject clicarCadastrar() {
 		botao_cadastro.click();
@@ -71,7 +71,7 @@ public class LoginPageObject extends PageObjectBase{
 	 */
 	public boolean contemBotaoLogin() {
 		
-		LOG.mensagemgeral("Verificando se aprenseta o botão de login");
+		LOG.mensagemgeral("Verificando se apresenta o botão de login");
 		
 		botao_login = elementoPresente(bt_login_localizador);
 		
@@ -101,18 +101,21 @@ public class LoginPageObject extends PageObjectBase{
 	/**
 	 * Método que clica no botão login
 	 * 
+	 * @retorna a página de lista de produtos
 	 */
-	public void clicarNoBotaoLogin() {
+	public ListaProdutoPageObject clicarNoBotaoLogin() {
 		botao_login.click();
+		return new ListaProdutoPageObject();
 	}
 
 
 	/**
 	 * Método que verifica se a mensagem de erro esta correta.
 	 * 
-	 * @param mensagem, mensagem que será comparada
+	 * @return true se a mensagem for a esperada
 	 */
-	public boolean verificarMensagemDeErro(String mensagem) {
+	public boolean verificarMensagemDeErro() {
+		LOG.mensagemgeral("Mensagem esperada: "+MSG_ERROLOGININVALIDA);
 		msg_errousuariosenhainvalido = elementoPresente(msg_errousuariosenhainvalido_localizador);
 		
 		if (msg_errousuariosenhainvalido==null)

@@ -25,7 +25,6 @@ public class CadastroLogics {
 	 */
 	public CadastroLogics(CadastroPageObject cadastropage) {
 		this.cadastropage = cadastropage;
-		cadastropage.buscarElementos();
 		log.mensagemgeral("Classe CadastroLogics criada.");
 	}
 	
