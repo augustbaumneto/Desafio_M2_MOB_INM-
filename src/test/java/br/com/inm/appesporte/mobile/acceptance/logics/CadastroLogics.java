@@ -36,8 +36,13 @@ public class CadastroLogics {
 	 * @return classe logics da qual terá os novos passos.
 	 */
 	public LoginLogics cadastraUsuario(String usuario, String senha) {
-		loginpage = cadastropage.cadastrar(usuario, senha, senha);
 		log.mensagemgeral("Tentativa de cadastro com usuario: "+usuario+" e senha: "+senha);
+		cadastropage.preencherUsuario(usuario);
+		cadastropage.preencherSenha(senha);
+		cadastropage.preencherConfirmarSenha(senha);
+		
+		loginpage = cadastropage.clicarCadastro();
+		
 		return new LoginLogics(loginpage);
 	}
 

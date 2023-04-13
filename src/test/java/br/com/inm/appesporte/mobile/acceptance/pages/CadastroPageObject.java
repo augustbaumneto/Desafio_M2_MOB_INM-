@@ -29,6 +29,7 @@ public class CadastroPageObject extends PageObjectBase{
 		cmp_confirmarsenha_localizador=By.id("br.com.alura.aluraesporte:id/input_confirmar_senha");
 		bt_cadastrar_localizador=By.id("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
 		msg_errocadastro_localizador=By.id("br.com.alura.aluraesporte:id/erro_cadastro");
+		LOG.mensagemgeral("Página de Cadastro instanciada");
 		buscarElementos();
 		
 	}
@@ -51,23 +52,45 @@ public class CadastroPageObject extends PageObjectBase{
     	
 	}
 
-	
-	private void preencherElementos(String usuario, String senha, String confirmasenha) {
+	/**
+	 * Preencher campo usuário
+	 * @param usuario
+	 */
+	public void preencherUsuario(String usuario) {
 		campo_nome.sendKeys(usuario);
-    	campo_senha.sendKeys(senha);
-    	campo_confirmarsenha.sendKeys(confirmasenha);
+
 	}
 
-	private void clicarCadastro() {
-		botao_cadastrar.click();
+	/**
+	 * Preencher campo senha
+	 * @param senha
+	 */
+	public void preencherSenha(String senha) {
+    	campo_senha.sendKeys(senha);
 	}
+
+	/**
+	 * Preencher campo confirmar senha
+	 * @param confirmasenha
+	 */
+	public void preencherConfirmarSenha(String confirmasenha) {
+    	campo_confirmarsenha.sendKeys(confirmasenha);
+	}	
 	
-	public LoginPageObject cadastrar(String usuario, String senha, String confirmasenha) {
-		preencherElementos(usuario, senha, confirmasenha);
-		clicarCadastro();
+	/**
+	 * Método que clica no botão cadastrar
+	 * @return a nova pageobject
+	 */
+	public LoginPageObject clicarCadastro() {
+		botao_cadastrar.click();
 		return new LoginPageObject();
 	}
-
+	
+	/**
+	 * Método que verifica a mensagem de erro informada ao tentar fazer um cadastro incorreto
+	 * 
+	 * @return
+	 */
 	public String verificaMensagemErro() {
 		
 		String retorno = "";
@@ -80,7 +103,9 @@ public class CadastroPageObject extends PageObjectBase{
 		return retorno;
 	}
 	
-	
+	/**
+	 * Método que retorna para a tela de login
+	 */
 	public void voltarLogin() {
 		driver.navigate().back();
 	}
