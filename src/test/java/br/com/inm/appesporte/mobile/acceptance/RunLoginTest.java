@@ -23,7 +23,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @SuiteDisplayName("Testes: Login App Alura Esporte")	//Nome da suite para exibição
 @IncludeEngines("cucumber")						//Motor Executor
 @SelectClasspathResource("features")			//Caminho das features
-@IncludeTags("login")							//Tags executadas
+@IncludeTags("CT1")							//Tags executadas
 @ConfigurationParameter(key = PLUGIN_PUBLISH_QUIET_PROPERTY_NAME, value = "true") //Configura para não exibir o quadro do cucumber no console
 //@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty") //Configura para o Gherkin de cada step sair no console.
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "br.com.inm.appesporte.mobile.acceptance.steps") //Configura o caminho das classes com os steps

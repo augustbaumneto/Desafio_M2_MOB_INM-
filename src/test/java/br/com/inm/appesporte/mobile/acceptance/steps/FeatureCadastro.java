@@ -41,7 +41,7 @@ public class FeatureCadastro
     	telacadastro.cadastrar(massa.geraPrimeiroNome(),senha1,senha2);
     	
     	
-        assertEquals(telacadastro.verificaMensagemErro(), "Senhas não conferem");
+        assertEquals(telacadastro.verificaMensagemErroSenhaDiferente(), "Senhas não conferem");
         
         log.mensagemgeral("Validação do cadastro efetuada");
         

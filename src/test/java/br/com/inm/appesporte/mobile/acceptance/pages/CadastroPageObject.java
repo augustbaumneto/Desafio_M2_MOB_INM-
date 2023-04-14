@@ -19,6 +19,8 @@ public class CadastroPageObject extends PageObjectBase{
 	private final By bt_cadastrar_localizador;
 	private final By msg_errocadastro_localizador;
 	
+	private final String MSG_ERROSENHADIFERENTE = "Senhas não conferem";
+	
 	/**
 	 * Construtor padrão
 	 */
@@ -39,8 +41,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 */
 	@Override
 	protected void buscarElementos() {
-		campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
-		if (campo_confirmarsenha==null) {
+		if (!contemCampoConfirmarSenha()) {
 			LOG.mensagemgeral("Página Cadastro não carregada");
 		}else {
 			campo_nome = elementoPresente(cmp_nome_localizador);
@@ -87,20 +88,20 @@ public class CadastroPageObject extends PageObjectBase{
 	}
 	
 	/**
-	 * Método que verifica a mensagem de erro informada ao tentar fazer um cadastro incorreto
+	 * Método que verifica a mensagem de erro apresentada na tela é a esperada
 	 * 
-	 * @return
+	 * @return retorna verdeiro se for a mensagem esperada
 	 */
-	public String verificaMensagemErro() {
+	public boolean verificaMensagemErroSenhaDiferente() {
 		
-		String retorno = "";
-		
-		LOG.mensagemgeral("Verificando mensagem de erro");
+		LOG.mensagemgeral("Mensagem esperada: "+MSG_ERROSENHADIFERENTE);
 		msg_erro_cadastro_senha = elementoPresente(msg_errocadastro_localizador);
 		
-		if (msg_erro_cadastro_senha!=null)
-			retorno = msg_erro_cadastro_senha.getText();
-		return retorno;
+		if (msg_erro_cadastro_senha==null)
+			return false;
+		String mensagemnatela = msg_erro_cadastro_senha.getText();
+		LOG.mensagemgeral("Mensagem obtida na tela: "+mensagemnatela);
+		return (mensagemnatela.equals(MSG_ERROSENHADIFERENTE));
 	}
 	
 	/**
@@ -109,5 +110,19 @@ public class CadastroPageObject extends PageObjectBase{
 	public void voltarLogin() {
 		driver.navigate().back();
 	}
+
+	/**
+	 * Verifica se o campo confirmar senha esta presente
+	 * @return verdadeiro se o campo confirmar senha esta presente
+	 */
+	public boolean contemCampoConfirmarSenha() {
+		LOG.mensagemgeral("Verificando se apresenta o campo confirmar senha ");
+		
+		campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
+		
+		return (campo_confirmarsenha != null);
+	}
+	
+	
 	
 }
