@@ -18,7 +18,7 @@ Dado que estou na tela de cadastro
 Quando eu tento realizar o cadastro com usuário válido e senhas diferentes
 Então devo ver a mensagem de erro informando que as senhas não conferem
 E devo permanecer na tela de cadastro
-@CT1
+
 Esquema do Cenário: Visualizar senha digitada
 Dado que estou na tela de cadastro
 E com o campo '<nomecampo>' preenchido
@@ -31,18 +31,17 @@ Exemplos:
     |  senha  				|
     |  confirmarsenha  |
 
-
+@CT1
 Esquema do Cenário: Tentativa de cadastro com campo vazio
 Dado que estou na tela de cadastro
 Quando eu tento realizar o cadastro com campo '<campo>' vazio e demais dados válidos
-Então devo ver a mensagem de erro "As senhas não correspondem"
+Então devo ver a mensagem de erro informando que as senhas não conferem
 E devo permanecer na tela de cadastro
 
 Exemplos:
     |  campo      		|
-    |  usuário		    |
     |  senha  				|
-    |  confimarsenha  | 
+    |  confirmarsenha  | 
 
 Cenário: Tentativa de cadastro com usuário já existente
 Dado que estou na tela de cadastro

@@ -121,15 +121,29 @@ public class CadastroSteps {
 		assertTrue(cadastrologics.validarSenhaEmFormatoLegivel(campo));
 		log.mensagemgeral("Step Então devo ver a senha digitada no campo: "+campo+" em formato legível realizado com sucesso");
 	}
-/*
+
 	@Quando("eu tento realizar o cadastro com campo {string} vazio e demais dados válidos")
 	public void euTentoRealizarOCadastroComCampoVazioEDemaisDadosVálidos(String campo) {
-		cadastrologics.preencherFormCadastro("usuario1", "123456", "123456");
-		cadastrologics.limparCampo(campo);
-		cadastrologics.clicarBotaoCadastrar();
+		usuario = massa.geraPrimeiroNome();
+		switch(campo) {
+			case "senha":
+				senha = "";
+				confirmarsenha=massa.geraSenha();
+				break;
+			case "confirmarsenha":
+				confirmarsenha ="";
+				senha=massa.geraSenha();
+				break;	
+			default :
+				log.erroParametroNaoValido("campo", campo);
+				assertTrue(false);
+				break;
+		}
+		
+		cadastrologics.cadastraUsuario(usuario, senha, confirmarsenha);
 		log.mensagemgeral("Step Quando eu tento realizar o cadastro com campo: "+campo+" vazio e demais dados válidos realizado com sucesso");
 	}
-
+/*
 	@Dado("possua um usuário já cadastrado")
 	public void possuaUmUsuárioJáCadastrado() {
 		cadastrologics.simularCadastroUsuarioExistente();
