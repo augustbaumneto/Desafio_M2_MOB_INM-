@@ -101,5 +101,71 @@ public class CadastroLogics {
 		cadastropage.voltarLogin();
 	}
 
+	/**
+	 * Método que preenche um campo em especifico
+	 * 
+	 * @param campo o campo a ser preenchido
+	 * @param valor o valor a ser preenchido
+	 */
+	public void preencheCampo(String campo, String valor) {
+		log.mensagemgeral("Preenchendo "+ campo+ " com valor: "+valor);
+		switch (campo) {
+			case "senha":
+				cadastropage.preencherSenha(valor);
+				break;
+			case "confirmarsenha":
+				cadastropage.preencherConfirmarSenha(valor);
+				break;
+			default :
+				log.erroParametroNaoValido("campo", campo);
+				break;
+		}
+		
+	}
+
+	/**
+	 * Método para clicar em visualizar a senha
+	 * 
+	 * @param campo, do qual o botão será pressionado
+	 */
+	public void clicarBotaoVisualizarSenha(String campo) {
+		log.mensagemgeral("Clicando no botão de visualizar do campo "+ campo);
+		switch (campo) {
+			case "senha":
+				cadastropage.clicarBotaoVisualizarSenha();
+				break;
+			case "confirmarsenha":
+				cadastropage.clicarBotaoVisualizarConfirmarSenha();
+				break;
+			default :
+				log.erroParametroNaoValido("campo", campo);
+				break;
+		}
+		
+	}
+
+	/**
+	 * Método para verificar a esta legível
+	 * 
+	 * @param campo Campo que será verificado
+	 * @return verdardeiro se o campo estiver visível
+	 */
+	public boolean validarSenhaEmFormatoLegivel(String campo) {
+		log.mensagemgeral("Checando visualização do campo "+ campo);
+		switch (campo) {
+			case "senha":
+				return (cadastropage.senhaVisivel() && cadastropage.botaoVisualizarSenhaEstaDesmarcado());
+				
+			case "confirmarsenha":
+				return (cadastropage.confirmarSenhaVisivel() && cadastropage.botaoVisualizarConfirmarSenhaEstaDesmarcado());
+				
+			default :
+				log.erroParametroNaoValido("campo", campo);
+				break;
+		}
+		return false;
+	}
+
+	
 }
 

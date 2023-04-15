@@ -7,19 +7,29 @@ import org.openqa.selenium.WebElement;
 
 public class CadastroPageObject extends PageObjectBase{
 
+	
 	private WebElement campo_nome;
 	private WebElement campo_senha;
 	private WebElement campo_confirmarsenha;
 	private WebElement botao_cadastrar;
+	private WebElement botao_visualizar_senha;
+	private WebElement botao_visualizar_confirmarsenha;
 	private WebElement msg_erro_cadastro_senha;
 	
 	private final By cmp_nome_localizador;
 	private final By cmp_senha_localizador;
 	private final By cmp_confirmarsenha_localizador;
 	private final By bt_cadastrar_localizador;
+	private final By bt_visualizarsenha_localizador;
+	private final By bt_visualizarconfirmarsenha_localizador;
 	private final By msg_errocadastro_localizador;
 	
 	private final String MSG_ERROSENHADIFERENTE = "Senhas não conferem";
+	
+	//Atributo para verificar se o botão senha foi pressionado
+	private static final String ATR_MARCADO = "checked";
+	//Atributo para verificar se é campo senha
+	private static final String ATR_PASSWORD = "password";
 	
 	/**
 	 * Construtor padrão
@@ -30,6 +40,8 @@ public class CadastroPageObject extends PageObjectBase{
 		cmp_senha_localizador=By.id("br.com.alura.aluraesporte:id/input_senha");
 		cmp_confirmarsenha_localizador=By.id("br.com.alura.aluraesporte:id/input_confirmar_senha");
 		bt_cadastrar_localizador=By.id("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
+		bt_visualizarsenha_localizador=By.xpath("//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_senha']/android.widget.FrameLayout/android.widget.ImageButton");
+		bt_visualizarconfirmarsenha_localizador=By.xpath("//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_confirma_senha']/android.widget.FrameLayout/android.widget.ImageButton");
 		msg_errocadastro_localizador=By.id("br.com.alura.aluraesporte:id/erro_cadastro");
 		LOG.mensagemgeral("Página de Cadastro instanciada");
 		buscarElementos();
@@ -47,6 +59,8 @@ public class CadastroPageObject extends PageObjectBase{
 			campo_nome = elementoPresente(cmp_nome_localizador);
 	    	campo_senha = elementoPresente(cmp_senha_localizador);
 	    	botao_cadastrar = elementoPresente(bt_cadastrar_localizador);
+	    	botao_visualizar_senha = elementoPresente(bt_visualizarsenha_localizador);
+	    	botao_visualizar_confirmarsenha=elementoPresente(bt_visualizarconfirmarsenha_localizador);
 			LOG.mensagemgeral("Elementos iniciais instanciados");
 		}
 		
@@ -122,7 +136,57 @@ public class CadastroPageObject extends PageObjectBase{
 		
 		return (campo_confirmarsenha != null);
 	}
+
+	/**
+	 * Método que clica no botão visualizar ao lado do campo senha
+	 */
+	public void clicarBotaoVisualizarSenha() {
+		botao_visualizar_senha.click();
+		
+	}
+
+	/**
+	 * Método que clica no botão visualizar ao lado do campo confirmar senha
+	 */
+	public void clicarBotaoVisualizarConfirmarSenha() {
+		botao_visualizar_confirmarsenha.click();
+		
+	}
+
+	/**
+	 * Verifica se botão visualizar senha foi desmarcado
+	 * @return true se o botão foi desmarcado
+	 */
+	public boolean botaoVisualizarSenhaEstaDesmarcado() {
+		LOG.mensagemgeral("BBBB"+(botao_visualizar_senha.getAttribute(ATR_MARCADO)=="true"));
+		return (botao_visualizar_senha.getAttribute(ATR_MARCADO)).equals("true");
+	}
 	
+	/**
+	 * Verifica se campo senha esta vísivel
+	 * @return true se estiver visível
+	 */
+	public boolean senhaVisivel() {
+		LOG.mensagemgeral("CCCC"+(campo_senha.getAttribute(ATR_PASSWORD)=="false"));
+		return (campo_senha.getAttribute(ATR_PASSWORD)).equals("false");
+	}
 	
+	/**
+	 * Verifica se botão visualizar confirmarsenha foi desmarcado
+	 * @return true se o botão foi desmarcado
+	 */
+	public boolean botaoVisualizarConfirmarSenhaEstaDesmarcado() {
+
+		return (botao_visualizar_confirmarsenha.getAttribute(ATR_MARCADO)).equals("true");
+	}
+	
+	/**
+	 * Verifica se campo confirmar senha esta vísivel
+	 * @return true se estiver visível
+	 */
+	public boolean confirmarSenhaVisivel() {
+
+		return (campo_confirmarsenha.getAttribute(ATR_PASSWORD)).equals("false");
+	}
 	
 }

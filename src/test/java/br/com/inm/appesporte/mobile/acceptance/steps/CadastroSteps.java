@@ -86,32 +86,54 @@ public class CadastroSteps {
 		log.mensagemgeral("Step Então devo devo permanecer na tela de cadastro realizado com sucesso");
 		cadastrologics.retornaLogin();
 	}
-/*
+
 	@Dado("com o campo {string} preenchido")
 	public void comOCampoPreenchido(String campo) {
-		cadastrologics.preencherCampo(campo, "123456");
+		String dadopreencher = "";
+		switch(campo) {
+			case "senha":
+				senha = massa.geraSenha();
+				dadopreencher=senha;
+				break;
+			case "confirmarsenha":
+				confirmarsenha =massa.geraSenha();
+				dadopreencher=confirmarsenha;
+				break;	
+			default :
+				log.erroParametroNaoValido("campo", campo);
+    			assertTrue(false);
+				break;
+		}
+		
+		cadastrologics.preencheCampo(campo, dadopreencher);
+		log.mensagemgeral("Step Dado com o campo: "+campo+" preenchido com valor: "+dadopreencher+" realizado com sucesso");
 	}
 
 	@Quando("clico no botão visualizar senha ao lado do campo {string}")
 	public void clicoNoBotãoVisualizarSenhaAoLadoDoCampo(String campo) {
 		cadastrologics.clicarBotaoVisualizarSenha(campo);
+		log.mensagemgeral("Step Quando clico no botão visualizar senha ao lado do campo: "+campo+" realizado com sucesso");
 	}
 
 	@Então("devo ver a senha digitada no campo {string} em formato legível")
 	public void devoVerASenhaDigitadaNoCampoEmFormatoLegível(String campo) {
+		
 		assertTrue(cadastrologics.validarSenhaEmFormatoLegivel(campo));
+		log.mensagemgeral("Step Então devo ver a senha digitada no campo: "+campo+" em formato legível realizado com sucesso");
 	}
-
+/*
 	@Quando("eu tento realizar o cadastro com campo {string} vazio e demais dados válidos")
 	public void euTentoRealizarOCadastroComCampoVazioEDemaisDadosVálidos(String campo) {
 		cadastrologics.preencherFormCadastro("usuario1", "123456", "123456");
 		cadastrologics.limparCampo(campo);
 		cadastrologics.clicarBotaoCadastrar();
+		log.mensagemgeral("Step Quando eu tento realizar o cadastro com campo: "+campo+" vazio e demais dados válidos realizado com sucesso");
 	}
 
 	@Dado("possua um usuário já cadastrado")
 	public void possuaUmUsuárioJáCadastrado() {
 		cadastrologics.simularCadastroUsuarioExistente();
+		log.mensagemgeral("Step Dado possua um usuário já cadastrado realizado com sucesso");
 	}
 
 	@Quando("eu tento realizar o cadastro com mesmo usuário")
@@ -124,5 +146,6 @@ public class CadastroSteps {
 
 		// Tenta cadastrar mesmo usuário
 		cadastrologics.realizarCadastro(usuarioExistente, senha, senha);
+		log.mensagemgeral("Step Quando eu tento realizar o cadastro com mesmo usuário realizado com sucesso")
 	}*/
 }
