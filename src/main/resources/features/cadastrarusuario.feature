@@ -31,7 +31,7 @@ Exemplos:
     |  senha  				|
     |  confirmarsenha  |
 
-@CT1
+
 Esquema do Cenário: Tentativa de cadastro com campo vazio
 Dado que estou na tela de cadastro
 Quando eu tento realizar o cadastro com campo '<campo>' vazio e demais dados válidos
@@ -42,10 +42,10 @@ Exemplos:
     |  campo      		|
     |  senha  				|
     |  confirmarsenha  | 
-
+@CT1
 Cenário: Tentativa de cadastro com usuário já existente
 Dado que estou na tela de cadastro
 E possua um usuário já cadastrado
 Quando eu tento realizar o cadastro com mesmo usuário
-Então devo ver a mensagem de erro "As senhas não correspondem"
+Então devo ver a mensagem de usuário já cadastrado
 E devo permanecer na tela de cadastro

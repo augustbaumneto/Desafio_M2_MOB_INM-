@@ -143,23 +143,26 @@ public class CadastroSteps {
 		cadastrologics.cadastraUsuario(usuario, senha, confirmarsenha);
 		log.mensagemgeral("Step Quando eu tento realizar o cadastro com campo: "+campo+" vazio e demais dados válidos realizado com sucesso");
 	}
-/*
+
 	@Dado("possua um usuário já cadastrado")
 	public void possuaUmUsuárioJáCadastrado() {
-		cadastrologics.simularCadastroUsuarioExistente();
+		usuario = massa.geraPrimeiroNome();
+		senha = massa.geraSenha();
+		loginlogics = cadastrologics.cadastraUsuario(usuario, senha);
+		cadastrologics = loginlogics.acessaCadastro();
 		log.mensagemgeral("Step Dado possua um usuário já cadastrado realizado com sucesso");
 	}
 
 	@Quando("eu tento realizar o cadastro com mesmo usuário")
 	public void eu_tento_realizar_o_cadastro_com_mesmo_usuario() {
-		String usuarioExistente = "usuarioExistente";
-		String senha = "senha123";
-
-		// Cadastra usuário existente
-		cadastrologics.realizarCadastro(usuarioExistente, senha, senha);
-
-		// Tenta cadastrar mesmo usuário
-		cadastrologics.realizarCadastro(usuarioExistente, senha, senha);
-		log.mensagemgeral("Step Quando eu tento realizar o cadastro com mesmo usuário realizado com sucesso")
-	}*/
+		cadastrologics.cadastraUsuario(usuario, senha);
+		log.mensagemgeral("Step Quando eu tento realizar o cadastro com mesmo usuário realizado com sucesso");
+	}
+	
+	@Então("devo ver a mensagem de usuário já cadastrado")
+	public void devo_ver_a_mensagem_de_usuario_ja_cadastrado(){
+		assertTrue(cadastrologics.validarMensagemDeErroUsuarioExistente());
+		log.mensagemgeral("Step Então devo ver a mensagem de usuário já cadastrado realizado com sucesso");
+	}
+	
 }

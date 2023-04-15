@@ -36,8 +36,6 @@ public class CadastroLogics {
 	 * @return classe logics da qual terá os novos passos.
 	 */
 	public LoginLogics cadastraUsuario(String usuario, String senha) {
-		log.mensagemgeral("Tentativa de cadastro com usuario: "+usuario+" e senha: "+senha);
-
 		LoginLogics loginlogics = cadastraUsuario(usuario,senha,senha);
 		
 		return loginlogics;
@@ -61,17 +59,6 @@ public class CadastroLogics {
 		
 		return new LoginLogics(loginpage);
 	}	
-    
-/*	
-	public void acessarTelaLogin() {
-		cadastropage.clicarBotaoLogin();
-	}
-
-
-	public boolean isMensagemErroCadastroExibida(String mensagemErro) {
-		return cadastropage.isMensagemErroExibida(mensagemErro);
-	}
-*/
 
 	/**
 	 * Verifica se esta na tela de cadastro
@@ -164,6 +151,17 @@ public class CadastroLogics {
 				break;
 		}
 		return false;
+	}
+
+	/**
+	 * Método que verifica se a mensagem de erro de usuário existente é exibida
+	 * 
+	 * @return True se a mensagem é exibida corretamente
+	 */
+	public boolean validarMensagemDeErroUsuarioExistente() {
+		log.mensagemgeral("Verificando mensagem de erro usuário existente");
+		
+		return cadastropage.verificaMensagemErroUsuarioExistente();
 	}
 
 	

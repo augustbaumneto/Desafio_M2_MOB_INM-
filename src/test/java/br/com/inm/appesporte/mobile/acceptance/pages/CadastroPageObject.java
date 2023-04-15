@@ -14,7 +14,7 @@ public class CadastroPageObject extends PageObjectBase{
 	private WebElement botao_cadastrar;
 	private WebElement botao_visualizar_senha;
 	private WebElement botao_visualizar_confirmarsenha;
-	private WebElement msg_erro_cadastro_senha;
+	private WebElement msg_erro_cadastro;
 	
 	private final By cmp_nome_localizador;
 	private final By cmp_senha_localizador;
@@ -25,11 +25,13 @@ public class CadastroPageObject extends PageObjectBase{
 	private final By msg_errocadastro_localizador;
 	
 	private final String MSG_ERROSENHADIFERENTE = "Senhas não conferem";
+	private final String MSG_ERROUSUARIOEXISTENTE = "Usuario já Cadastrado";
 	
 	//Atributo para verificar se o botão senha foi pressionado
 	private static final String ATR_MARCADO = "checked";
 	//Atributo para verificar se é campo senha
 	private static final String ATR_PASSWORD = "password";
+	
 	
 	/**
 	 * Construtor padrão
@@ -107,15 +109,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return retorna verdeiro se for a mensagem esperada
 	 */
 	public boolean verificaMensagemErroSenhaDiferente() {
-		
-		LOG.mensagemgeral("Mensagem esperada: "+MSG_ERROSENHADIFERENTE);
-		msg_erro_cadastro_senha = elementoPresente(msg_errocadastro_localizador);
-		
-		if (msg_erro_cadastro_senha==null)
-			return false;
-		String mensagemnatela = msg_erro_cadastro_senha.getText();
-		LOG.mensagemgeral("Mensagem obtida na tela: "+mensagemnatela);
-		return (mensagemnatela.equals(MSG_ERROSENHADIFERENTE));
+		return verificaMensagemErro(MSG_ERROSENHADIFERENTE);
 	}
 	
 	/**
@@ -188,5 +182,32 @@ public class CadastroPageObject extends PageObjectBase{
 
 		return (campo_confirmarsenha.getAttribute(ATR_PASSWORD)).equals("false");
 	}
-	
+
+	/**
+	 * Método que verifica se a mensagem de erro exibida é a mensagem de usuário não existente
+	 * 
+	 * @return Verdadeiro se for
+	 */
+	public boolean verificaMensagemErroUsuarioExistente() {
+
+		return verificaMensagemErro(MSG_ERROUSUARIOEXISTENTE);
+	}
+
+	/**
+	 * Metodo para verificar a mensagem passada é a mensagem exibida na tela
+	 * 
+	 * @param mensagemesperada
+	 * @return verdadeiro se as mensagens forem iguais, e falso se não tiver mensagem na tela ou ela for diferente
+	 */
+	private boolean verificaMensagemErro(String mensagemesperada) {
+		LOG.mensagemgeral("Mensagem esperada: "+mensagemesperada);
+		msg_erro_cadastro = elementoPresente(msg_errocadastro_localizador);
+		
+		if (msg_erro_cadastro==null)
+			return false;
+		String mensagemnatela = msg_erro_cadastro.getText();
+		LOG.mensagemgeral("Mensagem obtida na tela: "+mensagemnatela);
+		return (mensagemnatela.equals(mensagemesperada));
+
+	}
 }
