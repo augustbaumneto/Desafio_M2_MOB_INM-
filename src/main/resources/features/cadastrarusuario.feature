@@ -42,6 +42,7 @@ Exemplos:
     |  campo      		|
     |  senha  				|
     |  confirmarsenha  | 
+
 @CT1
 Cenário: Tentativa de cadastro com usuário já existente
 Dado que estou na tela de cadastro

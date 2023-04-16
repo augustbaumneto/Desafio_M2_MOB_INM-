@@ -2,7 +2,6 @@ package br.com.inm.appesporte.mobile.acceptance.logics;
 
 
 import br.com.inm.appesporte.mobile.acceptance.pages.ListaProdutoPageObject;
-import br.com.inm.appesporte.mobile.acceptance.pages.LoginPageObject;
 import br.com.inm.appesporte.mobile.config.Log;
 
 /**
@@ -13,11 +12,9 @@ import br.com.inm.appesporte.mobile.config.Log;
  *
  */
 
-public class ListaProdutosLogics {
+public class ListaProdutosLogics extends LogicsBase {
 
 	private ListaProdutoPageObject listapage;
-
-	private LoginPageObject loginpage;
 
 	private static Log log = new Log();
 	

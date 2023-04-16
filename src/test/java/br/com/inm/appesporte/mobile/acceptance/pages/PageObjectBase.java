@@ -64,4 +64,11 @@ public abstract class PageObjectBase {
 		}
 		
 	}
+	
+	/**
+	 * Retorna uma tela
+	 */
+	public void voltar() {
+		driver.navigate().back();
+	}
 }

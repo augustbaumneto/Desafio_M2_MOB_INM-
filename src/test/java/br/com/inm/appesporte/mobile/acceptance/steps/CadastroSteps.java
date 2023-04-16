@@ -3,13 +3,13 @@
  */
 package br.com.inm.appesporte.mobile.acceptance.steps;
 
-import org.junit.jupiter.api.BeforeEach;
-
 import br.com.inm.appesporte.mobile.acceptance.logics.CadastroLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.ListaProdutosLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.LoginLogics;
 import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
@@ -28,7 +28,7 @@ public class CadastroSteps {
 	private String senha;
 	private String confirmarsenha;
 
-	@BeforeEach
+	@Before
 	public void inicioTeste() {
 		log.mensagemgeral("---------------------Iniciando novo teste----------------------");
 	}
@@ -164,5 +164,13 @@ public class CadastroSteps {
 		assertTrue(cadastrologics.validarMensagemDeErroUsuarioExistente());
 		log.mensagemgeral("Step Então devo ver a mensagem de usuário já cadastrado realizado com sucesso");
 	}
+	
+	//Para garantir que o teste sempre retorna a tela de login
+	/*@After
+	public void retornalogin() {
+		while (!loginlogics.estaPaginaLogin()) {
+			loginlogics.retornaUmaTela();
+		}
+	}*/
 	
 }

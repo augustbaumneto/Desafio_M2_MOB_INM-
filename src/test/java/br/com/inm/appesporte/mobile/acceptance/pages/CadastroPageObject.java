@@ -116,7 +116,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * Método que retorna para a tela de login
 	 */
 	public void voltarLogin() {
-		driver.navigate().back();
+		voltar();
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se o botão foi desmarcado
 	 */
 	public boolean botaoVisualizarSenhaEstaDesmarcado() {
-		LOG.mensagemgeral("BBBB"+(botao_visualizar_senha.getAttribute(ATR_MARCADO)=="true"));
+		LOG.mensagemgeral("Verifica se o botão Visualizar do campo Senha esta com o atibuto checked marcado");
 		return (botao_visualizar_senha.getAttribute(ATR_MARCADO)).equals("true");
 	}
 	
@@ -161,7 +161,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se estiver visível
 	 */
 	public boolean senhaVisivel() {
-		LOG.mensagemgeral("CCCC"+(campo_senha.getAttribute(ATR_PASSWORD)=="false"));
+		LOG.mensagemgeral("Verifica se o campo Senha esta com o atibuto password false");
 		return (campo_senha.getAttribute(ATR_PASSWORD)).equals("false");
 	}
 	
@@ -170,7 +170,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se o botão foi desmarcado
 	 */
 	public boolean botaoVisualizarConfirmarSenhaEstaDesmarcado() {
-
+		LOG.mensagemgeral("Verifica se o botão Visualizar do campo Confirmar Senha esta com o atibuto checked marcado");
 		return (botao_visualizar_confirmarsenha.getAttribute(ATR_MARCADO)).equals("true");
 	}
 	
@@ -179,7 +179,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se estiver visível
 	 */
 	public boolean confirmarSenhaVisivel() {
-
+		LOG.mensagemgeral("Verifica se o campo Confirmar Senha esta com o atibuto password false");
 		return (campo_confirmarsenha.getAttribute(ATR_PASSWORD)).equals("false");
 	}
 

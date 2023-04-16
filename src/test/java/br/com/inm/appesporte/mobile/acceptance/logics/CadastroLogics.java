@@ -1,7 +1,7 @@
 package br.com.inm.appesporte.mobile.acceptance.logics;
 
 import br.com.inm.appesporte.mobile.acceptance.pages.CadastroPageObject;
-import br.com.inm.appesporte.mobile.acceptance.pages.LoginPageObject;
+
 import br.com.inm.appesporte.mobile.config.Log;
 
 
@@ -11,10 +11,10 @@ import br.com.inm.appesporte.mobile.config.Log;
  * @author August Neto
  *
  */
-public class CadastroLogics {
+public class CadastroLogics extends LogicsBase{
 
 	private CadastroPageObject cadastropage;
-	private LoginPageObject loginpage;
+	
 	
 	private static Log log = new Log();
 	

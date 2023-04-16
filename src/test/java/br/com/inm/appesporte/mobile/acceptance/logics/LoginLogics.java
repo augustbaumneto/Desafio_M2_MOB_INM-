@@ -12,10 +12,9 @@ import br.com.inm.appesporte.mobile.config.Log;
  * @author August Neto
  *
  */
-public class LoginLogics {
+public class LoginLogics extends LogicsBase {
 
 	
-	private LoginPageObject loginpage;
 	private CadastroPageObject cadastropage;
 	private ListaProdutoPageObject listaprodutopage;
 	
@@ -98,4 +97,5 @@ public class LoginLogics {
 		return loginpage.contemBotaoLogin();
 	}
 
+	
 }
