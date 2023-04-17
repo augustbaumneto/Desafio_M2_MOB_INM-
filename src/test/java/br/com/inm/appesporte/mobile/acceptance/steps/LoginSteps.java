@@ -2,13 +2,12 @@ package br.com.inm.appesporte.mobile.acceptance.steps;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
-
 import br.com.inm.appesporte.mobile.acceptance.logics.CadastroLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.ListaProdutosLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.LoginLogics;
 import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
+import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
@@ -33,7 +32,7 @@ public class LoginSteps {
 	private String usuario;
 	private String senha;
     
-	@BeforeEach
+	@Before
 	public void inicioTeste() {
 		log.mensagemgeral("---------------------Iniciando novo teste----------------------");
 	}
