@@ -13,10 +13,10 @@ package br.com.inm.appesporte.mobile.config;
 public class BancoConfig {
 	
 	//Nome do banco. Se for conectar usar ": memory"
-	private static String nomebanco = "teste";
+	private static String nomebanco = "db_Execucao_Teste";
 	
 	//Local onde se encontra o banco de dados, utillizar "/" no inicio e no fim
-	private static String caminhobanco = "";
+	private static String caminhobanco = "./src/main/resources/BancoDados/";
 	
 	//Prefixo para a conexão. 
 	private static String prefixoconexao = "jdbc:sqlite:";

@@ -1,13 +1,13 @@
 package br.com.inm.appesporte.mobile.acceptance;
 
-import br.com.inm.appesporte.mobile.acceptance.banco.BancoDadosConectorFactory;
+import br.com.inm.appesporte.mobile.banco.QueryMakerDDL;
+import br.com.inm.appesporte.mobile.config.ArquivoQueryConfig;
 
 public class BancoTeste {
 
 	public static void main(String[] args) {
-		BancoDadosConectorFactory a = BancoDadosConectorFactory.Instance();
-
-		System.out.println(a.retornaConexao());
+		QueryMakerDDL a = new QueryMakerDDL();
+		a.executaSQLScript(ArquivoQueryConfig.getCaminhoArquivoQuery());
 	}
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.inm.appesporte.mobile.acceptance.banco;
+package br.com.inm.appesporte.mobile.banco.comunicacao;
 
 
 import java.sql.Connection;
@@ -21,7 +21,7 @@ import br.com.inm.appesporte.mobile.config.Log;
 public class BancoDadosConectorFactory {
 
 	
-	private final Log LOG = new Log();
+	private static final Log LOG = new Log();
 	
 	private final String urlconexao = BancoConfig.getStringConexao();
 
@@ -29,14 +29,14 @@ public class BancoDadosConectorFactory {
 
 	private Connection conector;
 	
-	public static BancoDadosConectorFactory instancia;
+	private static BancoDadosConectorFactory instancia;
 	
 	/**
 	 * Método que inicializa a instancia caso não tenha sido inicializada
 	 * 
 	 * @return
 	 */
-	public static BancoDadosConectorFactory Instance() {
+	protected static BancoDadosConectorFactory Instance() {
 		//Só entra no if a variável ainda não foi inicializada
 		if (BancoDadosConectorFactory.instancia==null) {
 			BancoDadosConectorFactory.instancia = new BancoDadosConectorFactory();
@@ -49,11 +49,11 @@ public class BancoDadosConectorFactory {
 	 * Construtor padrão
 	 */
 	private BancoDadosConectorFactory() {
-		try (Connection con = DriverManager.getConnection(urlconexao)) {
-
-			conector = con;
+		try {
+			conector = DriverManager.getConnection(urlconexao);
             LOG.mensagemgeral("Conexão ao Banco de dados: "+nomebanco+" realizada com sucesso");
-
+            LOG.mensagemgeral("Conexão: "+conector);
+            
         } catch (SQLException e) {
             LOG.erroExcecaoLancada(e);
         }
@@ -63,7 +63,7 @@ public class BancoDadosConectorFactory {
 	/**
 	 * Retorna a conexão com o banco de dados
 	 */
-	public Connection retornaConexao() {
+	protected Connection retornaConexao() {
 		return conector;
 	}
 	
