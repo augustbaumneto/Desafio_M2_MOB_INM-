@@ -1,71 +1,17 @@
-2023-04-20 23:08:10.718 [main] INFO br.com.inm.appesporte.mobile.config.Log - Conexão ao Banco de dados: db_Execucao_Teste realizada com sucesso
-2023-04-20 23:08:10.720 [main] INFO br.com.inm.appesporte.mobile.config.Log - Conexão: org.sqlite.jdbc4.JDBC4Connection@629f0666
-2023-04-20 23:08:10.720 [main] INFO br.com.inm.appesporte.mobile.config.Log - Statement criado
-2023-04-20 23:08:10.721 [main] INFO br.com.inm.appesporte.mobile.config.Log - Arquivo pronto para leitura
-2023-04-20 23:08:10.721 [main] INFO br.com.inm.appesporte.mobile.config.Log - Inicia leitura do arquivo: ./src/main/resources/BancoDados/script_criacao_bd.sql
-2023-04-20 23:08:10.721 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: CREATE TABLE tb_tipo_cenario (
-2023-04-20 23:08:10.721 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:   vchar_tipo    VARCHAR(6)       PRIMARY KEY NOT NULL,
-2023-04-20 23:08:10.721 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:   int_seq     INTEGER
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: );
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: CREATE TABLE tb_tipo_cenario (  vchar_tipo    VARCHAR(6)       PRIMARY KEY NOT NULL,  int_seq     INTEGER);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: INSERT INTO tb_tipo_cenario(vchar_tipo, int_seq) VALUES ('padrão',1);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: INSERT INTO tb_tipo_cenario(vchar_tipo, int_seq) VALUES ('padrão',1);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: INSERT INTO tb_tipo_cenario(vchar_tipo, int_seq) VALUES ('esquema',2);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: INSERT INTO tb_tipo_cenario(vchar_tipo, int_seq) VALUES ('esquema',2);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: CREATE TABLE tb_tipo_status (
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:   vchar_tipo_status    VARCHAR(6) PRIMARY KEY NOT NULL,
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:   int_seq     INTEGER
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: );
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: CREATE TABLE tb_tipo_status (  vchar_tipo_status    VARCHAR(6) PRIMARY KEY NOT NULL,  int_seq     INTEGER);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Passou',1);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Passou',1);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Falhou',2);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Falhou',2);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Erro',3);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Erro',3);
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: Create table tb_Suite_Execucao (
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 	int_id_suite INTEGER primary key autoincrement not null,
-2023-04-20 23:08:10.722 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 	dt_inicio_execucao_suite DATETIME,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     dt_fim_execucao_suite DATETIME,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     arq_log_execucao LONGBLOB
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: );
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: Create table tb_Suite_Execucao (	int_id_suite INTEGER primary key autoincrement not null,	dt_inicio_execucao_suite DATETIME,    dt_fim_execucao_suite DATETIME,    arq_log_execucao LONGBLOB);
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: Create table tb_Resultado_Execucao (
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 	int_id_execucao INTEGER primary key autoincrement not null,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     int_id_suite INTEGER,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     enum_tipo_cenario VARCHAR(6) REFERENCES tb_tipo_cenario(vchar_tipo),
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     vchar_cenario VARCHAR(200),
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     vchar_exemplo VARCHAR(100),
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     dt_inicio_execucao DATETIME,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     dt_fim_execucao DATETIME,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     enum_status VARCHAR(6) REFERENCES tb_tipo_status(vchar_tipo_status),
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     arq_evidencia LONGBLOB,
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     foreign key (int_id_suite)
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 		References tb_Suite_Execucao(int_id_suite)
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: );
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: Create table tb_Resultado_Execucao (	int_id_execucao INTEGER primary key autoincrement not null,    int_id_suite INTEGER,    enum_tipo_cenario VARCHAR(6) REFERENCES tb_tipo_cenario(vchar_tipo),    vchar_cenario VARCHAR(200),    vchar_exemplo VARCHAR(100),    dt_inicio_execucao DATETIME,    dt_fim_execucao DATETIME,    enum_status VARCHAR(6) REFERENCES tb_tipo_status(vchar_tipo_status),    arq_evidencia LONGBLOB,    foreign key (int_id_suite)		References tb_Suite_Execucao(int_id_suite));
-2023-04-20 23:08:10.723 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: Create table tb_Massa_Execucao (
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 	int_id_massa INTEGER primary key autoincrement not null,
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     int_id_execucao INTEGER,
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     vchar_tipo_massa VARCHAR(50),
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     vchar_valor_massa VARCHAR(100),
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada:     foreign key (int_id_execucao)
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 		References tb_Resultado_Execucao(int_id_execucao)
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: );
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query criada: Create table tb_Massa_Execucao (	int_id_massa INTEGER primary key autoincrement not null,    int_id_execucao INTEGER,    vchar_tipo_massa VARCHAR(50),    vchar_valor_massa VARCHAR(100),    foreign key (int_id_execucao)		References tb_Resultado_Execucao(int_id_execucao));
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Linha capturada: 
-2023-04-20 23:08:10.724 [main] INFO br.com.inm.appesporte.mobile.config.Log - Querys montadas com sucesso!
-2023-04-20 23:08:10.736 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : CREATE TABLE tb_tipo_cenario (  vchar_tipo    VARCHAR(6)       PRIMARY KEY NOT NULL,  int_seq     INTEGER);
-2023-04-20 23:08:10.742 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : INSERT INTO tb_tipo_cenario(vchar_tipo, int_seq) VALUES ('padrão',1);
-2023-04-20 23:08:10.748 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : INSERT INTO tb_tipo_cenario(vchar_tipo, int_seq) VALUES ('esquema',2);
-2023-04-20 23:08:10.761 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : CREATE TABLE tb_tipo_status (  vchar_tipo_status    VARCHAR(6) PRIMARY KEY NOT NULL,  int_seq     INTEGER);
-2023-04-20 23:08:10.768 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Passou',1);
-2023-04-20 23:08:10.775 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Falhou',2);
-2023-04-20 23:08:10.781 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : INSERT INTO tb_tipo_status(vchar_tipo_status, int_seq) VALUES ('Erro',3);
-2023-04-20 23:08:10.787 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : Create table tb_Suite_Execucao (	int_id_suite INTEGER primary key autoincrement not null,	dt_inicio_execucao_suite DATETIME,    dt_fim_execucao_suite DATETIME,    arq_log_execucao LONGBLOB);
-2023-04-20 23:08:10.802 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : Create table tb_Resultado_Execucao (	int_id_execucao INTEGER primary key autoincrement not null,    int_id_suite INTEGER,    enum_tipo_cenario VARCHAR(6) REFERENCES tb_tipo_cenario(vchar_tipo),    vchar_cenario VARCHAR(200),    vchar_exemplo VARCHAR(100),    dt_inicio_execucao DATETIME,    dt_fim_execucao DATETIME,    enum_status VARCHAR(6) REFERENCES tb_tipo_status(vchar_tipo_status),    arq_evidencia LONGBLOB,    foreign key (int_id_suite)		References tb_Suite_Execucao(int_id_suite));
-2023-04-20 23:08:10.808 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : Create table tb_Massa_Execucao (	int_id_massa INTEGER primary key autoincrement not null,    int_id_execucao INTEGER,    vchar_tipo_massa VARCHAR(50),    vchar_valor_massa VARCHAR(100),    foreign key (int_id_execucao)		References tb_Resultado_Execucao(int_id_execucao));
-2023-04-20 23:08:10.808 [main] INFO br.com.inm.appesporte.mobile.config.Log - Script executado!
-2023-04-20 23:08:10.809 [main] INFO br.com.inm.appesporte.mobile.config.Log - Statement criado
-2023-04-20 23:08:10.814 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : Select * from tb_tipo_status
-2023-04-20 23:08:10.818 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento Falhou encontrado
+2023-04-21 12:29:51.744 [main] INFO br.com.inm.appesporte.mobile.config.Log - Conexão ao Banco de dados: db_Execucao_Teste realizada com sucesso
+2023-04-21 12:29:51.746 [main] INFO br.com.inm.appesporte.mobile.config.Log - Conexão: org.sqlite.jdbc4.JDBC4Connection@629f0666
+2023-04-21 12:29:51.746 [main] INFO br.com.inm.appesporte.mobile.config.Log - Statement criado
+2023-04-21 12:29:51.763 [main] INFO br.com.inm.appesporte.mobile.config.Log - '2023-04-21 12:29:51'
+2023-04-21 12:29:51.764 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query montada com sucesso! Query: INSERT INTO tb_Suite_Execucao (dt_inicio_execucao_suite) values ('2023-04-21 12:29:51');
+2023-04-21 12:29:51.775 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : INSERT INTO tb_Suite_Execucao (dt_inicio_execucao_suite) values ('2023-04-21 12:29:51');
+2023-04-21 12:29:51.775 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query montada com sucesso! Query: SELECT * FROM tb_Suite_Execucao WHERE int_id_suite = (SELECT MAX( int_id_suite ) FROM tb_Suite_Execucao);
+2023-04-21 12:29:51.781 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : SELECT * FROM tb_Suite_Execucao WHERE int_id_suite = (SELECT MAX( int_id_suite ) FROM tb_Suite_Execucao);
+2023-04-21 12:29:51.783 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento 8 encontrado
+2023-04-21 12:29:51.783 [main] INFO br.com.inm.appesporte.mobile.config.Log - ID Suite criado(a): 8
+2023-04-21 12:29:51.783 [main] INFO br.com.inm.appesporte.mobile.config.Log - '2023-04-21 14:29:51'
+2023-04-21 12:29:51.783 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query montada com sucesso! Query: UPDATE tb_Suite_Execucao SET dt_fim_execucao_suite = '2023-04-21 14:29:51' WHERE int_id_suite = 8;
+2023-04-21 12:29:51.790 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : UPDATE tb_Suite_Execucao SET dt_fim_execucao_suite = '2023-04-21 14:29:51' WHERE int_id_suite = 8;
+2023-04-21 12:29:51.790 [main] INFO br.com.inm.appesporte.mobile.config.Log - Query executada com sucesso! : Select * from tb_Suite_Execucao;
+2023-04-21 12:29:51.793 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento 8 encontrado
+2023-04-21 12:29:51.794 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento 2023-04-21 12:29:51 encontrado
+2023-04-21 12:29:51.794 [main] INFO br.com.inm.appesporte.mobile.config.Log - Elemento 2023-04-21 14:29:51 encontrado

@@ -30,15 +30,20 @@ public abstract class QueryMaker {
 	protected static final String TB_MASSAEXECUCAO = "tb_Massa_Execucao";
 	protected static final String TB_SUITEEXECUCAO = "tb_Suite_Execucao";
 	
-	//Nome de campos das tabelas utilizadas
-	protected static final String CMP_IDTIPOSTATUS = "int_seq";
-	protected static final String CMP_NOMETIPOSTATUS = "vchar_tipo_status";
+	//Nome de campos das tabelas utilizadas TIPO STATUS
+	protected static final String CMP_TS_IDTIPOSTATUS = "int_seq";
+	protected static final String CMP_TSNOMETIPOSTATUS = "vchar_tipo_status";
 	
-	protected static final String CMP_IDEXECUCAO = "int_id_execucao";
+	//Nome de campos das tabelas utilizadas Resultado execucao
+	protected static final String CMP_TRE_IDEXECUCAO = "int_id_execucao";
 	
-	protected static final String CMP_IDSUITE = "int_id_suite";
+	//Nome de campos das tabelas utilizadas Suite Execução
+	protected static final String CMP_TSUITE_IDSUITE = "int_id_suite";
+	protected static final String CMP_TSUITE_DATAINICIO = "dt_inicio_execucao_suite";
+	protected static final String CMP_TSUITE_DATAFIM = "dt_fim_execucao_suite";
 	
-	protected static final String CMP_IDMASSA = "int_id_massa";
+	//Nome de campos das tabelas utilizadas Massa execucao
+	protected static final String CMP_TM_IDMASSA = "int_id_massa";
 	
 	/**
 	 * Construtor padrão

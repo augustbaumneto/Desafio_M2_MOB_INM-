@@ -71,5 +71,10 @@ public class Log {
 	public void erroParametroNaoValido(String parametro, Object valor) {
 		logger.error("Parametro {} não válido para o valor {}", parametro, valor);
 	}
+
+	public void queryMontada(String query) {
+		logger.info("Query montada com sucesso! Query: {}",query);
+		
+	}
 	
 }
