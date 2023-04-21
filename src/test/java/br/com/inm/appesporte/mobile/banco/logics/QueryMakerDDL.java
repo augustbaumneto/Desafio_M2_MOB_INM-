@@ -1,13 +1,13 @@
 /**
  * 
  */
-package br.com.inm.appesporte.mobile.banco;
+package br.com.inm.appesporte.mobile.banco.logics;
 
 
 
 /**
  * 
- * Classe responsável por criar as querys DDL
+ * Classe responsável por criar as querys DDL manipulação da estrutura do banco
  * 
  * @author August Neto
  *
@@ -20,7 +20,11 @@ public class QueryMakerDDL extends QueryMaker{
 	public QueryMakerDDL() {
 		super();
 	}
-
+	
+	/**
+	 * Executa a query informada.
+	 * @param string
+	 */
 	public void executaQueryDDL(String string) {
 		
 		bdeq.executaQuery(string);

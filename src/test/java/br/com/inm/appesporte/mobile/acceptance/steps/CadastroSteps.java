@@ -8,7 +8,7 @@ import br.com.inm.appesporte.mobile.acceptance.logics.ListaProdutosLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.LoginLogics;
 import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
-import io.cucumber.java.After;
+//import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;

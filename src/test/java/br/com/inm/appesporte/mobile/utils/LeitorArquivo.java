@@ -41,7 +41,7 @@ public class LeitorArquivo {
 		try {
 			fr = new FileReader(arquivo);
 			br = new BufferedReader(fr);
-			LOG.equals("Arquivo pronto para leitura");
+			LOG.mensagemgeral("Arquivo pronto para leitura");
 		} catch (IOException e) {
 			LOG.erroExcecaoLancada(e);
 		}

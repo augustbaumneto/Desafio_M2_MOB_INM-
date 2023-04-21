@@ -1,6 +1,8 @@
 package br.com.inm.appesporte.mobile.banco.comunicacao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -18,6 +20,8 @@ public class BancoDadosExecutorQuery {
 	private static Connection conectorbd;
 	
 	private static Statement st;
+	
+	private static PreparedStatement pst;
 	
 	private static Log LOG = new Log();
 	
@@ -50,6 +54,26 @@ public class BancoDadosExecutorQuery {
 			LOG.mensagemgeral(query);
 			LOG.erroExcecaoLancada(e);
 			return false;
+		}
+		
+	}
+	
+	/**
+	 * Método que executa uma query com resultados
+	 * @param query
+	 * @return um objeto que representa todo o resultado obtido
+	 */
+	public BancoDadosResultadoSelect executaQueryResultado(String query) {
+		
+		try {
+			pst = conectorbd.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			LOG.mensagemgeral("Query executada com sucesso! : "+query);
+			return new BancoDadosResultadoSelect(rs);
+		} catch (SQLException e) {
+			LOG.mensagemgeral(query);
+			LOG.erroExcecaoLancada(e);
+			return null;
 		}
 		
 	}

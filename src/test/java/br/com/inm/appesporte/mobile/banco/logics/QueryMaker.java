@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.inm.appesporte.mobile.banco;
+package br.com.inm.appesporte.mobile.banco.logics;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,9 +20,25 @@ import br.com.inm.appesporte.mobile.utils.LeitorArquivo;
  */
 public abstract class QueryMaker {
 	
-	private static Log LOG = new Log();
+	protected static Log LOG = new Log();
 	
 	protected static BancoDadosExecutorQuery bdeq;
+	
+	//Nome das tabelas utilizadas
+	protected static final String TB_TIPOSTATUS = "tb_tipo_status";
+	protected static final String TB_RESULTADOEXECUCAO = "tb_Resultado_Execucao";
+	protected static final String TB_MASSAEXECUCAO = "tb_Massa_Execucao";
+	protected static final String TB_SUITEEXECUCAO = "tb_Suite_Execucao";
+	
+	//Nome de campos das tabelas utilizadas
+	protected static final String CMP_IDTIPOSTATUS = "int_seq";
+	protected static final String CMP_NOMETIPOSTATUS = "vchar_tipo_status";
+	
+	protected static final String CMP_IDEXECUCAO = "int_id_execucao";
+	
+	protected static final String CMP_IDSUITE = "int_id_suite";
+	
+	protected static final String CMP_IDMASSA = "int_id_massa";
 	
 	/**
 	 * Construtor padrão
@@ -34,7 +50,7 @@ public abstract class QueryMaker {
 	/**
 	 * Método que executa um script SQL
 	 * 
-	 * @param caminhoArquivo do arquivo
+	 * @param caminhoArquivo Caminho do arquivo .sql que possui o script.
 	 */
 	public void executaSQLScript(String caminhoArquivo){
 		List<String> querys = new ArrayList<>();
@@ -43,6 +59,7 @@ public abstract class QueryMaker {
 		while (itr.hasNext()) {
 			bdeq.executaQuery(itr.next());
 		}
+		LOG.mensagemgeral("Script executado!");
 	}
 	
 	/**
