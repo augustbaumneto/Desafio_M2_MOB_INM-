@@ -72,8 +72,23 @@ public class Log {
 		logger.error("Parametro {} não válido para o valor {}", parametro, valor);
 	}
 
+	/**
+	 * Método que registra a query montada
+	 * @param query
+	 */
 	public void queryMontada(String query) {
 		logger.info("Query montada com sucesso! Query: {}",query);
+		
+	}
+	
+	/**
+	 * Método que registra o teste iniciado
+	 * @param nome do teste
+	 * @param exemplo se tiver do teste
+	 * @param tipo do teste padrão ou esquema
+	 */
+	public void testeExecucao(String nome) {
+		logger.info("Teste iniciado com sucesso! Nome: {}",nome);
 		
 	}
 	

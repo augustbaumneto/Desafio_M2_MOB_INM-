@@ -20,6 +20,7 @@ public class QueryMakerDML extends QueryMaker {
 	public BancoDadosResultadoSelect resultadoselect;
 	
 	private int idsuite;
+	private int idteste;
 	
 	/**
 	 * Construtor padrão
@@ -59,7 +60,7 @@ public class QueryMakerDML extends QueryMaker {
 		
 		String valores[] = new String[1];
 		valores[0] = "'"+datahorainicio.format(formatador)+"'";
-		LOG.mensagemgeral(valores[0]);
+		LOG.mensagemElementoCriado("Horário Inicio execução da Suite: ", valores[0]);
 		
 		String campos[] = new String[1];
 		campos[0]= CMP_TSUITE_DATAINICIO;
@@ -76,12 +77,16 @@ public class QueryMakerDML extends QueryMaker {
 		LOG.mensagemElementoCriado("ID Suite", idsuite);
 	}
 
-	public void atulizaSuite(LocalDateTime datahorafimexecucao) {
+	/**
+	 * Método que atualiza a suite com os dados do fim da execução
+	 * @param datahorafimexecucao data do fim da execução da suite
+	 */
+	public void atualizaSuite(LocalDateTime datahorafimexecucao) {
 		
 		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		String valores[] = new String[1];
 		valores[0] = "'"+datahorafimexecucao.format(formatador)+"'";
-		LOG.mensagemgeral(valores[0]);
+		LOG.mensagemElementoCriado("Horário Fim execução Suite: ", valores[0]);
 		
 		String campos[] = new String[1];
 		campos[0]= CMP_TSUITE_DATAFIM;
@@ -154,4 +159,114 @@ public class QueryMakerDML extends QueryMaker {
 		return ("Select * from "+TB_TIPOSTATUS);
 	}
 	//TODO: implementar os insert e update necessários. implementar as classes resultadoteste.
+
+	/**
+	 * Método que insere os dados iniciais do teste
+	 * @param datahorainicio
+	 */
+	public void insereTeste(LocalDateTime datahorainicio,String nomecenario) {
+		String query;
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		
+		String valores[] = new String[3];
+		valores[0] = Integer.toString(idsuite);
+		valores[1] = "'"+nomecenario+"'";
+		valores[2] = "'"+datahorainicio.format(formatador)+"'";
+		
+		LOG.testeExecucao(valores[1]);
+		LOG.mensagemElementoCriado("Horário Inicio execução do Teste: ", valores[2]);
+		
+		String campos[] = new String[3];
+		campos[0]= CMP_TRE_IDSUITE;
+		campos[1]= CMP_TRE_NOMECENARIO;
+		campos[2]= CMP_TRE_DATAINICIO;
+		
+		query =  montaQueryInsert(TB_RESULTADOEXECUCAO, campos, valores);
+		LOG.queryMontada(query);
+		bdeq.executaQuery(query);
+		
+		String query2 = montaQuerySelectUltimaLinhaCriada(TB_RESULTADOEXECUCAO,CMP_TRE_IDEXECUCAO);
+		LOG.queryMontada(query2);	
+		executaQuerySelect(query2);
+		
+		idteste = resultadoselect.getIDPrimeiraLinha();
+		LOG.mensagemElementoCriado("ID Teste", idteste);	
+	}
+	
+	/**
+	 * Método que atualiza o teste
+	 * @param fim data fim da execução dos testes
+	 * @param status resultado do teste
+	 */
+	public void atualizaTeste(LocalDateTime fim, String status) {
+		atualizaTeste(fim,status,"");		
+	}
+
+	/**
+	 * Método que atualiza quando é teste tipo esquema
+	 * @param fim data fim do teste
+	 * @param status status do teste
+	 * @param esquema o esquema do teste
+	 */
+	public void atualizaTeste(LocalDateTime fim, String status, String esquema) {
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String valores[] = new String[4];
+		valores[0] = "'"+fim.format(formatador)+"'";
+		switch(status) {
+			case "PASSED":
+				valores[1]="'Passou'";
+				break;
+			case "FAILED":
+				valores[1]="'Falhou'";
+				break;
+			default:
+				valores[1]="'Erro'";
+		}
+		if (esquema.equals("")) {
+			valores[2] = "'padrão'";
+			valores[3] = "'N/A'";
+		}else {
+			valores[2] = "'esquema'";
+			valores[3] = "'"+esquema+"'";
+		}
+		
+		
+		LOG.mensagemElementoCriado("Resultado do Teste: ", valores[1]);
+		LOG.mensagemElementoCriado("Horário Fim execução Teste: ", valores[0]);
+		
+		String campos[] = new String[4];
+		campos[0]= CMP_TRE_DATAFIM;
+		campos[1]= CMP_TRE_RESULTADO;
+		campos[2]= CMP_TRE_TIPOCENARIO;
+		campos[3]= CMP_TRE_EXEMPLOCENARIO;
+		
+		String query =  montaQueryUpdate(TB_RESULTADOEXECUCAO, campos, valores, CMP_TRE_IDEXECUCAO, idteste);
+		LOG.queryMontada(query);
+		bdeq.executaQuery(query);
+		
+	}
+
+	/**
+	 * Método responsável por incluir a massa na base de dados
+	 * @param tipo tipo da massa a ser gravado
+	 * @param valor Valor da massa
+	 */
+	public void insereMassa(String tipo, String valor) {
+		String valores[] = new String[3];
+		valores[0]=Integer.toString(idsuite);
+		valores[1]="'"+tipo+"'";
+		valores[2]="'"+valor+"'";
+		
+		String campos[] = new String[3];
+		campos[0]= CMP_TM_IDEXECUCAO;
+		campos[1]= CMP_TM_TIPOMASSA;
+		campos[2]= CMP_TM_VALORMASSA;
+		
+		LOG.mensagemgeral("Massa de Teste tipo: "+ valores[1]);
+		LOG.mensagemgeral("Massa de Teste valor: "+ valores[2]);
+		
+		String query =  montaQueryInsert(TB_MASSAEXECUCAO, campos, valores);
+		LOG.queryMontada(query);
+		bdeq.executaQuery(query);
+	}
 }

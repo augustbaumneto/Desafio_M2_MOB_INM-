@@ -7,7 +7,8 @@ import br.com.inm.appesporte.mobile.acceptance.logics.ListaProdutosLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.LoginLogics;
 import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
-import io.cucumber.java.Before;
+import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
+//import io.cucumber.java.After;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
@@ -22,8 +23,9 @@ import io.cucumber.java.pt.Quando;
  */
 public class LoginSteps {
 
-	private Log log = new Log();
+	private static Log log = new Log();
 	private GeradorMassa massa = new GeradorMassa();
+	private static GravadorTeste gravador = GravadorTeste.Instance();
 	
     private LoginLogics loginlogics;
     private CadastroLogics cadastrologics;
@@ -32,11 +34,7 @@ public class LoginSteps {
 	private String usuario;
 	private String senha;
     
-	@Before
-	public void inicioTeste() {
-		log.mensagemgeral("---------------------Iniciando novo teste----------------------");
-	}
-    
+
     @Dado("que eu estou na tela de login")
     public void queEuEstouNaTelaDeLogin() {
     	loginlogics = new LoginLogics();
@@ -48,9 +46,15 @@ public class LoginSteps {
     public void tenhaUmUsuarioJaCadastrado() {
         usuario = massa.geraPrimeiroNome();
         senha = massa.geraSenha();
+        
         cadastrologics =loginlogics.acessaCadastro();
         loginlogics = cadastrologics.cadastraUsuario(usuario,senha);
+        
         assertTrue(loginlogics.estaPaginaLogin(),"Erro: Não é a página de login");
+        
+        gravador.gravaMassa("Usuário cadastrado", usuario);
+        gravador.gravaMassa("Senha do Usuário cadastrado", senha);
+        
         log.mensagemgeral("Step tenha um usuário já cadastro realizado com sucesso");
     }
 
@@ -59,12 +63,15 @@ public class LoginSteps {
         String usuariologin;
         String senhalogin;
         
-    	switch (condicaousuario) {
+        GravadorTeste.setEsquema("Usuário: "+condicaousuario+" e Senha: "+condicaosenha);
+    	
+        switch (condicaousuario) {
     		case "válido":
     			usuariologin = usuario;
     			break;
     		case "inválido":
     			usuariologin = massa.geraPrimeiroNome();
+    			gravador.gravaMassa("Usuário Inválido", usuariologin);
     			break;
     		case "vazio":
     			usuariologin ="";
@@ -81,6 +88,7 @@ public class LoginSteps {
 				break;
 			case "inválido":
 				senhalogin = massa.geraSenha();
+				gravador.gravaMassa("Senha Inválida", senhalogin);
 				break;
 			case "vazio":
 				senhalogin="";
@@ -108,6 +116,5 @@ public class LoginSteps {
     	log.mensagemgeral("Step é efetuado o login redirecionando para a tela lista de produtos realizado com sucesso");
     	listaprodutologics.sair();
     }
-
-
+    
 }

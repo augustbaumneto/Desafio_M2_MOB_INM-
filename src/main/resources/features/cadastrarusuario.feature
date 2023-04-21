@@ -19,6 +19,7 @@ Quando eu tento realizar o cadastro com usuário válido e senhas diferentes
 Então devo ver a mensagem de erro informando que as senhas não conferem
 E devo permanecer na tela de cadastro
 
+
 Esquema do Cenário: Visualizar senha digitada
 Dado que estou na tela de cadastro
 E com o campo '<nomecampo>' preenchido

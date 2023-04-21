@@ -36,6 +36,13 @@ public abstract class QueryMaker {
 	
 	//Nome de campos das tabelas utilizadas Resultado execucao
 	protected static final String CMP_TRE_IDEXECUCAO = "int_id_execucao";
+	protected static final String CMP_TRE_IDSUITE = "int_id_suite";
+	protected static final String CMP_TRE_TIPOCENARIO = "enum_tipo_cenario";
+	protected static final String CMP_TRE_NOMECENARIO = "vchar_cenario";
+	protected static final String CMP_TRE_EXEMPLOCENARIO = "vchar_exemplo";
+	protected static final String CMP_TRE_DATAINICIO = "dt_inicio_execucao";
+	protected static final String CMP_TRE_DATAFIM = "dt_fim_execucao";
+	protected static final String CMP_TRE_RESULTADO = "enum_status";
 	
 	//Nome de campos das tabelas utilizadas Suite Execução
 	protected static final String CMP_TSUITE_IDSUITE = "int_id_suite";
@@ -44,6 +51,9 @@ public abstract class QueryMaker {
 	
 	//Nome de campos das tabelas utilizadas Massa execucao
 	protected static final String CMP_TM_IDMASSA = "int_id_massa";
+	protected static final String CMP_TM_IDEXECUCAO = "int_id_execucao";
+	protected static final String CMP_TM_TIPOMASSA = "vchar_tipo_massa";
+	protected static final String CMP_TM_VALORMASSA = "vchar_valor_massa";
 	
 	/**
 	 * Construtor padrão

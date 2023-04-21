@@ -8,8 +8,8 @@ import br.com.inm.appesporte.mobile.acceptance.logics.ListaProdutosLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.LoginLogics;
 import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
+import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
 //import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
@@ -18,20 +18,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CadastroSteps {
 
-	private Log log = new Log();
+	private static Log log = new Log();
 	private GeradorMassa massa = new GeradorMassa();
-
+	private static GravadorTeste gravador = GravadorTeste.Instance();
+	
 	private LoginLogics loginlogics;
 	private CadastroLogics cadastrologics;
-
+	
 	private String usuario;
 	private String senha;
 	private String confirmarsenha;
 
-	@Before
-	public void inicioTeste() {
-		log.mensagemgeral("---------------------Iniciando novo teste----------------------");
-	}
 
 	@Dado("que estou na tela de cadastro")
 	public void queEstouNaTelaDeCadastro() {
@@ -46,6 +43,11 @@ public class CadastroSteps {
 	public void euTentoRealizarOCadastroComUsuárioVálidoESenhaIguais() {
 		usuario = massa.geraPrimeiroNome();
 		senha = massa.geraSenha();
+		
+		gravador.gravaMassa("Usuário", usuario);
+		gravador.gravaMassa("Senha", senha);
+		gravador.gravaMassa("ConfirmarSenha", senha);
+		
 		loginlogics = cadastrologics.cadastraUsuario(usuario, senha);
 		log.mensagemgeral("Step Quando eu tento realizar o cadastro com usuário válido e senha iguais realizado com sucesso com usuario: "+usuario+" e senha: "+senha);
 	}
@@ -70,6 +72,11 @@ public class CadastroSteps {
 		usuario = massa.geraPrimeiroNome();
 		senha = massa.geraSenha();
 		confirmarsenha=massa.geraSenha();
+		
+		gravador.gravaMassa("Usuário", usuario);
+		gravador.gravaMassa("Senha", senha);
+		gravador.gravaMassa("ConfirmarSenha", confirmarsenha);
+		
 		loginlogics = cadastrologics.cadastraUsuario(usuario, senha, confirmarsenha);
 		log.mensagemgeral("Step Quando eu tento realizar o cadastro com usuário válido e senhas diferentes realizado com sucesso com usuario: "+usuario+", senha: "+senha+" e senha2: "+confirmarsenha);
 	}
@@ -90,13 +97,20 @@ public class CadastroSteps {
 	@Dado("com o campo {string} preenchido")
 	public void comOCampoPreenchido(String campo) {
 		String dadopreencher = "";
+		GravadorTeste.setEsquema("Campo : "+campo+" preenchido");
 		switch(campo) {
 			case "senha":
 				senha = massa.geraSenha();
+				
+				gravador.gravaMassa("Senha", senha);
+				
 				dadopreencher=senha;
 				break;
 			case "confirmarsenha":
 				confirmarsenha =massa.geraSenha();
+				
+				gravador.gravaMassa("ConfirmarSenha", confirmarsenha);
+				
 				dadopreencher=confirmarsenha;
 				break;	
 			default :
@@ -125,14 +139,24 @@ public class CadastroSteps {
 	@Quando("eu tento realizar o cadastro com campo {string} vazio e demais dados válidos")
 	public void euTentoRealizarOCadastroComCampoVazioEDemaisDadosVálidos(String campo) {
 		usuario = massa.geraPrimeiroNome();
+		
+		GravadorTeste.setEsquema("Campo: "+campo+" vazio");
+		gravador.gravaMassa("Usuário", usuario);
+		
 		switch(campo) {
 			case "senha":
 				senha = "";
 				confirmarsenha=massa.geraSenha();
+				
+				gravador.gravaMassa("ConfirmarSenha", confirmarsenha);
+				
 				break;
 			case "confirmarsenha":
 				confirmarsenha ="";
 				senha=massa.geraSenha();
+				
+				gravador.gravaMassa("Senha", senha);
+				
 				break;	
 			default :
 				log.erroParametroNaoValido("campo", campo);
@@ -148,6 +172,10 @@ public class CadastroSteps {
 	public void possuaUmUsuárioJáCadastrado() {
 		usuario = massa.geraPrimeiroNome();
 		senha = massa.geraSenha();
+		
+		gravador.gravaMassa("Usuario Cadastrado", usuario);
+		gravador.gravaMassa("senha do Usuario Cadastrado", senha);
+		
 		loginlogics = cadastrologics.cadastraUsuario(usuario, senha);
 		cadastrologics = loginlogics.acessaCadastro();
 		log.mensagemgeral("Step Dado possua um usuário já cadastrado realizado com sucesso");

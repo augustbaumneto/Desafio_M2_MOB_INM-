@@ -22,7 +22,7 @@ Funcionalidade: Login no aplicativo
     |  vazio   				  |  válido       	|
     |  vazio  					|  vazio       		|
         
-  
+  @CT1
   Cenário: Login com usuário e senha válidos
     Dado que eu estou na tela de login
     E tenha um usuário já cadastrado
