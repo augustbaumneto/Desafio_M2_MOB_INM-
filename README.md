@@ -109,19 +109,19 @@ $ mvn install
 #### Pelo IDE (Eclipse)🆚  
   
   1. Abre o Eclipse e clique em "File" > "Import";  
-  ![a](/src/main/resources/img/import-eclipse/Passo1.png)
+  ![a](/src/main/resources/img/import-eclipse/Passo1.PNG)
   
   2. Selecione a pasta "Maven" > "Existing Manven Projects" e clique em "Next";  
-  ![](/src/main/resources/img/import-eclipse/Passo2.png)
+  ![a](/src/main/resources/img/import-eclipse/Passo2.PNG)
   
   3. Selecione a pasta que contem o arquivo "pom.xml", marque o projeto e clique em "Finish";  
-  ![](/src/main/resources/img/import-eclipse/Passo3.png)
+  ![a](/src/main/resources/img/import-eclipse/Passo3.PNG)
   
   4. Selecione o projeto carregado com o lado esquerdo do mouse, vá para "Maven" > "Update Project";  
-  ![](/src/main/resources/img/import-eclipse/Passo4.png)
+  ![a](/src/main/resources/img/import-eclipse/Passo4.PNG)
   
   5. Marque o projeto e as opções "Update project configuration from pom.xml", "Refresh workspace resources from local filesystem", "clean project" e clique em "OK";  
-  ![](/src/main/resources/img/import-eclipse/Passo5.png)
+  ![a](/src/main/resources/img/import-eclipse/Passo5.PNG)
   
   6. Aguarde o projeto atualizar.  
 
@@ -147,10 +147,10 @@ $ appium -p 4724
   Antes de iniciar os testes é necessário criar o banco de dados para armazenar, para isso basta seguir os passos abaixo.  
   
   1. Apague o arquivo __"db_Execucao_Teste.bd"__ na pasta __"BancoDados"__ dentro do caminho: "src" > "main" > "resources";  
-  ![a](/src/main/resources/img/criar-banco/Passo1.png)
+  ![a](/src/main/resources/img/criar-banco/Passo1.PNG)
 
   2. Navegue até a pasta __"config"__ dentro do caminho: "src" > "test" > "java" > "br" > "com" > "inm" > "appesporte" > "mobile";
-  ![a](/src/main/resources/img/criar-banco/Passo2.png)
+  ![a](/src/main/resources/img/criar-banco/Passo2.PNG)
   
   3. Execute como uma aplicação Java a classe __"CriaEstruturaBanco"__. Esse programa irá criar o banco de dados na pasta correta deixando pronta para registrar as execuções.
   ![a](/src/main/resources/img/criar-banco/Passo3.png)
@@ -191,13 +191,13 @@ $ appium -p 4724
 -------------------------------
   
   1. Dentro do IDE, acesse a pasta (package) __"config"__ dentro do caminho: "src" > "test" > "java" > "br" > "com" > "inm" > "appesporte" > "mobile";  
-  ![](/src/test/resources/img/alterar-massa/Passo1.png)
+  ![](/src/main/resources/img/alterar-massa/Passo1.png)
   
   2. Abra a classe __"ParametrosConfig.java"__;  
-  ![](/src/test/resources/img/alterar-massa/Passo2.png)
+  ![](/src/main/resources/img/alterar-massa/Passo2.png)
   
   3. Altere a variável __"urlappium"__ trocando a porta, salve o arquivo e rode novamente.  
-  ![](/src/test/resources/img/alterar-massa/Passo3.png)
+  ![](/src/main/resources/img/alterar-massa/Passo3.png)
 
 <a id="banco-dados"></a>
 ### Sobre o Banco de Dados 🏦
