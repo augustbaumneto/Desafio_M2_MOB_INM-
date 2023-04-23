@@ -3,4 +3,5 @@
 
 /bin/
 
-/logs/
+/logs/automacao_teste_alura_esporte.log
+/src/main/resources/BancoDados/db_Execucao_Teste.bd

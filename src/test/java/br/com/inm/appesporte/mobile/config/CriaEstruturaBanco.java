@@ -1,8 +1,7 @@
-package br.com.inm.appesporte.mobile.acceptance;
+package br.com.inm.appesporte.mobile.config;
 
 import br.com.inm.appesporte.mobile.banco.logics.QueryMakerDDL;
 import br.com.inm.appesporte.mobile.banco.logics.QueryMakerDML;
-import br.com.inm.appesporte.mobile.config.ArquivoQueryConfig;
 
 /**
  * Programa responsável por montar o banco de dados, ele cria o banco e executa o script para criação das tabelas.
