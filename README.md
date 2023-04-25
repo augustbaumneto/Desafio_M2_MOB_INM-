@@ -184,20 +184,20 @@ $ appium -p 4724
   ![a](/src/main/resources/img/rodar/Passo6.PNG)
   
   7. Todos os resultados são armazenados dentro do banco de dados __"db_Execucao_Teste.bd"__ dentro da pasta: "src" > "main" > "resources" > "BancoDados". Mais informações vê a sessão sobre o banco de dados.
-  ![a](/src/main/resources/img/rodar/Passo7.png)
+  ![a](/src/main/resources/img/rodar/Passo7.PNG)
   
 <a id="alterando-porta"></a>
 ### Alterando a porta do Appium 🚪
 -------------------------------
   
   1. Dentro do IDE, acesse a pasta (package) __"config"__ dentro do caminho: "src" > "test" > "java" > "br" > "com" > "inm" > "appesporte" > "mobile";  
-  ![](/src/main/resources/img/alterar-massa/Passo1.png)
+  ![a](/src/main/resources/img/alterar-porta/Passo1.PNG)
   
   2. Abra a classe __"ParametrosConfig.java"__;  
-  ![](/src/main/resources/img/alterar-massa/Passo2.png)
+  ![a](/src/main/resources/img/alterar-porta/Passo2.PNG)
   
-  3. Altere a variável __"urlappium"__ trocando a porta, salve o arquivo e rode novamente.  
-  ![](/src/main/resources/img/alterar-massa/Passo3.png)
+  3. Altere a variável __"urlappium"__ trocando a porta, salve o arquivo e rode novamente. Lembrando que a porta deve ser a mesma em que o Appium server foi iniciado. 
+  ![a](/src/main/resources/img/alterar-porta/Passo3.PNG)
 
 <a id="banco-dados"></a>
 ### Sobre o Banco de Dados 🏦

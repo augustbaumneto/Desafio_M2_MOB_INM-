@@ -17,7 +17,7 @@ import br.com.inm.appesporte.mobile.banco.comunicacao.BancoDadosResultadoSelect;
 public class QueryMakerDML extends QueryMaker {
 
 	//voltar para provado depois
-	public BancoDadosResultadoSelect resultadoselect;
+	private BancoDadosResultadoSelect resultadoselect;
 	
 	private int idsuite;
 	private int idteste;
