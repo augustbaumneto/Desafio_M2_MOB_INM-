@@ -121,7 +121,7 @@ $ mvn install
   ![a](/src/main/resources/img/import-eclipse/Passo4.PNG)
   
   5. Marque o projeto e as opções "Update project configuration from pom.xml", "Refresh workspace resources from local filesystem", "clean project" e clique em "OK";  
-  ![a](/src/main/resources/img/import-eclipse/Passo5.PNG)
+  ![a](/src/main/resources/img/import-eclipse/passo5.PNG)
   
   6. Aguarde o projeto atualizar.  
 
@@ -162,29 +162,29 @@ $ appium -p 4724
 ### Rodando os testes🏃‍
 ----------------------- 
   
-  Você pode escolher rodar todos os testes de uma vez, ou rodar apenas os testes de uma determinada funcionalidade.  
+  Você pode escolher rodar todos os testes de uma vez, ou rodar apenas os testes de uma determinada funcionalidade. Para os testes é necessário que o Appium server tenha iniciado na porta correta e um dispositivo ou simulador esteja ligado a ele.  
   
   1. Dentro do IDE, expanda o projeto e vá até a pasta (package) __"acceptance"__ dentro do caminho: "src" > "test" > "java" > "br" > "com" > "inm" > "appesporte" > "mobile";  
-  ![a](/src/main/resources/img/rodar/Passo1.png)
+  ![a](/src/main/resources/img/rodar/Passo1.PNG)
   
   2. Para rodar todos os testes, clique com o lado direito em cima da pasta __"acceptance"__ e selecione a opção "Run As" > "Junit Test";  
-  ![](/src/main/resources/img/rodar/Passo2.png)
+  ![a](/src/main/resources/img/rodar/Passo2.PNG)
       1. Se for rodar apenas os testes de uma funcionalidade, expanda a pasta __"acceptance"__, selecione a classe "Run" da funcionalidade desejada e faça o mesmo procedimento anterior;  
-      ![](/src/main/resources/img/rodar/Passo2.1.png)
+      ![a](/src/main/resources/img/rodar/Passo2.1.PNG)
   3. Aguarde rodar os testes, e acesse a aba Junit para visualizar os resultados dos testes;  
-  ![](/src/main/resources/img/rodar/Passo3.png)
+  ![a](/src/main/resources/img/rodar/Passo3.PNG)
   
   4. Para vê a execução individual de cada cenário expanda as suites, no caso de falha verifique o "Failure Trace" para verificar o problema acontecido;  
-  ![](/src/main/resources/img/rodar/Passo4.png)
+  ![a](/src/main/resources/img/rodar/Passo4.PNG)
   
   5. Para ter informações mais detalhadas da execução acesse o arquivo __"automacao_teste_alura_esporte.log"__ dentro da pasta "logs". Atenção o arquivo é apagado a cada execução, então caso queira manter o histórico não esqueça de copiá-lo para outro local;
-  ![](/src/main/resources/img/rodar/Passo5.png)
+  ![a](/src/main/resources/img/rodar/Passo5.PNG)
   
   6. Para avaliar os cenários executados, acesse os arquivos .feature dentro da pasta __"features"__ dentro do caminho: "src" > "main" > "resources".  
-  ![](/src/main/resources/img/rodar/Passo6.png)
+  ![a](/src/main/resources/img/rodar/Passo6.PNG)
   
-  7. Todos os resultados são armazenados dentro do banco de dados __"db_Execucao_Teste.bd"__ dentro da pasta: "src" > "main" > "resources" > "BancoDados". 
-  ![](/src/main/resources/img/rodar/Passo7.png)
+  7. Todos os resultados são armazenados dentro do banco de dados __"db_Execucao_Teste.bd"__ dentro da pasta: "src" > "main" > "resources" > "BancoDados". Mais informações vê a sessão sobre o banco de dados.
+  ![a](/src/main/resources/img/rodar/Passo7.png)
   
 <a id="alterando-porta"></a>
 ### Alterando a porta do Appium 🚪

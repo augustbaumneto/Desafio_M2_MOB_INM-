@@ -45,7 +45,7 @@ public class LoginLogics extends LogicsBase {
 	 * 
 	 */
 	public void abrirPaginaDeLogin() {
-		log.mensagemgeral("Acessando tela de login");
+		log.mensagemGeral("Acessando tela de login");
 		estaPaginaLogin();
 	}
 
@@ -57,7 +57,7 @@ public class LoginLogics extends LogicsBase {
 	 * @return o objeto que a classe logic da tela de lista de produtos
 	 */
 	public ListaProdutosLogics realizarLoginComUsuarioESenha(String usuario, String senha) {
-		log.mensagemgeral("Tentativa de login com usuário: "+usuario+" e senha: "+senha);
+		log.mensagemGeral("Tentativa de login com usuário: "+usuario+" e senha: "+senha);
 		loginpage.preencherUsuario(usuario);
         loginpage.preencherSenha(senha);
         listaprodutopage = loginpage.clicarNoBotaoLogin();
@@ -70,7 +70,7 @@ public class LoginLogics extends LogicsBase {
 	 * @return True se a mensagem for apresentad
 	 */
 	public boolean verificarMensagemDeErro() {
-		log.mensagemgeral("Verificando mensagem de erro no login");
+		log.mensagemGeral("Verificando mensagem de erro no login");
 		
 		return loginpage.verificarMensagemDeErro();
 		
@@ -82,7 +82,7 @@ public class LoginLogics extends LogicsBase {
 	 * @return a classe Logics de cadastro
 	 */
 	public CadastroLogics acessaCadastro() {
-		log.mensagemgeral("Acessando tela de cadastro");
+		log.mensagemGeral("Acessando tela de cadastro");
 		cadastropage = loginpage.clicarCadastrar();
 		return new CadastroLogics(cadastropage);
 	}
@@ -93,7 +93,7 @@ public class LoginLogics extends LogicsBase {
 	 * @return Retorna verdadeiro se estiver na página de login
 	 */
 	public boolean estaPaginaLogin() {
-		log.mensagemgeral("Verificando se esta na página de login");
+		log.mensagemGeral("Verificando se esta na página de login");
 		return loginpage.contemBotaoLogin();
 	}
 

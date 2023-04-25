@@ -32,7 +32,7 @@ public class BancoDadosExecutorQuery {
 		conectorbd = BancoDadosConectorFactory.Instance().retornaConexao();
 		try {
 			st = conectorbd.createStatement();
-			LOG.mensagemgeral("Statement criado");
+			LOG.mensagemGeral("Statement criado");
 		} catch (SQLException e) {
 			LOG.erroExcecaoLancada(e);
 		}
@@ -48,10 +48,10 @@ public class BancoDadosExecutorQuery {
 		
 		try {
 			st.execute(query);
-			LOG.mensagemgeral("Query executada com sucesso! : "+query);
+			LOG.mensagemGeral("Query executada com sucesso! : "+query);
 			return true;
 		} catch (SQLException e) {
-			LOG.mensagemgeral(query);
+			LOG.mensagemGeral(query);
 			LOG.erroExcecaoLancada(e);
 			return false;
 		}
@@ -68,10 +68,10 @@ public class BancoDadosExecutorQuery {
 		try {
 			pst = conectorbd.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
-			LOG.mensagemgeral("Query executada com sucesso! : "+query);
+			LOG.mensagemGeral("Query executada com sucesso! : "+query);
 			return new BancoDadosResultadoSelect(rs);
 		} catch (SQLException e) {
-			LOG.mensagemgeral(query);
+			LOG.mensagemGeral(query);
 			LOG.erroExcecaoLancada(e);
 			return null;
 		}

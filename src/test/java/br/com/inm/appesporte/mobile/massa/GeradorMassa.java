@@ -32,9 +32,9 @@ public class GeradorMassa {
 		//Somente se o gerador não foi iniciado ainda
 		if (gerador==null) {
 			gerador = new Faker(new Locale("pt-br"));
-			log.mensagemgeral("Gerador de massa iniciado para localização pt-br");
+			log.mensagemGeral("Gerador de massa iniciado para localização pt-br");
 		}else {
-			log.mensagemgeral("Construtor chamado porém com o gerador já inicializado");
+			log.mensagemGeral("Construtor chamado porém com o gerador já inicializado");
 		}
 		
 	}

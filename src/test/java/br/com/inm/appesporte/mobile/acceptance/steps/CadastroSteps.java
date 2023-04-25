@@ -36,7 +36,7 @@ public class CadastroSteps {
     	loginlogics.abrirPaginaDeLogin();
     	cadastrologics=loginlogics.acessaCadastro();
     	assertTrue(cadastrologics.estaNaTelaCadastro());
-    	log.mensagemgeral("Step Dado que estou na tela de cadastro realizado com sucesso");
+    	log.mensagemGeral("Step Dado que estou na tela de cadastro realizado com sucesso");
 	}
 
 	@Quando("eu tento realizar o cadastro com usuário válido e senha iguais")
@@ -49,13 +49,13 @@ public class CadastroSteps {
 		gravador.gravaMassa("ConfirmarSenha", senha);
 		
 		loginlogics = cadastrologics.cadastraUsuario(usuario, senha);
-		log.mensagemgeral("Step Quando eu tento realizar o cadastro com usuário válido e senha iguais realizado com sucesso com usuario: "+usuario+" e senha: "+senha);
+		log.mensagemGeral("Step Quando eu tento realizar o cadastro com usuário válido e senha iguais realizado com sucesso com usuario: "+usuario+" e senha: "+senha);
 	}
 
 	@Então("devo ser direcionado para a tela de login")
 	public void devoSerDirecionadoParaATelaDeLogin() {
 		assertTrue(loginlogics.estaPaginaLogin());
-		log.mensagemgeral("Step Então devo ser direcionado para a tela de login realizado com sucesso");
+		log.mensagemGeral("Step Então devo ser direcionado para a tela de login realizado com sucesso");
 	}
 
 	@Então("meu cadastro deve ser realizado com sucesso")
@@ -63,7 +63,7 @@ public class CadastroSteps {
 		ListaProdutosLogics listaproutologic;
 		listaproutologic=loginlogics.realizarLoginComUsuarioESenha(usuario, senha);
 		assertTrue(listaproutologic.ePaginaListaProdutos());
-		log.mensagemgeral("Step Então meu cadastro deve ser realizado com sucesso realizado com sucesso");
+		log.mensagemGeral("Step Então meu cadastro deve ser realizado com sucesso realizado com sucesso");
 		listaproutologic.sair();
 	}
 
@@ -78,19 +78,19 @@ public class CadastroSteps {
 		gravador.gravaMassa("ConfirmarSenha", confirmarsenha);
 		
 		loginlogics = cadastrologics.cadastraUsuario(usuario, senha, confirmarsenha);
-		log.mensagemgeral("Step Quando eu tento realizar o cadastro com usuário válido e senhas diferentes realizado com sucesso com usuario: "+usuario+", senha: "+senha+" e senha2: "+confirmarsenha);
+		log.mensagemGeral("Step Quando eu tento realizar o cadastro com usuário válido e senhas diferentes realizado com sucesso com usuario: "+usuario+", senha: "+senha+" e senha2: "+confirmarsenha);
 	}
 
 	@Então("devo ver a mensagem de erro informando que as senhas não conferem")
 	public void devoVerAMensagemDeErroInformandoSenhasNaoConferem() {
 		assertTrue(cadastrologics.validarMensagemDeErroSenhaNaoConferem());
-		log.mensagemgeral("Step Então devo ver a mensagem de erro informando que as senhas não conferem realizado com sucesso");
+		log.mensagemGeral("Step Então devo ver a mensagem de erro informando que as senhas não conferem realizado com sucesso");
 	}
 
 	@Então("devo permanecer na tela de cadastro")
 	public void devoPermanecerNaTelaDeCadastro() {
 		assertTrue(cadastrologics.estaNaTelaCadastro());
-		log.mensagemgeral("Step Então devo devo permanecer na tela de cadastro realizado com sucesso");
+		log.mensagemGeral("Step Então devo devo permanecer na tela de cadastro realizado com sucesso");
 		cadastrologics.retornaLogin();
 	}
 
@@ -120,20 +120,20 @@ public class CadastroSteps {
 		}
 		
 		cadastrologics.preencheCampo(campo, dadopreencher);
-		log.mensagemgeral("Step Dado com o campo: "+campo+" preenchido com valor: "+dadopreencher+" realizado com sucesso");
+		log.mensagemGeral("Step Dado com o campo: "+campo+" preenchido com valor: "+dadopreencher+" realizado com sucesso");
 	}
 
 	@Quando("clico no botão visualizar senha ao lado do campo {string}")
 	public void clicoNoBotãoVisualizarSenhaAoLadoDoCampo(String campo) {
 		cadastrologics.clicarBotaoVisualizarSenha(campo);
-		log.mensagemgeral("Step Quando clico no botão visualizar senha ao lado do campo: "+campo+" realizado com sucesso");
+		log.mensagemGeral("Step Quando clico no botão visualizar senha ao lado do campo: "+campo+" realizado com sucesso");
 	}
 
 	@Então("devo ver a senha digitada no campo {string} em formato legível")
 	public void devoVerASenhaDigitadaNoCampoEmFormatoLegível(String campo) {
 		
 		assertTrue(cadastrologics.validarSenhaEmFormatoLegivel(campo));
-		log.mensagemgeral("Step Então devo ver a senha digitada no campo: "+campo+" em formato legível realizado com sucesso");
+		log.mensagemGeral("Step Então devo ver a senha digitada no campo: "+campo+" em formato legível realizado com sucesso");
 	}
 
 	@Quando("eu tento realizar o cadastro com campo {string} vazio e demais dados válidos")
@@ -165,7 +165,7 @@ public class CadastroSteps {
 		}
 		
 		cadastrologics.cadastraUsuario(usuario, senha, confirmarsenha);
-		log.mensagemgeral("Step Quando eu tento realizar o cadastro com campo: "+campo+" vazio e demais dados válidos realizado com sucesso");
+		log.mensagemGeral("Step Quando eu tento realizar o cadastro com campo: "+campo+" vazio e demais dados válidos realizado com sucesso");
 	}
 
 	@Dado("possua um usuário já cadastrado")
@@ -178,19 +178,19 @@ public class CadastroSteps {
 		
 		loginlogics = cadastrologics.cadastraUsuario(usuario, senha);
 		cadastrologics = loginlogics.acessaCadastro();
-		log.mensagemgeral("Step Dado possua um usuário já cadastrado realizado com sucesso");
+		log.mensagemGeral("Step Dado possua um usuário já cadastrado realizado com sucesso");
 	}
 
 	@Quando("eu tento realizar o cadastro com mesmo usuário")
 	public void eu_tento_realizar_o_cadastro_com_mesmo_usuario() {
 		cadastrologics.cadastraUsuario(usuario, senha);
-		log.mensagemgeral("Step Quando eu tento realizar o cadastro com mesmo usuário realizado com sucesso");
+		log.mensagemGeral("Step Quando eu tento realizar o cadastro com mesmo usuário realizado com sucesso");
 	}
 	
 	@Então("devo ver a mensagem de usuário já cadastrado")
 	public void devo_ver_a_mensagem_de_usuario_ja_cadastrado(){
 		assertTrue(cadastrologics.validarMensagemDeErroUsuarioExistente());
-		log.mensagemgeral("Step Então devo ver a mensagem de usuário já cadastrado realizado com sucesso");
+		log.mensagemGeral("Step Então devo ver a mensagem de usuário já cadastrado realizado com sucesso");
 	}
 	
 	//Para garantir que o teste sempre retorna a tela de login

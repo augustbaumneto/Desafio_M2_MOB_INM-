@@ -41,7 +41,7 @@ public class LeitorArquivo {
 		try {
 			fr = new FileReader(arquivo);
 			br = new BufferedReader(fr);
-			LOG.mensagemgeral("Arquivo pronto para leitura");
+			LOG.mensagemGeral("Arquivo pronto para leitura");
 		} catch (IOException e) {
 			LOG.erroExcecaoLancada(e);
 		}
@@ -55,9 +55,9 @@ public class LeitorArquivo {
 		String linha = null;
 		try {
 			linha=br.readLine();
-			LOG.mensagemgeral("Linha capturada: " +linha);
+			LOG.mensagemGeral("Linha capturada: " +linha);
 		} catch (IOException e) {
-			LOG.mensagemgeral("Erro ao lê linha");
+			LOG.mensagemGeral("Erro ao lê linha");
 			LOG.erroExcecaoLancada(e);
 		}
 		

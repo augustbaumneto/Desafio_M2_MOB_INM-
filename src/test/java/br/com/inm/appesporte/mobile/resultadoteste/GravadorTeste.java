@@ -47,7 +47,7 @@ public class GravadorTeste {
 	public void inicializaSuite() {
 		LocalDateTime inicio = LocalDateTime.now();
 		querylogics.insereSuiteinicial(inicio);
-		log.mensagemgeral("Suite inicializada");
+		log.mensagemGeral("Suite inicializada");
 	}
 	
 	/**
@@ -56,7 +56,7 @@ public class GravadorTeste {
 	public void finalizaSuite() {
 		LocalDateTime fim = LocalDateTime.now();
 		querylogics.atualizaSuite(fim);
-		log.mensagemgeral("Suite finalizada");
+		log.mensagemGeral("Suite finalizada");
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class GravadorTeste {
 		LocalDateTime inicio = LocalDateTime.now();
 		querylogics.insereTeste(inicio,cenario);
 		esquema = "";
-		log.mensagemgeral("Teste inicializado");
+		log.mensagemGeral("Teste inicializado");
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class GravadorTeste {
 		else
 			querylogics.atualizaTeste(fim,status);
 		esquema = "";
-		log.mensagemgeral("Teste concluido");
+		log.mensagemGeral("Teste concluido");
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class GravadorTeste {
 	 */
 	public void gravaMassa(String tipo, String valor) {
 		querylogics.insereMassa(tipo,valor);
-		log.equals("Massa inserida com sucesso!");
+		log.mensagemGeral("Massa inserida com sucesso!");
 		
 	}
 }

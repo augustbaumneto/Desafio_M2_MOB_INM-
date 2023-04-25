@@ -39,7 +39,7 @@ public class LoginPageObject extends PageObjectBase{
 		cmp_idusuario_localizador= By.id("br.com.alura.aluraesporte:id/input_usuario");
 		cmp_senha_localizador = By.id("br.com.alura.aluraesporte:id/input_senha");
 		msg_errousuariosenhainvalido_localizador=By.id("br.com.alura.aluraesporte:id/mensagem_erro_login");
-		LOG.mensagemgeral("Página de Login instanciada");
+		LOG.mensagemGeral("Página de Login instanciada");
 		buscarElementos();
 	}
 
@@ -49,12 +49,12 @@ public class LoginPageObject extends PageObjectBase{
 	@Override
 	protected void buscarElementos() {
 		if (!contemBotaoLogin()) {
-			LOG.mensagemgeral("Página Login não carregada");
+			LOG.mensagemGeral("Página Login não carregada");
 		}else {
 			botao_cadastro = elementoPresente(bt_cadastro_localizador);
 			campo_idusuario = elementoPresente(cmp_idusuario_localizador);
 			campo_senha = elementoPresente(cmp_senha_localizador);
-			LOG.mensagemgeral("Elementos iniciais instanciados");
+			LOG.mensagemGeral("Elementos iniciais instanciados");
 		}
 
 	}
@@ -75,7 +75,7 @@ public class LoginPageObject extends PageObjectBase{
 	 */
 	public boolean contemBotaoLogin() {
 		
-		LOG.mensagemgeral("Verificando se apresenta o botão de login");
+		LOG.mensagemGeral("Verificando se apresenta o botão de login");
 		
 		botao_login = elementoPresente(bt_login_localizador);
 		
@@ -119,13 +119,13 @@ public class LoginPageObject extends PageObjectBase{
 	 * @return true se a mensagem for a esperada
 	 */
 	public boolean verificarMensagemDeErro() {
-		LOG.mensagemgeral("Mensagem esperada: "+MSG_ERROLOGININVALIDA);
+		LOG.mensagemGeral("Mensagem esperada: "+MSG_ERROLOGININVALIDA);
 		msg_errousuariosenhainvalido = elementoPresente(msg_errousuariosenhainvalido_localizador);
 		
 		if (msg_errousuariosenhainvalido==null)
 			return false;
 		String mensagemnatela = msg_errousuariosenhainvalido.getText();
-		LOG.mensagemgeral("Mensagem obtida na tela: "+mensagemnatela);
+		LOG.mensagemGeral("Mensagem obtida na tela: "+mensagemnatela);
 		return (mensagemnatela.equals(MSG_ERROLOGININVALIDA));
 	}
 	

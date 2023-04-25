@@ -71,7 +71,7 @@ public class AppiumDriverFactory {
 	    }
 	    	driver = new AppiumDriver(urlconexao, configuracoes);
 	    	
-	    	log.mensagemgeral("Driver inicializado com sucesso! URL Appium: "+urlconexao+", Aplicativo: "+apk.getAbsolutePath());
+	    	log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+urlconexao+", Aplicativo: "+apk.getAbsolutePath());
 	}
 
 	/**

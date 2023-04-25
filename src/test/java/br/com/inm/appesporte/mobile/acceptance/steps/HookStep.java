@@ -30,7 +30,7 @@ public class HookStep {
 	}
 	@Before
 	public void inicioTeste(Scenario cenario) {
-		log.mensagemgeral("---------------------Iniciando novo teste----------------------");
+		log.mensagemGeral("---------------------Iniciando novo teste----------------------");
 		
 		gravador.iniciaTeste(cenario.getName());
 		
@@ -39,7 +39,7 @@ public class HookStep {
 	@After
 	public void fimTeste(Scenario cenario) {
 		gravador.finalizaTeste(cenario.getStatus().name());
-		log.mensagemgeral("---------------------Teste Concluido----------------------");
+		log.mensagemGeral("---------------------Teste Concluido----------------------");
 	}
 	
 	@AfterAll

@@ -25,7 +25,7 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	 */
 	public ListaProdutoPageObject() {
 		super();
-		LOG.mensagemgeral("Página Lista de Produtos instanciada");
+		LOG.mensagemGeral("Página Lista de Produtos instanciada");
 		aba_idrotulos_localizador = By.id("br.com.alura.aluraesporte:id/listaProdutos");
 		btn_idsair_localizador = By.id("br.com.alura.aluraesporte:id/menu_principal_deslogar");
 		buscarElementos();
@@ -37,10 +37,10 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	@Override
 	protected void buscarElementos() {
 		if (!contemAbaProdutos()) {
-			LOG.mensagemgeral("Página lista produto não carregada");
+			LOG.mensagemGeral("Página lista produto não carregada");
 		}else {
 			btn_sair = elementoPresente(btn_idsair_localizador);
-			LOG.mensagemgeral("Elementos iniciais instanciados");
+			LOG.mensagemGeral("Elementos iniciais instanciados");
 		}
 	}
 
@@ -49,7 +49,7 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	 * @return verdadeiro se aba presente
 	 */
 	public boolean contemAbaProdutos() {
-		LOG.mensagemgeral("Verificando se Aba produtos esta presente");
+		LOG.mensagemGeral("Verificando se Aba produtos esta presente");
 		
 		aba_produtos = elementoPresente(aba_idrotulos_localizador);
 		
@@ -61,7 +61,7 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	 * @return verdadeiro se aba produtos esta ativa
 	 */
 	public boolean abaProdutosAtiva() {
-		LOG.mensagemgeral("Verificando se Aba produtos esta selecionada");
+		LOG.mensagemGeral("Verificando se Aba produtos esta selecionada");
 		
 		return aba_produtos.isSelected();
 		

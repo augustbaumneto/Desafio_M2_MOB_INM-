@@ -45,7 +45,7 @@ public class CadastroPageObject extends PageObjectBase{
 		bt_visualizarsenha_localizador=By.xpath("//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_senha']/android.widget.FrameLayout/android.widget.ImageButton");
 		bt_visualizarconfirmarsenha_localizador=By.xpath("//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_confirma_senha']/android.widget.FrameLayout/android.widget.ImageButton");
 		msg_errocadastro_localizador=By.id("br.com.alura.aluraesporte:id/erro_cadastro");
-		LOG.mensagemgeral("Página de Cadastro instanciada");
+		LOG.mensagemGeral("Página de Cadastro instanciada");
 		buscarElementos();
 		
 	}
@@ -56,14 +56,14 @@ public class CadastroPageObject extends PageObjectBase{
 	@Override
 	protected void buscarElementos() {
 		if (!contemCampoConfirmarSenha()) {
-			LOG.mensagemgeral("Página Cadastro não carregada");
+			LOG.mensagemGeral("Página Cadastro não carregada");
 		}else {
 			campo_nome = elementoPresente(cmp_nome_localizador);
 	    	campo_senha = elementoPresente(cmp_senha_localizador);
 	    	botao_cadastrar = elementoPresente(bt_cadastrar_localizador);
 	    	botao_visualizar_senha = elementoPresente(bt_visualizarsenha_localizador);
 	    	botao_visualizar_confirmarsenha=elementoPresente(bt_visualizarconfirmarsenha_localizador);
-			LOG.mensagemgeral("Elementos iniciais instanciados");
+			LOG.mensagemGeral("Elementos iniciais instanciados");
 		}
 		
     	
@@ -124,7 +124,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return verdadeiro se o campo confirmar senha esta presente
 	 */
 	public boolean contemCampoConfirmarSenha() {
-		LOG.mensagemgeral("Verificando se apresenta o campo confirmar senha ");
+		LOG.mensagemGeral("Verificando se apresenta o campo confirmar senha ");
 		
 		campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
 		
@@ -152,7 +152,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se o botão foi desmarcado
 	 */
 	public boolean botaoVisualizarSenhaEstaDesmarcado() {
-		LOG.mensagemgeral("Verifica se o botão Visualizar do campo Senha esta com o atibuto checked marcado");
+		LOG.mensagemGeral("Verifica se o botão Visualizar do campo Senha esta com o atibuto checked marcado");
 		return (botao_visualizar_senha.getAttribute(ATR_MARCADO)).equals("true");
 	}
 	
@@ -161,7 +161,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se estiver visível
 	 */
 	public boolean senhaVisivel() {
-		LOG.mensagemgeral("Verifica se o campo Senha esta com o atibuto password false");
+		LOG.mensagemGeral("Verifica se o campo Senha esta com o atibuto password false");
 		return (campo_senha.getAttribute(ATR_PASSWORD)).equals("false");
 	}
 	
@@ -170,7 +170,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se o botão foi desmarcado
 	 */
 	public boolean botaoVisualizarConfirmarSenhaEstaDesmarcado() {
-		LOG.mensagemgeral("Verifica se o botão Visualizar do campo Confirmar Senha esta com o atibuto checked marcado");
+		LOG.mensagemGeral("Verifica se o botão Visualizar do campo Confirmar Senha esta com o atibuto checked marcado");
 		return (botao_visualizar_confirmarsenha.getAttribute(ATR_MARCADO)).equals("true");
 	}
 	
@@ -179,7 +179,7 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return true se estiver visível
 	 */
 	public boolean confirmarSenhaVisivel() {
-		LOG.mensagemgeral("Verifica se o campo Confirmar Senha esta com o atibuto password false");
+		LOG.mensagemGeral("Verifica se o campo Confirmar Senha esta com o atibuto password false");
 		return (campo_confirmarsenha.getAttribute(ATR_PASSWORD)).equals("false");
 	}
 
@@ -200,13 +200,13 @@ public class CadastroPageObject extends PageObjectBase{
 	 * @return verdadeiro se as mensagens forem iguais, e falso se não tiver mensagem na tela ou ela for diferente
 	 */
 	private boolean verificaMensagemErro(String mensagemesperada) {
-		LOG.mensagemgeral("Mensagem esperada: "+mensagemesperada);
+		LOG.mensagemGeral("Mensagem esperada: "+mensagemesperada);
 		msg_erro_cadastro = elementoPresente(msg_errocadastro_localizador);
 		
 		if (msg_erro_cadastro==null)
 			return false;
 		String mensagemnatela = msg_erro_cadastro.getText();
-		LOG.mensagemgeral("Mensagem obtida na tela: "+mensagemnatela);
+		LOG.mensagemGeral("Mensagem obtida na tela: "+mensagemnatela);
 		return (mensagemnatela.equals(mensagemesperada));
 
 	}

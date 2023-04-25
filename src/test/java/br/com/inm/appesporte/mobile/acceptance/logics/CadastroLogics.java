@@ -25,7 +25,7 @@ public class CadastroLogics extends LogicsBase{
 	 */
 	public CadastroLogics(CadastroPageObject cadastropage) {
 		this.cadastropage = cadastropage;
-		log.mensagemgeral("Classe CadastroLogics criada.");
+		log.mensagemGeral("Classe CadastroLogics criada.");
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @return objeto da classe logics da qual terá os novos passos.
 	 */
 	public LoginLogics cadastraUsuario(String usuario, String senha, String confirmarsenha) {
-		log.mensagemgeral("Tentativa de cadastro com usuario: "+usuario+", senha: "+senha+" e confirmar senha: "+ confirmarsenha);
+		log.mensagemGeral("Tentativa de cadastro com usuario: "+usuario+", senha: "+senha+" e confirmar senha: "+ confirmarsenha);
 		cadastropage.preencherUsuario(usuario);
 		cadastropage.preencherSenha(senha);
 		cadastropage.preencherConfirmarSenha(confirmarsenha);
@@ -66,7 +66,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @return verdadeiro se estiver na tela de cadastro
 	 */
 	public boolean estaNaTelaCadastro() {
-		log.mensagemgeral("Verificando se esta na página de cadastro");
+		log.mensagemGeral("Verificando se esta na página de cadastro");
 		return cadastropage.contemCampoConfirmarSenha();
 	}
 
@@ -75,7 +75,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @return retorna verdadeiro se for exibida
 	 */
 	public boolean validarMensagemDeErroSenhaNaoConferem() {
-		log.mensagemgeral("Verificando mensagem de erro de senha não iguais");
+		log.mensagemGeral("Verificando mensagem de erro de senha não iguais");
 		
 		return cadastropage.verificaMensagemErroSenhaDiferente();
 	}
@@ -84,7 +84,7 @@ public class CadastroLogics extends LogicsBase{
 	 * Método que retorna para a tela de login
 	 */
 	public void retornaLogin() {
-		log.mensagemgeral("Retorna para a tela de login");
+		log.mensagemGeral("Retorna para a tela de login");
 		cadastropage.voltarLogin();
 	}
 
@@ -95,7 +95,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @param valor o valor a ser preenchido
 	 */
 	public void preencheCampo(String campo, String valor) {
-		log.mensagemgeral("Preenchendo "+ campo+ " com valor: "+valor);
+		log.mensagemGeral("Preenchendo "+ campo+ " com valor: "+valor);
 		switch (campo) {
 			case "senha":
 				cadastropage.preencherSenha(valor);
@@ -116,7 +116,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @param campo, do qual o botão será pressionado
 	 */
 	public void clicarBotaoVisualizarSenha(String campo) {
-		log.mensagemgeral("Clicando no botão de visualizar do campo "+ campo);
+		log.mensagemGeral("Clicando no botão de visualizar do campo "+ campo);
 		switch (campo) {
 			case "senha":
 				cadastropage.clicarBotaoVisualizarSenha();
@@ -138,7 +138,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @return verdardeiro se o campo estiver visível
 	 */
 	public boolean validarSenhaEmFormatoLegivel(String campo) {
-		log.mensagemgeral("Checando visualização do campo "+ campo);
+		log.mensagemGeral("Checando visualização do campo "+ campo);
 		switch (campo) {
 			case "senha":
 				return (cadastropage.senhaVisivel() && cadastropage.botaoVisualizarSenhaEstaDesmarcado());
@@ -159,7 +159,7 @@ public class CadastroLogics extends LogicsBase{
 	 * @return True se a mensagem é exibida corretamente
 	 */
 	public boolean validarMensagemDeErroUsuarioExistente() {
-		log.mensagemgeral("Verificando mensagem de erro usuário existente");
+		log.mensagemGeral("Verificando mensagem de erro usuário existente");
 		
 		return cadastropage.verificaMensagemErroUsuarioExistente();
 	}

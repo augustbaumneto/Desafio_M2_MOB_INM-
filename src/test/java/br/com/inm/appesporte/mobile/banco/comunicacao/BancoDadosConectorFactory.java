@@ -51,8 +51,8 @@ public class BancoDadosConectorFactory {
 	private BancoDadosConectorFactory() {
 		try {
 			conector = DriverManager.getConnection(urlconexao);
-            LOG.mensagemgeral("Conexão ao Banco de dados: "+nomebanco+" realizada com sucesso");
-            LOG.mensagemgeral("Conexão: "+conector);
+            LOG.mensagemGeral("Conexão ao Banco de dados: "+nomebanco+" realizada com sucesso");
+            LOG.mensagemGeral("Conexão: "+conector);
             
         } catch (SQLException e) {
             LOG.erroExcecaoLancada(e);

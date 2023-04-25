@@ -30,7 +30,7 @@ public class Log {
 	 * 
 	 * @param mensagem
 	 */
-	public void mensagemgeral(String mensagem) {
+	public void mensagemGeral(String mensagem) {
 		logger.info(mensagem);
 	}
 

@@ -74,7 +74,7 @@ public abstract class QueryMaker {
 		while (itr.hasNext()) {
 			bdeq.executaQuery(itr.next());
 		}
-		LOG.mensagemgeral("Script executado!");
+		LOG.mensagemGeral("Script executado!");
 	}
 	
 	/**
@@ -87,7 +87,7 @@ public abstract class QueryMaker {
 		
 		List<String> querys = new ArrayList<>();
 		LeitorArquivo la = new LeitorArquivo(caminhoArquivo);
-		LOG.mensagemgeral("Inicia leitura do arquivo: "+caminhoArquivo);
+		LOG.mensagemGeral("Inicia leitura do arquivo: "+caminhoArquivo);
 		
 		String query = "";
 		String controle = la.retornaLinha();
@@ -99,11 +99,11 @@ public abstract class QueryMaker {
 			}
 			query = query+controle;
 			querys.add(query);
-			LOG.mensagemgeral("Query criada: "+query);
+			LOG.mensagemGeral("Query criada: "+query);
 			query = "";
 			controle=la.retornaLinha();
 		}
-		LOG.mensagemgeral("Querys montadas com sucesso!");
+		LOG.mensagemGeral("Querys montadas com sucesso!");
 		return querys;
 	}
 	

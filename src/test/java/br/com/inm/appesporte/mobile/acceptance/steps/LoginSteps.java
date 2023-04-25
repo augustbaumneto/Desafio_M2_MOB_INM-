@@ -39,7 +39,7 @@ public class LoginSteps {
     public void queEuEstouNaTelaDeLogin() {
     	loginlogics = new LoginLogics();
     	loginlogics.abrirPaginaDeLogin();
-    	log.mensagemgeral("Step Dado que eu estou na tela de login realizado com sucesso");
+    	log.mensagemGeral("Step Dado que eu estou na tela de login realizado com sucesso");
     }
 
     @E("tenha um usuário já cadastrado")
@@ -55,7 +55,7 @@ public class LoginSteps {
         gravador.gravaMassa("Usuário cadastrado", usuario);
         gravador.gravaMassa("Senha do Usuário cadastrado", senha);
         
-        log.mensagemgeral("Step tenha um usuário já cadastro realizado com sucesso");
+        log.mensagemGeral("Step tenha um usuário já cadastro realizado com sucesso");
     }
 
     @Quando("eu tento realizar o login com usuário {string} e com senha {string}")
@@ -101,19 +101,19 @@ public class LoginSteps {
     	}
     	
     	listaprodutologics=loginlogics.realizarLoginComUsuarioESenha(usuariologin, senhalogin);
-        log.mensagemgeral("Step eu preencho o campo com um usuário: "+condicaousuario+" e senha: "+condicaosenha+" realizado com sucesso");
+        log.mensagemGeral("Step eu preencho o campo com um usuário: "+condicaousuario+" e senha: "+condicaosenha+" realizado com sucesso");
     }
 
     @Entao("eu vejo uma mensagem de erro informando que o usuário ou senha estão incorretos")
     public void euVejoUmaMensagemDeErroInformandoQueOUsuarioOuSenhaEstaoIncorretos() {
         assertTrue(loginlogics.verificarMensagemDeErro());
-        log.mensagemgeral("Step eu vejo mensagem de erro com usuário ou senha incorretos realizado com sucesso");
+        log.mensagemGeral("Step eu vejo mensagem de erro com usuário ou senha incorretos realizado com sucesso");
     }
     
     @Entao("é efetuado o login redirecionando para a tela lista de produtos")
     public void eEfetuadoLoginRedirecionandoParaTelaListaProdutos() {
     	assertTrue(listaprodutologics.ePaginaListaProdutos());
-    	log.mensagemgeral("Step é efetuado o login redirecionando para a tela lista de produtos realizado com sucesso");
+    	log.mensagemGeral("Step é efetuado o login redirecionando para a tela lista de produtos realizado com sucesso");
     	listaprodutologics.sair();
     }
     

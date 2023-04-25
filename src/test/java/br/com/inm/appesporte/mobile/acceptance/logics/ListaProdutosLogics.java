@@ -43,7 +43,7 @@ public class ListaProdutosLogics extends LogicsBase {
 	 * @return Retorna verdadeiro se estiver na página de lista de produto
 	 */
 	public boolean ePaginaListaProdutos() {
-		log.mensagemgeral("Verificando se esta na página de lista de produtos");
+		log.mensagemGeral("Verificando se esta na página de lista de produtos");
 		return (listapage.contemAbaProdutos() &&
 				listapage.abaProdutosAtiva());
 

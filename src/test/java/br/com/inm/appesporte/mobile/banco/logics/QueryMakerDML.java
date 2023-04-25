@@ -262,8 +262,8 @@ public class QueryMakerDML extends QueryMaker {
 		campos[1]= CMP_TM_TIPOMASSA;
 		campos[2]= CMP_TM_VALORMASSA;
 		
-		LOG.mensagemgeral("Massa de Teste tipo: "+ valores[1]);
-		LOG.mensagemgeral("Massa de Teste valor: "+ valores[2]);
+		LOG.mensagemGeral("Massa de Teste tipo: "+ valores[1]);
+		LOG.mensagemGeral("Massa de Teste valor: "+ valores[2]);
 		
 		String query =  montaQueryInsert(TB_MASSAEXECUCAO, campos, valores);
 		LOG.queryMontada(query);
