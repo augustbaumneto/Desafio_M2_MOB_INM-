@@ -3,8 +3,8 @@
  */
 package br.com.inm.appesporte.mobile.acceptance.steps;
 
-import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
+import br.com.inm.appesporte.mobile.utils.Log;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;

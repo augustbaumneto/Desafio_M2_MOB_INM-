@@ -6,7 +6,7 @@ package br.com.inm.appesporte.mobile.banco.comunicacao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.inm.appesporte.mobile.config.Log;
+import br.com.inm.appesporte.mobile.utils.Log;
 
 /**
  * Classe que armazena o resultado de um consulta no banco de dados

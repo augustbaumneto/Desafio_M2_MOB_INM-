@@ -8,8 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import br.com.inm.appesporte.mobile.banco.comunicacao.BancoDadosExecutorQuery;
-import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.utils.LeitorArquivo;
+import br.com.inm.appesporte.mobile.utils.Log;
 
 /**
  * 

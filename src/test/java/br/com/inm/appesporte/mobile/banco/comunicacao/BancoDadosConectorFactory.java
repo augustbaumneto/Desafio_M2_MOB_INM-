@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import br.com.inm.appesporte.mobile.config.BancoConfig;
-import br.com.inm.appesporte.mobile.config.Log;
+import br.com.inm.appesporte.mobile.utils.Log;
 
 /**
  * 

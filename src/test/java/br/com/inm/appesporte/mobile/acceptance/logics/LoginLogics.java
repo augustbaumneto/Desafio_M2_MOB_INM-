@@ -3,7 +3,7 @@ package br.com.inm.appesporte.mobile.acceptance.logics;
 import br.com.inm.appesporte.mobile.acceptance.pages.CadastroPageObject;
 import br.com.inm.appesporte.mobile.acceptance.pages.ListaProdutoPageObject;
 import br.com.inm.appesporte.mobile.acceptance.pages.LoginPageObject;
-import br.com.inm.appesporte.mobile.config.Log;
+import br.com.inm.appesporte.mobile.utils.Log;
 
 /**
  * 

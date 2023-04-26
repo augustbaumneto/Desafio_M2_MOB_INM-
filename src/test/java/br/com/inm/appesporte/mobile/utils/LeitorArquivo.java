@@ -8,8 +8,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import br.com.inm.appesporte.mobile.config.Log;
-
 /**
  * 
  * Classe responsável por fazer a leitura de um arquivo.

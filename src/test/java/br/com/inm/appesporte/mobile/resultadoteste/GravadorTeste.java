@@ -6,7 +6,7 @@ package br.com.inm.appesporte.mobile.resultadoteste;
 import java.time.LocalDateTime;
 
 import br.com.inm.appesporte.mobile.banco.logics.QueryMakerDML;
-import br.com.inm.appesporte.mobile.config.Log;
+import br.com.inm.appesporte.mobile.utils.Log;
 
 /**
  * Classe responsável por controlar a gravação de testes.

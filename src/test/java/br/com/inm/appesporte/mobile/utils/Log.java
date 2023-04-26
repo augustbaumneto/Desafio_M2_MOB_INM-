@@ -1,4 +1,4 @@
-package br.com.inm.appesporte.mobile.config;
+package br.com.inm.appesporte.mobile.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

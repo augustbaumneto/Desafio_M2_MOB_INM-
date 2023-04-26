@@ -6,8 +6,8 @@ import java.net.URL;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import br.com.inm.appesporte.mobile.config.Log;
 import br.com.inm.appesporte.mobile.config.ParametrosConfig;
+import br.com.inm.appesporte.mobile.utils.Log;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;

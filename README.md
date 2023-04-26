@@ -1,50 +1,17 @@
 # desafio-mobile-t1-m2-august-neto
 
-<a id="Sobre" ></a>
-## Sobre o projeto📊
------------------------
-  
-O projeto consiste em uma automação de testes de Mobile para a entrega do desafio do módulo 2 do programa de quality engineering da Inmetrics.  
-  
-Foram implantados testes relacionados a 2 funcionalidades do aplicativo __Alura Esporte__ para Android, aplicativo utilizado no curso __"Appium: compreenda e aplique testes de interfaces"__.
-  
-<a id="login" ></a>
-### LOGIN 👤
---------------------
-Funcionalidade responsável por efetuar de fato o login no aplicativo. Para efetuar o login é necessário ter um usuário cadastrado, e preencher com os dados do usuário e senha corretos. Nessa funcionalidade foram implantados os seguintes cenários de testes:  
-* Teste positivo logando com usuário e senha corretos, sendo o usuário já cadastrado;  
-* Combinação de testes negativos utilizando usuário vazio ou inválido e senha vazia ou inválida.  
-  
-<a id="cadastro" ></a>
-### CADASTRO 📋
-----------------
-Funcionalidade responsável por criar um usuário, o usuário não deve existir e a senha deve ser a mesma nos campos "senha" e "confirmar senha". Nessa funcionalidade foram implantado os seguintes cenários de testes:  
-* Teste positivo cadastrando um usuário não existente com ambos os campos senha com os mesmos dados;
-* Testes positivos visualizando as senhas digitadas;
-* Teste negativo utilizando senhas diferentes;
-* Testes negativos deixando campos senhas vazios;
-* Testes negativo utilizando um usuário já existente. 
-  
-#### Status🏆  
-Concluído a primeira versão. 🚀
-O que não foi feito:
-  * Readme.md com imagens funcionais;
-  * Captura das evidências dos testes e devida organização;
-  * Reportes configurados no cucumber;
-  * Gravação dos arquivos de log no banco de dados;
-  * Uso do design pattern Page Factory;
-  * Funcionalidades adicionais.
-  
 <a id="tabela-de-conteudo" ></a>
 ## Tabela de conteúdos🤓  
 ------------------------------
 <!--ts-->
-   * [Sobre](#Sobre)
-      * [LOGIN](#login)
-	  * [CADASTRO](#cadastro)
    * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Sobre](#Sobre)
+	  * [Funcionalidades](#funcionalidades)
+		* [LOGIN](#login)
+		* [CADASTRO](#cadastro)
+	  * [Banco de dados](#banco-dados)
+   * [Status do Projeto](#Status-do-Projeto)
    * [Tecnologias](#tecnologias)
-   * [Instalação](#instalacao)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
       * [Baixando o projeto e preparando o ambiente](#baixando-e-preparando)
@@ -52,11 +19,64 @@ O que não foi feito:
 	  * [Criando o banco de dados](#criando-banco-dados)
       * [Rodando os Testes](#rodando-os-testes)
       * [Alterando a porta do Appium](#alterando-porta)
-	  * [Sobre o banco de dados](#banco-dados)
    * [Autor](#autor)
    * [Licença](#licenca)   
 <!--te-->
+
+<a id="Sobre" ></a>
+## Sobre o projeto📊
+-----------------------
   
+O projeto consiste em uma automação de testes de Mobile para a entrega do desafio do módulo 2 do programa de quality engineering da Inmetrics.  
+  
+Foram implantados testes relacionados a 2 funcionalidades do aplicativo __Alura Esporte__ para Android, aplicativo utilizado no curso __"Appium: compreenda e aplique testes de interfaces"__.
+
+Toda execução gera um arquivo __".log"__ que armazena os dados do que foi feito bem como é gravado em um banco de dados local os resultados dos testes. 
+
+<a id="funcionalidades" ></a>
+### Funcionalidades
+-----------------------
+  
+<a id="login" ></a>
+#### LOGIN 👤
+--------------------
+Funcionalidade responsável por efetuar de fato o login no aplicativo. Para efetuar o login é necessário ter um usuário cadastrado, e preencher com os dados do usuário e senha corretos. Nessa funcionalidade foram implantados os seguintes cenários de testes:  
+* Teste positivo logando com usuário e senha corretos, sendo o usuário já cadastrado;  
+* Combinação de testes negativos utilizando usuário vazio ou inválido e senha vazia ou inválida.  
+  
+<a id="cadastro" ></a>
+#### CADASTRO 📋
+----------------
+Funcionalidade responsável por criar um usuário, o usuário não deve existir e a senha deve ser a mesma nos campos "senha" e "confirmar senha". Nessa funcionalidade foram implantado os seguintes cenários de testes:  
+* Teste positivo cadastrando um usuário não existente com ambos os campos senha com os mesmos dados;
+* Testes positivos visualizando as senhas digitadas;
+* Teste negativo utilizando senhas diferentes;
+* Testes negativos deixando campos senhas vazios;
+* Testes negativo utilizando um usuário já existente. 
+
+<a id="banco-dados"></a>
+### Sobre o Banco de Dados 🏦
+-------------------------------
+  
+  Todos os dados de execuções são gravados dentro de três tabelas no banco de dados.
+  - __tb_Suite_Execucao__: São gravados horário de inicio e fim da execução;
+  - __tb_Resultado_Execucao__: São gravados tipo do cenário ("esquema" ou "padrão"), o nome, se for um esquema o detalhe do esquema, horário de inicio do teste, horário do fim do teste e o status da execução ("Passou", "Falhou" ou "Erro");
+  - __tb_Massa_Execucao__: São gravados os dados da massa, no caso o tipo e o valor da massa.
+
+<a id="Status-do-Projeto"></a>  
+## Status do Projeto🏆
+-------------------------------
+
+![EM Manutenção](https://img.shields.io/static/v1?label=Status&message=Manutenção&color=important)
+  
+Concluído a primeira versão. 🚀
+O que não foi feito:
+  * Captura das evidências dos testes e devida organização;
+  * Reportes configurados no cucumber;
+  * Gravação dos arquivos de log no banco de dados;
+  * Uso do design pattern Page Factory;
+  * Testes de funcionalidades adicionais.
+    
 <a id="tecnologias"></a>
 ## Tecnologias🛰️
 -----------------------------
@@ -198,15 +218,6 @@ $ appium -p 4724
   
   3. Altere a variável __"urlappium"__ trocando a porta, salve o arquivo e rode novamente. Lembrando que a porta deve ser a mesma em que o Appium server foi iniciado. 
   ![a](/src/main/resources/img/alterar-porta/Passo3.PNG)
-
-<a id="banco-dados"></a>
-### Sobre o Banco de Dados 🏦
--------------------------------
-  
-  Todos os dados de execuções são gravados dentro de três tabelas no banco de dados.
-  - __tb_Suite_Execucao__: São gravados horário de inicio e fim da execução;
-  - __tb_Resultado_Execucao__: São gravados tipo do cenário, o nome, se for um esquema o detalhe do esquema, horário de inicio do teste, horário do fim do teste e o status da execução;
-  - __tb_Massa_Execucao__: São gravados os dados da massa, no caso o tipo e o valor da massa.
   
 <a id="autor"></a>
 ## Autor😉

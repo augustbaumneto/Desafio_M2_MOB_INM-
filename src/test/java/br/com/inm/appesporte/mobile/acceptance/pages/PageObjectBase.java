@@ -8,8 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-import br.com.inm.appesporte.mobile.config.Log;
+import br.com.inm.appesporte.mobile.utils.Log;
 import io.appium.java_client.AppiumDriver;
 
 /**

@@ -9,7 +9,7 @@ import java.util.Locale;
 
 import com.github.javafaker.Faker;
 
-import br.com.inm.appesporte.mobile.config.Log;
+import br.com.inm.appesporte.mobile.utils.Log;
 
 /**
  * @author August Neto
