@@ -4,6 +4,7 @@
 package br.com.inm.appesporte.mobile.acceptance.steps;
 
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
+import br.com.inm.appesporte.mobile.utils.ExcecaoAntesDeFechar;
 import br.com.inm.appesporte.mobile.utils.Log;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -24,9 +25,10 @@ public class HookStep {
 	private static GravadorTeste gravador;
 	
 	@BeforeAll
-	public static void inicioSuite() {
+	public static void inicioSuite(){
 			gravador = GravadorTeste.Instance();
 			gravador.inicializaSuite();
+			
 	}
 	@Before
 	public void inicioTeste(Scenario cenario) {
@@ -45,5 +47,8 @@ public class HookStep {
 	@AfterAll
 	public static void fimExecucao() {
 		gravador.finalizaSuite();
+		//Lança a exceção para fechar antes de finalizar o programa (JVM).
+		Runtime r=Runtime.getRuntime();    
+		r.addShutdownHook(new ExcecaoAntesDeFechar());    
 	}
 }

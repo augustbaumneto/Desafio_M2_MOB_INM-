@@ -4,11 +4,8 @@
 package br.com.inm.appesporte.mobile.utils;
 
 import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.json.JSONObject;
 
 import com.rajatthareja.reportbuilder.Color;
 import com.rajatthareja.reportbuilder.ReportBuilder;
@@ -22,34 +19,43 @@ import com.rajatthareja.reportbuilder.ReportBuilder;
  */
 public class Reporte {
 
-    static ReportBuilder reporte = new ReportBuilder();
+    private static ReportBuilder reporte = new ReportBuilder();
+    
+    private static final Log LOG = new Log();
     
     /**
-     * Método que parametriza o reporte
-     * @param nomefuncionalidade
+     * Método que parametriza e cria o reporte
      */
-    public void criaReporte(String nomefuncionalidade) throws Exception{
+    public void criaReporte() {
     
-    	reporte.setReportDirectory("output/");
+    	LOG.mensagemGeral("Configurando o reporte...");
+    	
+    	reporte.setReportDirectory("target/Reportes/ReportBuilder/");
     
-    	reporte.setReportFileName(nomefuncionalidade);
+    	reporte.setReportFileName("reporte_execucao_rbuilder");
     
-    	reporte.setReportTitle("Execução de Teste "+nomefuncionalidade);
-    	System.out.println("Teste");
+    	reporte.setReportTitle("Reporte de Execução");
+   
     	reporte.setReportColor(Color.INDIGO);
     	
     	// Add additional info for Report
     	//reporte.setAdditionalInfo("Environment", "My Environment");
 
-    	// Create list or report Files or Directories or URLs or JSONObject or JSONString
     	List<Object> cucumberJsonReports = new ArrayList<>();
-    	cucumberJsonReports.add(new File("my/report/path/report.json"));
-    	cucumberJsonReports.add(new File("myReportDir/"));
-    	cucumberJsonReports.add(new URL("http://myReportUrl/report.json"));
-    	cucumberJsonReports.add(new JSONObject("report Json String"));
+    	
+    	File arquivo = new File("target/Reportes/jsons/");
+    	File[] listaarquivos = arquivo.listFiles();
+    	
+    	for (File tmp : listaarquivos) {
+    		cucumberJsonReports.add(tmp);
+    	}
+    	
+    	//cucumberJsonReports.add(new File("my/report/path/report.json"));
+    	//cucumberJsonReports.add(new File("myReportDir/"));
+    	//cucumberJsonReports.add(new URL("http://myReportUrl/report.json"));
+    	//cucumberJsonReports.add(new JSONObject("report Json String"));
     
     	reporte.build(cucumberJsonReports);
-    	
     }
     
 	

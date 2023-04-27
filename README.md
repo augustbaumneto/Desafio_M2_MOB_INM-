@@ -10,6 +10,7 @@
 		* [LOGIN](#login)
 		* [CADASTRO](#cadastro)
 	  * [Banco de dados](#banco-dados)
+	  * [Reportes](#reportes)
    * [Status do Projeto](#Status-do-Projeto)
    * [Tecnologias](#tecnologias)
    * [Como usar](#como-usar)
@@ -24,17 +25,17 @@
 <!--te-->
 
 <a id="Sobre" ></a>
-## Sobre o projeto📊
+## Sobre o projeto 👩‍🏫
 -----------------------
   
 O projeto consiste em uma automação de testes de Mobile para a entrega do desafio do módulo 2 do programa de quality engineering da Inmetrics.  
   
 Foram implantados testes relacionados a 2 funcionalidades do aplicativo __Alura Esporte__ para Android, aplicativo utilizado no curso __"Appium: compreenda e aplique testes de interfaces"__.
 
-Toda execução gera um arquivo __".log"__ que armazena os dados do que foi feito bem como é gravado em um banco de dados local os resultados dos testes. 
+Toda execução gera um arquivo __".log"__ que armazena os dados do que foi feito, é gravado em um banco de dados local os resultados dos testes e são gerados dois reportes um próprio do Cucumber e utilizando a biblioteca ReportBuilder. O log e os arquivos de reportes são substituido em uma nova execução.
 
 <a id="funcionalidades" ></a>
-### Funcionalidades
+### Funcionalidades 🛠️
 -----------------------
   
 <a id="login" ></a>
@@ -63,6 +64,16 @@ Funcionalidade responsável por criar um usuário, o usuário não deve existir 
   - __tb_Resultado_Execucao__: São gravados tipo do cenário ("esquema" ou "padrão"), o nome, se for um esquema o detalhe do esquema, horário de inicio do teste, horário do fim do teste e o status da execução ("Passou", "Falhou" ou "Erro");
   - __tb_Massa_Execucao__: São gravados os dados da massa, no caso o tipo e o valor da massa.
 
+<a id="reportes"></a>
+### Sobre os Reportes 📊 
+-------------------------------
+  
+  O primeiro reporte gravado é o próprio do cucumber, ele fica gravado dentro da pasta com o nome da funcionalidade no caminho "target" > "Reportes" > "cucumber".  
+  ![a](/src/main/resources/img/reportes/cucumber.png)
+  
+  O Segundo reporte gravado pela biblioteca ReportBuilderJava, ele fica gravado no arquivo __"reporte_execucao_rbuilder.html"__ no caminho "target" > "Reportes" > "ReportBuilder".  
+  ![a](/src/main/resources/img/reportes/reportbuilder.png)
+
 <a id="Status-do-Projeto"></a>  
 ## Status do Projeto🏆
 -------------------------------
@@ -72,7 +83,6 @@ Funcionalidade responsável por criar um usuário, o usuário não deve existir 
 Concluído a primeira versão. 🚀
 O que não foi feito:
   * Captura das evidências dos testes e devida organização;
-  * Reportes configurados no cucumber;
   * Gravação dos arquivos de log no banco de dados;
   * Uso do design pattern Page Factory;
   * Testes de funcionalidades adicionais.
@@ -96,6 +106,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [slf4j - 2.0.7](https://www.slf4j.org/)
 - [Java Faker - 1.0.2](https://github.com/DiUS/java-faker)
 - [SQLite - 3.41.2.1](https://sqlite.org/index.html)
+- [Jackson XML- 2.15.0](https://camel.apache.org/components/3.20.x/dataformats/jacksonXml-dataformat.html)
+- [me.jvt.Cucumber - 7.0.0](https://central.sonatype.com/artifact/me.jvt.cucumber/reporting-plugin/5.0.0?smo=true)
+- [ReportBuilderJava - 1.0.3](https://reportbuilderjava.rajatthareja.com/)
   
 <a id="como-usar"></a>
 ## Como Usar🧐
@@ -204,6 +217,7 @@ $ appium -p 4724
   ![a](/src/main/resources/img/rodar/Passo6.PNG)
   
   7. Todos os resultados são armazenados dentro do banco de dados __"db_Execucao_Teste.bd"__ dentro da pasta: "src" > "main" > "resources" > "BancoDados". Mais informações vê a sessão sobre o banco de dados.
+  <br>
   ![a](/src/main/resources/img/rodar/Passo7.PNG)
   
 <a id="alterando-porta"></a>
