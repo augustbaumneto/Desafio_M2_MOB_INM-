@@ -31,5 +31,5 @@ replay_pid*
 
 
 /src/main/resources/BancoDados/db_Execucao_Teste.bd
-/src/main/resources/BancoDados/db_Execucao_Teste - Copia.bd
 /target/Reportes/
+/logs/
