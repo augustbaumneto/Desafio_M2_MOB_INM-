@@ -1,7 +1,10 @@
 package br.com.inm.appesporte.mobile.acceptance.pages;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 
 /**
@@ -12,19 +15,26 @@ import org.openqa.selenium.WebElement;
  */
 public class LoginPageObject extends PageObjectBase{
 	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario")
 	private WebElement botao_cadastro;
+	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/login_botao_logar")
 	private WebElement botao_login;
+	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/input_usuario")
 	private WebElement campo_idusuario;
+	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/input_senha")
 	private WebElement campo_senha;
+	
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/mensagem_erro_login")
 	private WebElement msg_errousuariosenhainvalido;
 
-	private final By cmp_idusuario_localizador;
-	private final By cmp_senha_localizador;
-	private final By bt_cadastro_localizador;
-	private final By bt_login_localizador;
-	private final By msg_errousuariosenhainvalido_localizador;
-	
-	
+		
 	private final String MSG_ERROLOGININVALIDA = "Usuário ou senha inválidos";
 	
 	/**
@@ -34,29 +44,12 @@ public class LoginPageObject extends PageObjectBase{
 	 */
 	public LoginPageObject() {
 		super();
-		bt_cadastro_localizador = By.id("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
-		bt_login_localizador = By.id("br.com.alura.aluraesporte:id/login_botao_logar");
-		cmp_idusuario_localizador= By.id("br.com.alura.aluraesporte:id/input_usuario");
-		cmp_senha_localizador = By.id("br.com.alura.aluraesporte:id/input_senha");
-		msg_errousuariosenhainvalido_localizador=By.id("br.com.alura.aluraesporte:id/mensagem_erro_login");
-		LOG.mensagemGeral("Página de Login instanciada");
-		buscarElementos();
-	}
-
-	/**
-	 * Método de busca dos elementos iniciais da tela
-	 */
-	@Override
-	protected void buscarElementos() {
 		if (!contemBotaoLogin()) {
 			LOG.mensagemGeral("Página Login não carregada");
 		}else {
-			botao_cadastro = elementoPresente(bt_cadastro_localizador);
-			campo_idusuario = elementoPresente(cmp_idusuario_localizador);
-			campo_senha = elementoPresente(cmp_senha_localizador);
+			
 			LOG.mensagemGeral("Elementos iniciais instanciados");
 		}
-
 	}
 	 
 	/**
@@ -77,9 +70,7 @@ public class LoginPageObject extends PageObjectBase{
 		
 		LOG.mensagemGeral("Verificando se apresenta o botão de login");
 		
-		botao_login = elementoPresente(bt_login_localizador);
-		
-		return (botao_login != null);
+		return (elementoPresente(botao_login));
 		
 	}
 
@@ -120,9 +111,8 @@ public class LoginPageObject extends PageObjectBase{
 	 */
 	public boolean verificarMensagemDeErro() {
 		LOG.mensagemGeral("Mensagem esperada: "+MSG_ERROLOGININVALIDA);
-		msg_errousuariosenhainvalido = elementoPresente(msg_errousuariosenhainvalido_localizador);
 		
-		if (msg_errousuariosenhainvalido==null)
+		if (!elementoPresente(msg_errousuariosenhainvalido))
 			return false;
 		String mensagemnatela = msg_errousuariosenhainvalido.getText();
 		LOG.mensagemGeral("Mensagem obtida na tela: "+mensagemnatela);

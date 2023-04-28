@@ -78,13 +78,12 @@ Funcionalidade responsável por criar um usuário, o usuário não deve existir 
 ## Status do Projeto🏆
 -------------------------------
 
-![EM Manutenção](https://img.shields.io/static/v1?label=Status&message=Manutenção&color=important)
+![Concluído](https://img.shields.io/static/v1?label=Status&message=Concluído&color=important)
   
-Concluído a primeira versão. 🚀
+Concluído a primeira versão. 🚀<br>
 O que não foi feito:
   * Captura das evidências dos testes e devida organização;
   * Gravação dos arquivos de log no banco de dados;
-  * Uso do design pattern Page Factory;
   * Testes de funcionalidades adicionais.
     
 <a id="tecnologias"></a>

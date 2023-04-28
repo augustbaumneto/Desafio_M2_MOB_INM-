@@ -1,7 +1,9 @@
 package br.com.inm.appesporte.mobile.acceptance.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 /**
  * Classe PageObject da tela lista de produtos
@@ -11,11 +13,13 @@ import org.openqa.selenium.WebElement;
  */
 public class ListaProdutoPageObject extends PageObjectBase{
 
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/listaProdutos")
 	private WebElement aba_produtos;
-	private WebElement btn_sair;
 	
-	private final By aba_idrotulos_localizador;
-	private final By btn_idsair_localizador;
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/menu_principal_deslogar")
+	private WebElement btn_sair;
 
 	
 	/**
@@ -25,24 +29,14 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	 */
 	public ListaProdutoPageObject() {
 		super();
-		LOG.mensagemGeral("Página Lista de Produtos instanciada");
-		aba_idrotulos_localizador = By.id("br.com.alura.aluraesporte:id/listaProdutos");
-		btn_idsair_localizador = By.id("br.com.alura.aluraesporte:id/menu_principal_deslogar");
-		buscarElementos();
-	}
-
-	/**
-	 * Método de busca dos elementos iniciais da tela
-	 */
-	@Override
-	protected void buscarElementos() {
+		
 		if (!contemAbaProdutos()) {
 			LOG.mensagemGeral("Página lista produto não carregada");
 		}else {
-			btn_sair = elementoPresente(btn_idsair_localizador);
 			LOG.mensagemGeral("Elementos iniciais instanciados");
 		}
 	}
+
 
 	/**
 	 * Método que verifica se a aba produtos esta presente
@@ -51,9 +45,7 @@ public class ListaProdutoPageObject extends PageObjectBase{
 	public boolean contemAbaProdutos() {
 		LOG.mensagemGeral("Verificando se Aba produtos esta presente");
 		
-		aba_produtos = elementoPresente(aba_idrotulos_localizador);
-		
-		return (aba_produtos != null);
+		return (elementoPresente(aba_produtos));
 	}
 
 	/**

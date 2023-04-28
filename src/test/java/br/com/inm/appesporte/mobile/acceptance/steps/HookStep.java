@@ -3,9 +3,11 @@
  */
 package br.com.inm.appesporte.mobile.acceptance.steps;
 
+import br.com.inm.appesporte.mobile.config.ParametrosConfig;
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
 import br.com.inm.appesporte.mobile.utils.ExcecaoAntesDeFechar;
 import br.com.inm.appesporte.mobile.utils.Log;
+import br.com.inm.appesporte.mobile.utils.ManipulacaoArquivo;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
@@ -26,6 +28,13 @@ public class HookStep {
 	
 	@BeforeAll
 	public static void inicioSuite(){
+			String[] caminhosreportes = ParametrosConfig.getCaminhosReportes();
+		
+			for (String caminho : caminhosreportes) {
+				ManipulacaoArquivo ma = new ManipulacaoArquivo(caminho);
+				ma.limpaPasta();
+			}
+			log.mensagemGeral("Arquivos de reportes limpos!");
 			gravador = GravadorTeste.Instance();
 			gravador.inicializaSuite();
 			

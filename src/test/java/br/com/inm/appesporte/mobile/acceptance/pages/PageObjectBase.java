@@ -2,14 +2,14 @@ package br.com.inm.appesporte.mobile.acceptance.pages;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
+
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
 
 import br.com.inm.appesporte.mobile.utils.Log;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 /**
  * 
@@ -24,11 +24,8 @@ public abstract class PageObjectBase {
 	protected final static Log LOG = new Log();
 	
 	protected final AppiumDriver driver;
-	
-	//Elemento para configurar o tempo de espera
-	private WebDriverWait espera;
-	
-	private final int TEMPO_ESPERAELEMENTO_SEG = 2;
+		
+	private final long TEMPO_ESPERAELEMENTO_SEG = 2;
 	
 	/**
 	 * Construtor padrão
@@ -36,30 +33,25 @@ public abstract class PageObjectBase {
 	protected PageObjectBase() {
 	
 		this.driver = AppiumDriverFactory.Instance().getAppiumDriver();
-		espera = new WebDriverWait(driver,Duration.ofSeconds(TEMPO_ESPERAELEMENTO_SEG));
-		
+		PageFactory.initElements(new AppiumFieldDecorator(this.driver,Duration.ofSeconds(TEMPO_ESPERAELEMENTO_SEG)),this);
 	}
 
-	/**
-	 * Método de busca padrão de elementos
-	 */
-	protected abstract void buscarElementos();
-	
+
 	/**
 	 * Método padrão de verificar se o elemento esta presente 
 	 * 
 	 * @param localizador do elemento
 	 * @return Retorna o elemento se tiver presente, senão retorna null
 	 */
-	protected WebElement elementoPresente(By localizador) {
+	protected boolean elementoPresente(WebElement elemento) {
 		
 		try {
-			WebElement elemento = espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
+			elemento.isDisplayed();
 			LOG.mensagemElementoEncontrado(elemento);
-			return elemento;
-		} catch (TimeoutException e) {
+			return true;
+		} catch (NoSuchElementException e) {
 			LOG.erroExcecaoLancada(e);
-			return null;
+			return false;
 		}
 		
 	}

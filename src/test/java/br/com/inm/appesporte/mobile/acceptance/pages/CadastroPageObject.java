@@ -1,28 +1,41 @@
 package br.com.inm.appesporte.mobile.acceptance.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 
 
 public class CadastroPageObject extends PageObjectBase{
 
-	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/input_nome")
 	private WebElement campo_nome;
+	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/input_senha")
 	private WebElement campo_senha;
+	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/input_confirmar_senha")
 	private WebElement campo_confirmarsenha;
+	
+	@CacheLookup
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar")
 	private WebElement botao_cadastrar;
+	
+	@CacheLookup
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_senha']/android.widget.FrameLayout/android.widget.ImageButton")
 	private WebElement botao_visualizar_senha;
+	
+	@CacheLookup
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_confirma_senha']/android.widget.FrameLayout/android.widget.ImageButton")
 	private WebElement botao_visualizar_confirmarsenha;
+	
+	@AndroidFindBy(id = "br.com.alura.aluraesporte:id/erro_cadastro")
 	private WebElement msg_erro_cadastro;
 	
-	private final By cmp_nome_localizador;
-	private final By cmp_senha_localizador;
-	private final By cmp_confirmarsenha_localizador;
-	private final By bt_cadastrar_localizador;
-	private final By bt_visualizarsenha_localizador;
-	private final By bt_visualizarconfirmarsenha_localizador;
-	private final By msg_errocadastro_localizador;
 	
 	private final String MSG_ERROSENHADIFERENTE = "Senhas não conferem";
 	private final String MSG_ERROUSUARIOEXISTENTE = "Usuario já Cadastrado";
@@ -38,35 +51,12 @@ public class CadastroPageObject extends PageObjectBase{
 	 */
 	public CadastroPageObject() {
 		super();
-		cmp_nome_localizador=By.id("br.com.alura.aluraesporte:id/input_nome");
-		cmp_senha_localizador=By.id("br.com.alura.aluraesporte:id/input_senha");
-		cmp_confirmarsenha_localizador=By.id("br.com.alura.aluraesporte:id/input_confirmar_senha");
-		bt_cadastrar_localizador=By.id("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
-		bt_visualizarsenha_localizador=By.xpath("//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_senha']/android.widget.FrameLayout/android.widget.ImageButton");
-		bt_visualizarconfirmarsenha_localizador=By.xpath("//android.widget.LinearLayout[@resource-id='br.com.alura.aluraesporte:id/cadastro_usuario_confirma_senha']/android.widget.FrameLayout/android.widget.ImageButton");
-		msg_errocadastro_localizador=By.id("br.com.alura.aluraesporte:id/erro_cadastro");
-		LOG.mensagemGeral("Página de Cadastro instanciada");
-		buscarElementos();
-		
-	}
-	
-	/**
-	 * Método de busca dos elementos iniciais da tela
-	 */
-	@Override
-	protected void buscarElementos() {
 		if (!contemCampoConfirmarSenha()) {
 			LOG.mensagemGeral("Página Cadastro não carregada");
 		}else {
-			campo_nome = elementoPresente(cmp_nome_localizador);
-	    	campo_senha = elementoPresente(cmp_senha_localizador);
-	    	botao_cadastrar = elementoPresente(bt_cadastrar_localizador);
-	    	botao_visualizar_senha = elementoPresente(bt_visualizarsenha_localizador);
-	    	botao_visualizar_confirmarsenha=elementoPresente(bt_visualizarconfirmarsenha_localizador);
 			LOG.mensagemGeral("Elementos iniciais instanciados");
 		}
 		
-    	
 	}
 
 	/**
@@ -126,9 +116,7 @@ public class CadastroPageObject extends PageObjectBase{
 	public boolean contemCampoConfirmarSenha() {
 		LOG.mensagemGeral("Verificando se apresenta o campo confirmar senha ");
 		
-		campo_confirmarsenha = elementoPresente(cmp_confirmarsenha_localizador);
-		
-		return (campo_confirmarsenha != null);
+		return (elementoPresente(campo_confirmarsenha));
 	}
 
 	/**
@@ -201,9 +189,9 @@ public class CadastroPageObject extends PageObjectBase{
 	 */
 	private boolean verificaMensagemErro(String mensagemesperada) {
 		LOG.mensagemGeral("Mensagem esperada: "+mensagemesperada);
-		msg_erro_cadastro = elementoPresente(msg_errocadastro_localizador);
+		//msg_erro_cadastro = elementoPresente(msg_errocadastro_localizador);
 		
-		if (msg_erro_cadastro==null)
+		if (!elementoPresente(msg_erro_cadastro))
 			return false;
 		String mensagemnatela = msg_erro_cadastro.getText();
 		LOG.mensagemGeral("Mensagem obtida na tela: "+mensagemnatela);

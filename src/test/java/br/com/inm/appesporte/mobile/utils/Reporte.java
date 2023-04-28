@@ -10,6 +10,8 @@ import java.util.List;
 import com.rajatthareja.reportbuilder.Color;
 import com.rajatthareja.reportbuilder.ReportBuilder;
 
+import br.com.inm.appesporte.mobile.config.ParametrosConfig;
+
 /**
  * 
  * Classe responsável por realizar e gerenciar os reportes de execução
@@ -30,7 +32,7 @@ public class Reporte {
     
     	LOG.mensagemGeral("Configurando o reporte...");
     	
-    	reporte.setReportDirectory("target/Reportes/ReportBuilder/");
+    	reporte.setReportDirectory(ParametrosConfig.getCaminhoReportBuilder());
     
     	reporte.setReportFileName("reporte_execucao_rbuilder");
     
@@ -43,7 +45,7 @@ public class Reporte {
 
     	List<Object> cucumberJsonReports = new ArrayList<>();
     	
-    	File arquivo = new File("target/Reportes/jsons/");
+    	File arquivo = new File(ParametrosConfig.getCaminhoJson());
     	File[] listaarquivos = arquivo.listFiles();
     	
     	for (File tmp : listaarquivos) {
