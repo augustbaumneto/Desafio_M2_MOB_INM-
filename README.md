@@ -60,7 +60,7 @@ Funcionalidade responsável por criar um usuário, o usuário não deve existir 
 -------------------------------
   
   Todos os dados de execuções são gravados dentro de três tabelas no banco de dados.
-  - __tb_Suite_Execucao__: São gravados horário de inicio e fim da execução;
+  - __tb_Suite_Execucao__: São gravados horário de inicio, fim da execução e o arquivo de log;
   - __tb_Resultado_Execucao__: São gravados tipo do cenário ("esquema" ou "padrão"), o nome, se for um esquema o detalhe do esquema, horário de inicio do teste, horário do fim do teste e o status da execução ("Passou", "Falhou" ou "Erro");
   - __tb_Massa_Execucao__: São gravados os dados da massa, no caso o tipo e o valor da massa.
 
@@ -83,7 +83,6 @@ Funcionalidade responsável por criar um usuário, o usuário não deve existir 
 Concluído a primeira versão. 🚀<br>
 O que não foi feito:
   * Captura das evidências dos testes e devida organização;
-  * Gravação dos arquivos de log no banco de dados;
   * Testes de funcionalidades adicionais.
     
 <a id="tecnologias"></a>

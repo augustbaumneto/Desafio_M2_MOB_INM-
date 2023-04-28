@@ -1,5 +1,7 @@
 package br.com.inm.appesporte.mobile.banco.comunicacao;
 
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,6 +76,23 @@ public class BancoDadosExecutorQuery {
 			LOG.mensagemGeral(query);
 			LOG.erroExcecaoLancada(e);
 			return null;
+		}
+		
+	}
+
+	/**
+	 * Método que faz a subida de arquivos em campos blobs
+	 * @param query de subida
+	 * @param dados: em byte do arquivo
+	 */
+	public void executaQuerySobeArquivo(String query, byte[] dados) {
+		try {
+			pst = conectorbd.prepareStatement(query);
+			pst.setBytes(1, dados);
+			pst.execute();
+		} catch (SQLException e) {
+			LOG.erroExcecaoLancada(e);
+			
 		}
 		
 	}

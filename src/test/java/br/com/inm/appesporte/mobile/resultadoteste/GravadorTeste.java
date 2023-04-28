@@ -3,7 +3,11 @@
  */
 package br.com.inm.appesporte.mobile.resultadoteste;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
+
+import org.apache.commons.io.FileUtils;
 
 import br.com.inm.appesporte.mobile.banco.logics.QueryMakerDML;
 import br.com.inm.appesporte.mobile.utils.Log;
@@ -101,6 +105,23 @@ public class GravadorTeste {
 	public void gravaMassa(String tipo, String valor) {
 		querylogics.insereMassa(tipo,valor);
 		log.mensagemGeral("Massa inserida com sucesso!");
+		
+	}
+
+	/**
+	 * Método responsável por subir o log na suite
+	 * @throws IOException 
+	 */
+	public void gravalog() {
+		log.mensagemGeral("Gravando o arquivo de LOG no banco de dados");
+		File arquivolog = new File("logs/automacao_teste_alura_esporte.log");
+		byte[] dados;
+		try {
+			dados = FileUtils.readFileToByteArray(arquivolog);
+			querylogics.atualizaSuiteLog(dados);
+		} catch (IOException e) {
+			log.erroExcecaoLancada(e);
+		}
 		
 	}
 }

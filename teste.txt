@@ -1,0 +1,95 @@
+2023-04-28 00:53:15.984 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Arquivo excluído C:\B\Auto\Projetos_de_automacao\desafio-mobile-t1m2\desafio-mobile-t1m2-august-neto\target\Reportes\jsons\login.json
+2023-04-28 00:53:16.018 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Pasta excluída C:\B\Auto\Projetos_de_automacao\desafio-mobile-t1m2\desafio-mobile-t1m2-august-neto\target\Reportes\cucumber\login
+2023-04-28 00:53:16.019 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Arquivo excluído C:\B\Auto\Projetos_de_automacao\desafio-mobile-t1m2\desafio-mobile-t1m2-august-neto\target\Reportes\ReportBuilder\reporte_execucao_rbuilder.html
+2023-04-28 00:53:16.019 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Arquivos de reportes limpos!
+2023-04-28 00:53:16.191 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Conexão ao Banco de dados: db_Execucao_Teste realizada com sucesso
+2023-04-28 00:53:16.191 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Conexão: org.sqlite.jdbc4.JDBC4Connection@272ed83b
+2023-04-28 00:53:16.192 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Statement criado
+2023-04-28 00:53:16.207 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Horário Inicio execução da Suite:  criado(a): '2023-04-28 00:53:16'
+2023-04-28 00:53:16.207 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: INSERT INTO tb_Suite_Execucao (dt_inicio_execucao_suite) values ('2023-04-28 00:53:16');
+2023-04-28 00:53:16.216 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : INSERT INTO tb_Suite_Execucao (dt_inicio_execucao_suite) values ('2023-04-28 00:53:16');
+2023-04-28 00:53:16.216 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: SELECT * FROM tb_Suite_Execucao WHERE int_id_suite = (SELECT MAX( int_id_suite ) FROM tb_Suite_Execucao);
+2023-04-28 00:53:16.221 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : SELECT * FROM tb_Suite_Execucao WHERE int_id_suite = (SELECT MAX( int_id_suite ) FROM tb_Suite_Execucao);
+2023-04-28 00:53:16.223 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento 21 encontrado
+2023-04-28 00:53:16.223 [main] INFO br.com.inm.appesporte.mobile.utils.Log - ID Suite criado(a): 21
+2023-04-28 00:53:16.223 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Suite inicializada
+2023-04-28 00:53:16.314 [main] INFO br.com.inm.appesporte.mobile.utils.Log - ---------------------Iniciando novo teste----------------------
+2023-04-28 00:53:16.314 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Teste iniciado com sucesso! Nome: 'Login com usuário e senha válidos'
+2023-04-28 00:53:16.314 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Horário Inicio execução do Teste:  criado(a): '2023-04-28 00:53:16'
+2023-04-28 00:53:16.314 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: INSERT INTO tb_Resultado_Execucao (int_id_suite, vchar_cenario, dt_inicio_execucao) values (21, 'Login com usuário e senha válidos', '2023-04-28 00:53:16');
+2023-04-28 00:53:16.324 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : INSERT INTO tb_Resultado_Execucao (int_id_suite, vchar_cenario, dt_inicio_execucao) values (21, 'Login com usuário e senha válidos', '2023-04-28 00:53:16');
+2023-04-28 00:53:16.324 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: SELECT * FROM tb_Resultado_Execucao WHERE int_id_execucao = (SELECT MAX( int_id_execucao ) FROM tb_Resultado_Execucao);
+2023-04-28 00:53:16.324 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : SELECT * FROM tb_Resultado_Execucao WHERE int_id_execucao = (SELECT MAX( int_id_execucao ) FROM tb_Resultado_Execucao);
+2023-04-28 00:53:16.324 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento 63 encontrado
+2023-04-28 00:53:16.324 [main] INFO br.com.inm.appesporte.mobile.utils.Log - ID Teste criado(a): 63
+2023-04-28 00:53:16.324 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Teste inicializado
+2023-04-28 00:53:16.363 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Gerador de massa iniciado para localização pt-br
+2023-04-28 00:53:24.098 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Driver inicializado com sucesso! URL Appium: http://localhost:4724/wd/hub, Aplicativo: C:\B\Auto\Projetos_de_automacao\desafio-mobile-t1m2\desafio-mobile-t1m2-august-neto\src\main\resources\apk\alura_esporte.apk
+2023-04-28 00:53:24.278 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:24.371 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:24.371 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:24.371 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Acessando tela de login
+2023-04-28 00:53:24.371 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se esta na página de login
+2023-04-28 00:53:24.371 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:24.412 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:24.413 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Step Dado que eu estou na tela de login realizado com sucesso
+2023-04-28 00:53:24.586 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Primeiro nome criado(a): Francisco
+2023-04-28 00:53:24.673 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Senha criado(a): TaurosUva
+2023-04-28 00:53:24.673 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Acessando tela de cadastro
+2023-04-28 00:53:24.856 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o campo confirmar senha 
+2023-04-28 00:53:25.595 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/input_confirmar_senha}) encontrado
+2023-04-28 00:53:25.595 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:25.596 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Classe CadastroLogics criada.
+2023-04-28 00:53:25.596 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Tentativa de cadastro com usuario: Francisco, senha: TaurosUva e confirmar senha: TaurosUva
+2023-04-28 00:53:27.852 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:28.551 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:28.552 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:28.553 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:28.593 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:28.593 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:28.593 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se esta na página de login
+2023-04-28 00:53:28.593 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:28.611 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:28.614 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Massa de Teste tipo: 'Usuário cadastrado'
+2023-04-28 00:53:28.614 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Massa de Teste valor: 'Francisco'
+2023-04-28 00:53:28.614 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: INSERT INTO tb_Massa_Execucao (int_id_execucao, vchar_tipo_massa, vchar_valor_massa) values (21, 'Usuário cadastrado', 'Francisco');
+2023-04-28 00:53:28.624 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : INSERT INTO tb_Massa_Execucao (int_id_execucao, vchar_tipo_massa, vchar_valor_massa) values (21, 'Usuário cadastrado', 'Francisco');
+2023-04-28 00:53:28.624 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Massa inserida com sucesso!
+2023-04-28 00:53:28.624 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Massa de Teste tipo: 'Senha do Usuário cadastrado'
+2023-04-28 00:53:28.624 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Massa de Teste valor: 'TaurosUva'
+2023-04-28 00:53:28.624 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: INSERT INTO tb_Massa_Execucao (int_id_execucao, vchar_tipo_massa, vchar_valor_massa) values (21, 'Senha do Usuário cadastrado', 'TaurosUva');
+2023-04-28 00:53:28.632 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : INSERT INTO tb_Massa_Execucao (int_id_execucao, vchar_tipo_massa, vchar_valor_massa) values (21, 'Senha do Usuário cadastrado', 'TaurosUva');
+2023-04-28 00:53:28.632 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Massa inserida com sucesso!
+2023-04-28 00:53:28.632 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Step tenha um usuário já cadastro realizado com sucesso
+2023-04-28 00:53:28.632 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Tentativa de login com usuário: Francisco e senha: TaurosUva
+2023-04-28 00:53:30.766 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se Aba produtos esta presente
+2023-04-28 00:53:31.762 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/listaProdutos}) encontrado
+2023-04-28 00:53:31.762 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:31.764 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se Aba produtos esta presente
+2023-04-28 00:53:31.811 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/listaProdutos}) encontrado
+2023-04-28 00:53:31.811 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:31.811 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Step eu preencho o campo com um usuário: válido e senha: válido realizado com sucesso
+2023-04-28 00:53:31.811 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se esta na página de lista de produtos
+2023-04-28 00:53:31.811 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se Aba produtos esta presente
+2023-04-28 00:53:31.828 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/listaProdutos}) encontrado
+2023-04-28 00:53:31.828 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se Aba produtos esta selecionada
+2023-04-28 00:53:31.845 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Step é efetuado o login redirecionando para a tela lista de produtos realizado com sucesso
+2023-04-28 00:53:31.929 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:32.841 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:32.842 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:32.843 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Verificando se apresenta o botão de login
+2023-04-28 00:53:32.882 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elemento Located by By.chained({AppiumBy.id: br.com.alura.aluraesporte:id/login_botao_logar}) encontrado
+2023-04-28 00:53:32.882 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Elementos iniciais instanciados
+2023-04-28 00:53:32.884 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Resultado do Teste:  criado(a): 'Passou'
+2023-04-28 00:53:32.884 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Horário Fim execução Teste:  criado(a): '2023-04-28 00:53:32'
+2023-04-28 00:53:32.885 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: UPDATE tb_Resultado_Execucao SET dt_fim_execucao = '2023-04-28 00:53:32', enum_status = 'Passou', enum_tipo_cenario = 'esquema', vchar_exemplo = 'Usuário: válido e Senha: válido' WHERE int_id_execucao = 63;
+2023-04-28 00:53:32.894 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : UPDATE tb_Resultado_Execucao SET dt_fim_execucao = '2023-04-28 00:53:32', enum_status = 'Passou', enum_tipo_cenario = 'esquema', vchar_exemplo = 'Usuário: válido e Senha: válido' WHERE int_id_execucao = 63;
+2023-04-28 00:53:32.895 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Teste concluido
+2023-04-28 00:53:32.895 [main] INFO br.com.inm.appesporte.mobile.utils.Log - ---------------------Teste Concluido----------------------
+2023-04-28 00:53:32.898 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Horário Fim execução Suite:  criado(a): '2023-04-28 00:53:32'
+2023-04-28 00:53:32.898 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query montada com sucesso! Query: UPDATE tb_Suite_Execucao SET dt_fim_execucao_suite = '2023-04-28 00:53:32' WHERE int_id_suite = 21;
+2023-04-28 00:53:32.904 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Query executada com sucesso! : UPDATE tb_Suite_Execucao SET dt_fim_execucao_suite = '2023-04-28 00:53:32' WHERE int_id_suite = 21;
+2023-04-28 00:53:32.904 [main] INFO br.com.inm.appesporte.mobile.utils.Log - Suite finalizada
+2023-04-28 00:53:34.389 [Thread-1] INFO br.com.inm.appesporte.mobile.utils.Log - Configurando o reporte...
+2023-04-28 00:53:34.695 [Thread-1] INFO br.com.inm.appesporte.mobile.utils.Log - Reporte criado com sucesso utilizando o ReportBuilder
+2023-04-28 00:53:34.695 [Thread-1] INFO br.com.inm.appesporte.mobile.utils.Log - Gravando o arquivo de LOG no banco de dados

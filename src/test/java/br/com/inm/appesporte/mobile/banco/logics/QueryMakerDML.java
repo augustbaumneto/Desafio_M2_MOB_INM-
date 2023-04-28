@@ -3,6 +3,7 @@
  */
 package br.com.inm.appesporte.mobile.banco.logics;
 
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -16,7 +17,6 @@ import br.com.inm.appesporte.mobile.banco.comunicacao.BancoDadosResultadoSelect;
  */
 public class QueryMakerDML extends QueryMaker {
 
-	//voltar para provado depois
 	private BancoDadosResultadoSelect resultadoselect;
 	
 	private int idsuite;
@@ -268,5 +268,23 @@ public class QueryMakerDML extends QueryMaker {
 		String query =  montaQueryInsert(TB_MASSAEXECUCAO, campos, valores);
 		LOG.queryMontada(query);
 		bdeq.executaQuery(query);
+	}
+
+	/**
+	 * Método responsável por incluir o arquivos na suite
+	 * @param dados do arquivo
+	 */
+	public void atualizaSuiteLog(byte[] dados) {
+		String valores[] = new String[1];
+		valores[0] = "?";
+		
+		String campos[] = new String[1];
+		campos[0]= CMP_TSUITE_LOG;
+		
+		String query =  montaQueryUpdate(TB_SUITEEXECUCAO, campos, valores, CMP_TSUITE_IDSUITE, idsuite);
+		System.out.println(query);
+		LOG.queryMontada(query);
+		bdeq.executaQuerySobeArquivo(query, dados);
+		
 	}
 }

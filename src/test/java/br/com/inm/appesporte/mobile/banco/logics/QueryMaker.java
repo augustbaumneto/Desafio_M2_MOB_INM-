@@ -48,6 +48,7 @@ public abstract class QueryMaker {
 	protected static final String CMP_TSUITE_IDSUITE = "int_id_suite";
 	protected static final String CMP_TSUITE_DATAINICIO = "dt_inicio_execucao_suite";
 	protected static final String CMP_TSUITE_DATAFIM = "dt_fim_execucao_suite";
+	protected static final String CMP_TSUITE_LOG = "arq_log_execucao";
 	
 	//Nome de campos das tabelas utilizadas Massa execucao
 	protected static final String CMP_TM_IDMASSA = "int_id_massa";
