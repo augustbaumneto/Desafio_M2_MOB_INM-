@@ -3,6 +3,7 @@
  */
 package br.com.inm.appesporte.mobile.acceptance.steps;
 
+import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverFactory;
 import br.com.inm.appesporte.mobile.config.ParametrosConfig;
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
 import br.com.inm.appesporte.mobile.utils.ExcecaoAntesDeFechar;
@@ -28,6 +29,9 @@ public class HookStep {
 	
 	@BeforeAll
 	public static void inicioSuite(){
+			
+			AppiumDriverFactory.iniciaAppiumServer();
+		
 			String[] caminhosreportes = ParametrosConfig.getCaminhosReportes();
 		
 			for (String caminho : caminhosreportes) {
@@ -54,8 +58,9 @@ public class HookStep {
 	}
 	
 	@AfterAll
-	public static void fimExecucao() {
+	public static void fimExecucao(){
 		gravador.finalizaSuite();
+		
 		//Lança a exceção para fechar antes de finalizar o programa (JVM).
 		Runtime r=Runtime.getRuntime();    
 		r.addShutdownHook(new ExcecaoAntesDeFechar());    

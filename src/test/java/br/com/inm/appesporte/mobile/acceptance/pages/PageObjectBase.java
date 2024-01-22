@@ -34,6 +34,7 @@ public abstract class PageObjectBase {
 	
 		this.driver = AppiumDriverFactory.Instance().getAppiumDriver();
 		PageFactory.initElements(new AppiumFieldDecorator(this.driver,Duration.ofSeconds(TEMPO_ESPERAELEMENTO_SEG)),this);
+		LOG.mensagemGeral("Página carregada com sucesso!");
 	}
 
 
@@ -61,5 +62,10 @@ public abstract class PageObjectBase {
 	 */
 	public void voltar() {
 		driver.navigate().back();
+		//AndroidDriver a = (AndroidDriver)driver;
+		//a.activateApp("1");
+		//a.terminateApp("1");
 	}
+
+	
 }

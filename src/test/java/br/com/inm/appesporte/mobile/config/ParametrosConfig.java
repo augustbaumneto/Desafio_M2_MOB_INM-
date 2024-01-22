@@ -10,7 +10,7 @@ package br.com.inm.appesporte.mobile.config;
 public class ParametrosConfig {
 
 	//Porta do appium
-    private static String urlappium = "http://localhost:4724";
+    private static String ipappiumhost = "127.0.0.1";
 	
 	private static String nomeapp = "alura_esporte.apk"; 
 	
@@ -21,14 +21,16 @@ public class ParametrosConfig {
 	private static String caminhojson = "target/Reportes/jsons/";
 	
 	private static String caminhocucumberreport = "target/Reportes/cucumber/";
+	
+	private static String caminhologappiumserver = "logs/appiumserver.log";
 
 	/**
 	 * Método que retorna a url do appium
 	 * 
 	 * @return endereço do appim mais a porta
 	 */
-	public static String getUrlappium() {
-		return urlappium;
+	public static String getIPAppiumHost() {
+		return ipappiumhost;
 	}
 	
 	/*public static String getNomeapp() {
@@ -81,5 +83,14 @@ public class ParametrosConfig {
 		caminhos[1]=getCaminhoCucumberReport();
 		caminhos[2]=getCaminhoReportBuilder();
 		return caminhos;
+	}
+	
+	/**
+	 * Método que retorna o caminho do log para o appium server
+	 * 
+	 * @return Caminho do arquivo de log appium server
+	 */
+	public static String getCaminhoLogAppiumServer() {
+		return caminhologappiumserver;
 	}
 }

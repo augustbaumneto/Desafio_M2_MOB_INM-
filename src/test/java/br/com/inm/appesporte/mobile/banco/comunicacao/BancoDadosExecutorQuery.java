@@ -1,7 +1,6 @@
 package br.com.inm.appesporte.mobile.banco.comunicacao;
 
-import java.io.InputStream;
-import java.sql.Blob;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

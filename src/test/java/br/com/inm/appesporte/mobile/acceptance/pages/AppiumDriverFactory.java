@@ -1,16 +1,25 @@
 package br.com.inm.appesporte.mobile.acceptance.pages;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+//import java.net.MalformedURLException;
+//import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+//import org.openqa.selenium.Capabilities;
+//import org.openqa.selenium.WebDriver.Options;
+//import org.openqa.selenium.remote.CapabilityType;
+//import org.openqa.selenium.remote.DesiredCapabilities;
 
 import br.com.inm.appesporte.mobile.config.ParametrosConfig;
 import br.com.inm.appesporte.mobile.utils.Log;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import io.appium.java_client.remote.MobilePlatform;
+import io.appium.java_client.android.options.UiAutomator2Options;
+//import io.appium.java_client.appmanagement.BaseActivateApplicationOptions;
+//import io.appium.java_client.appmanagement.BaseOptions;
+//import io.appium.java_client.remote.MobileCapabilityType;
+//import io.appium.java_client.remote.MobilePlatform;
+//import io.appium.java_client.remote.options.SupportsAutomationNameOption;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 /**
  * 
@@ -26,7 +35,10 @@ public class AppiumDriverFactory {
 	
 	private static AppiumDriverFactory _instance;
 	
-	private Log log = new Log();
+	private static AppiumDriverLocalService servico;
+	
+	private static Log log = new Log();
+	
 	
 	/**
 	 * Método que chama o construtor e retorna o DriverFActory instanciado
@@ -38,11 +50,11 @@ public class AppiumDriverFactory {
 		//Só entra no if a variável ainda não foi inicializada
 		if (AppiumDriverFactory._instance==null) {
 			AppiumDriverFactory._instance = new AppiumDriverFactory();
+			log.mensagemGeral("AppiumDriverFactory instanciado com sucesso");
 		}
 		
 		return AppiumDriverFactory._instance;
 	}
-	
 	
 	/**
 	 * 
@@ -52,26 +64,35 @@ public class AppiumDriverFactory {
 	 */
 	private AppiumDriverFactory()  {
 		File apk = new File(ParametrosConfig.getCaminhoCompleto());
-	    	
-	    DesiredCapabilities configuracoes = new DesiredCapabilities();
-	    	
-	    configuracoes.setCapability(MobileCapabilityType.APP,apk.getAbsolutePath());
-	    configuracoes.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-	    configuracoes.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+	    log.mensagemGeral("Apk capturado no caminho: "+ParametrosConfig.getCaminhoCompleto());	
 	    
-	    URL urlconexao = null;
+	    //Cria as configurações para o driver
+	    UiAutomator2Options configuracoes = new UiAutomator2Options()
+	    		.setApp(apk.getAbsolutePath())
+	    		.setDeviceName("Nexus 4 API 28 - Teste curso")
+	    		.eventTimings()//Reporta o tempo das atividades do appium internament no app
+	    		.fullReset() //Re-instala sempre o app
+	    		.autoGrantPermissions(); //Garante sempre as permissões necessárias
+	    log.mensagemGeral("Configuracoes realizadas com sucesso");
+	        
+	    	    
+	    driver = new AppiumDriver(servico.getUrl(), configuracoes);
+    	log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+servico.getUrl().toString()+", Aplicativo: "+apk.getAbsolutePath());
+	    // Se inicializar o appium server externamente
+	    /*    URL urlconexao = null;
 	    //Verifica a exception da URL
 	    try {
-	    	urlconexao = new URL(ParametrosConfig.getUrlappium()+"/wd/hub");
-	    	
+	    	urlconexao = new URL("http://"+ParametrosConfig.getIPAppiumHost()+":4723/wd/hub");
+	    	log.mensagemGeral("Url de conexão criada: "+ParametrosConfig.getIPAppiumHost()+"/wd/hub");
 	    } catch (MalformedURLException e) {
 	    	e.printStackTrace();
 	    	
 	    	log.erroExcecaoLancada(e);
-	    }
-	    	driver = new AppiumDriver(urlconexao, configuracoes);
+	    }*/
+	    		    	
+	    	//driver = new AppiumDriver(urlconexao, configuracoes);
+	    	//log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+urlconexao.toString()+", Aplicativo: "+apk.getAbsolutePath());
 	    	
-	    	log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+urlconexao+", Aplicativo: "+apk.getAbsolutePath());
 	}
 
 	/**
@@ -81,5 +102,37 @@ public class AppiumDriverFactory {
 	 */
 	public AppiumDriver getAppiumDriver() {
 		return this.driver;
+	}
+
+
+	/**
+	 * Fecha o serviço do appium server
+	 */
+	public static void fecharAppiumServer() {
+		servico.stop();
+		log.mensagemGeral("Appium server finalizado com sucesso");
+	}
+	
+	/**
+	 * Inicializa o servico do appium server
+	 */
+	public static void iniciaAppiumServer() {
+		
+		//Só entra no if o appium server não tiver sido inicializado
+		if (servico==null) {
+			//Prepara o appium server
+			servico = new AppiumServiceBuilder()
+	    			.withIPAddress(ParametrosConfig.getIPAppiumHost())
+	    			.usingPort(4735)
+	    		//	.withLogFile(new File(ParametrosConfig.getCaminhoLogAppiumServer()))
+	    			.build();    
+	    	log.mensagemGeral(servico.getUrl().toString());
+	    
+	    	//Inicializa o appium server
+	    	servico.start();
+	    	log.mensagemGeral("Appium server inicializado com sucesso");
+		} else {
+			log.mensagemGeral("Appium server já inicializado");
+		}
 	}
 }

@@ -3,6 +3,7 @@
  */
 package br.com.inm.appesporte.mobile.utils;
 
+import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverFactory;
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
 
 /**
@@ -20,7 +21,8 @@ public class ExcecaoAntesDeFechar extends Thread {
 		 	Log log = new Log();
 		 	Reporte reporte =  new Reporte();
 		 	GravadorTeste gravador = GravadorTeste.Instance();
-			try {
+			AppiumDriverFactory.fecharAppiumServer();
+		 	try {
 				reporte.criaReporte();
 				log.mensagemGeral("Reporte criado com sucesso utilizando o ReportBuilder");
 				gravador.gravalog();
