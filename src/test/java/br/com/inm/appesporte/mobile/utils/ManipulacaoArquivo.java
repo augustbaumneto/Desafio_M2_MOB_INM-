@@ -52,4 +52,24 @@ public class ManipulacaoArquivo {
     		
     	}
 	}
+	
+	/**
+	 * Método que cria uma pasta
+	 */
+	public static void criaPasta(String caminhodapasta) {
+		File pasta = new File(caminhodapasta);
+		
+		if(pasta.exists()) {
+			LOG.mensagemGeral("Diretório já existente: "+caminhodapasta);
+		}else {
+			//Se não existir cria a pasta
+			try{
+                pasta.mkdir();
+                LOG.mensagemGeral("Pasta criada com sucesso: "+caminhodapasta);
+            } catch (SecurityException e) {
+            	LOG.erroExcecaoLancada(e);
+            }
+		}
+		
+	}
 }

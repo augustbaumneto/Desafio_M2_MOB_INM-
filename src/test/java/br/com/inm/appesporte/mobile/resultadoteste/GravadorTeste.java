@@ -4,13 +4,24 @@
 package br.com.inm.appesporte.mobile.resultadoteste;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Base64;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.screenrecording.CanRecordScreen;
+
+import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverFactory;
 import br.com.inm.appesporte.mobile.banco.logics.QueryMakerDML;
+import br.com.inm.appesporte.mobile.config.ParametrosConfig;
+import br.com.inm.appesporte.mobile.utils.CapturaTela;
 import br.com.inm.appesporte.mobile.utils.Log;
+import br.com.inm.appesporte.mobile.utils.ManipulacaoArquivo;
 
 /**
  * Classe responsável por controlar a gravação de testes.
@@ -25,6 +36,8 @@ public class GravadorTeste {
 	private static GravadorTeste instancia;
 		
 	private static String esquema;
+	
+	private String pastaevidenciassuite;
 	
 	private GravadorTeste() {
 		log = new Log();
@@ -52,6 +65,11 @@ public class GravadorTeste {
 		LocalDateTime inicio = LocalDateTime.now();
 		querylogics.insereSuiteinicial(inicio);
 		log.mensagemGeral("Suite inicializada");
+		
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");	
+		pastaevidenciassuite = ParametrosConfig.getCaminhoEvidencias()+"evidencias_"+inicio.format(formato);
+		ManipulacaoArquivo.criaPasta(pastaevidenciassuite);
+		log.mensagemGeral("Local de gravação das evidências definido para: "+pastaevidenciassuite);
 	}
 	
 	/**
@@ -73,6 +91,11 @@ public class GravadorTeste {
 		querylogics.insereTeste(inicio,cenario);
 		esquema = "";
 		log.mensagemGeral("Teste inicializado");
+		
+		String caminhoevidencia = pastaevidenciassuite+"/"+cenario;
+		CapturaTela.setCaminhoevidencia(caminhoevidencia);
+		ManipulacaoArquivo.criaPasta(CapturaTela.getCaminhoEvidencia());
+		log.mensagemGeral("Local de gravação das evidências do cenario "+cenario+": "+caminhoevidencia);
 	}
 	
 	/**
@@ -81,12 +104,17 @@ public class GravadorTeste {
 	 */
 	public void finalizaTeste(String status) {
 		LocalDateTime fim = LocalDateTime.now();
+		
 		if (!esquema.equals(""))
 			querylogics.atualizaTeste(fim, status,esquema);
 		else
 			querylogics.atualizaTeste(fim,status);
 		esquema = "";
 		log.mensagemGeral("Teste concluido");
+		
+		//Limpa o caminho da evidência do teste
+		CapturaTela.setCaminhoevidencia("");
+		log.mensagemGeral("Caminho de evidências resetado.");
 	}
 
 	/**

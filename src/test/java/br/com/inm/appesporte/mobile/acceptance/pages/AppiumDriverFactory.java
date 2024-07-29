@@ -78,7 +78,7 @@ public class AppiumDriverFactory {
 	    log.mensagemGeral("Configuracoes realizadas com sucesso");
 	    
 	    iniciaAppiumServer();
-	    	    
+	    
 	    driver = new AppiumDriver(servico.getUrl(), configuracoes);
     	log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+servico.getUrl().toString()+", Aplicativo: "+apk.getAbsolutePath());
     	// Se inicializar o appium server externamente

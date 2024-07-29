@@ -7,12 +7,15 @@ import br.com.inm.appesporte.mobile.acceptance.logics.ListaProdutosLogics;
 import br.com.inm.appesporte.mobile.acceptance.logics.LoginLogics;
 import br.com.inm.appesporte.mobile.massa.GeradorMassa;
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
+import br.com.inm.appesporte.mobile.utils.CapturaTela;
 import br.com.inm.appesporte.mobile.utils.Log;
 //import io.cucumber.java.After;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
+
+import static br.com.inm.appesporte.mobile.utils.CapturaTela.capturaTela;
 
 /**
  * 
@@ -39,6 +42,8 @@ public class LoginSteps {
     public void queEuEstouNaTelaDeLogin() {
     	loginlogics = new LoginLogics();
     	loginlogics.abrirPaginaDeLogin();
+    	
+    	capturaTela("Step Dado que eu estou na tela de login realizado com sucesso");
     	log.mensagemGeral("Step Dado que eu estou na tela de login realizado com sucesso");
     }
 
@@ -48,6 +53,9 @@ public class LoginSteps {
         senha = massa.geraSenha();
         
         cadastrologics =loginlogics.acessaCadastro();
+        
+        capturaTela("E tenha um usuário já cadastrado_parte1");
+        
         loginlogics = cadastrologics.cadastraUsuario(usuario,senha);
         
         assertTrue(loginlogics.estaPaginaLogin(),"Erro: Não é a página de login");
@@ -56,6 +64,7 @@ public class LoginSteps {
         gravador.gravaMassa("Senha do Usuário cadastrado", senha);
         
         log.mensagemGeral("Step tenha um usuário já cadastro realizado com sucesso");
+        capturaTela("E tenha um usuário já cadastrado_partefinal");
     }
 
     @Quando("eu tento realizar o login com usuário {string} e com senha {string}")

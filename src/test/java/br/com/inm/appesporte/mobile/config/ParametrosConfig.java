@@ -23,6 +23,8 @@ public class ParametrosConfig {
 	private static String caminhocucumberreport = "target/Reportes/cucumber/";
 	
 	private static String caminhologappiumserver = "logs/appiumserver.log";
+	
+	private static String caminhoevidencias = "target/Evidencias/";
 
 	/**
 	 * Método que retorna a url do appium
@@ -92,5 +94,14 @@ public class ParametrosConfig {
 	 */
 	public static String getCaminhoLogAppiumServer() {
 		return caminhologappiumserver;
+	}
+	
+	/**
+	 * Método que retorna o caminho da pasta de evidências
+	 * 
+	 * @return Caminho da pasta de evidências
+	 */
+	public static String getCaminhoEvidencias() {
+		return caminhoevidencias;
 	}
 }
