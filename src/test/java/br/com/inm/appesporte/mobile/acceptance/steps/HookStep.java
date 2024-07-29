@@ -30,7 +30,7 @@ public class HookStep {
 	@BeforeAll
 	public static void inicioSuite(){
 			
-			AppiumDriverFactory.iniciaAppiumServer();
+			//AppiumDriverFactory.iniciaAppiumServer();
 		
 			String[] caminhosreportes = ParametrosConfig.getCaminhosReportes();
 		

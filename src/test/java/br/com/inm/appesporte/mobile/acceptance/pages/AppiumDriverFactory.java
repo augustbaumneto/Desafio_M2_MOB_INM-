@@ -76,7 +76,8 @@ public class AppiumDriverFactory {
 	    		.setAppActivity("br.com.alura.aluraesporte.ui.activity.MainActivity") // define a atividade para captura mais logs
 	    		.autoGrantPermissions(); //Garante sempre as permissões necessárias
 	    log.mensagemGeral("Configuracoes realizadas com sucesso");
-	        
+	    
+	    iniciaAppiumServer();
 	    	    
 	    driver = new AppiumDriver(servico.getUrl(), configuracoes);
     	log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+servico.getUrl().toString()+", Aplicativo: "+apk.getAbsolutePath());
@@ -120,7 +121,7 @@ public class AppiumDriverFactory {
 	/**
 	 * Inicializa o servico do appium server
 	 */
-	public static void iniciaAppiumServer() {
+	private static void iniciaAppiumServer() {
 		
 		//Só entra no if o appium server não tiver sido inicializado
 		if (servico==null) {
