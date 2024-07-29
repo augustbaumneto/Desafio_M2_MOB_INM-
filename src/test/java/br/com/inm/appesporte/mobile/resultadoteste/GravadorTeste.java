@@ -38,6 +38,7 @@ public class GravadorTeste {
 	private static String esquema;
 	
 	private String pastaevidenciassuite;
+	private String caminhoevidencia;
 	
 	private GravadorTeste() {
 		log = new Log();
@@ -89,10 +90,10 @@ public class GravadorTeste {
 	public void iniciaTeste(String cenario) {
 		LocalDateTime inicio = LocalDateTime.now();
 		querylogics.insereTeste(inicio,cenario);
-		esquema = "";
 		log.mensagemGeral("Teste inicializado");
+		esquema ="";
 		
-		String caminhoevidencia = pastaevidenciassuite+"/"+cenario;
+		caminhoevidencia = pastaevidenciassuite+"/"+cenario;
 		CapturaTela.setCaminhoevidencia(caminhoevidencia);
 		ManipulacaoArquivo.criaPasta(CapturaTela.getCaminhoEvidencia());
 		log.mensagemGeral("Local de gravação das evidências do cenario "+cenario+": "+caminhoevidencia);
@@ -105,8 +106,10 @@ public class GravadorTeste {
 	public void finalizaTeste(String status) {
 		LocalDateTime fim = LocalDateTime.now();
 		
-		if (!esquema.equals(""))
+		if (!esquema.equals("")) {
 			querylogics.atualizaTeste(fim, status,esquema);
+			ManipulacaoArquivo.renomeiaPasta(caminhoevidencia, caminhoevidencia+"_"+esquema);
+		}
 		else
 			querylogics.atualizaTeste(fim,status);
 		esquema = "";
