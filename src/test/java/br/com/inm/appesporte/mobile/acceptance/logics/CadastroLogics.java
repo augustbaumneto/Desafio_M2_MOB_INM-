@@ -1,5 +1,7 @@
 package br.com.inm.appesporte.mobile.acceptance.logics;
 
+import static br.com.inm.appesporte.mobile.utils.CapturaTela.capturaTela;
+
 import br.com.inm.appesporte.mobile.acceptance.pages.CadastroPageObject;
 import br.com.inm.appesporte.mobile.utils.Log;
 
@@ -54,7 +56,11 @@ public class CadastroLogics extends LogicsBase{
 		cadastropage.preencherSenha(senha);
 		cadastropage.preencherConfirmarSenha(confirmarsenha);
 		
+		capturaTela("Dados preenchidos para cadastro");
+		
 		loginpage = cadastropage.clicarCadastro();
+		
+		capturaTela("Tentativa de cadastro realizada");
 		
 		return new LoginLogics(loginpage);
 	}	

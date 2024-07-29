@@ -1,5 +1,7 @@
 package br.com.inm.appesporte.mobile.acceptance.logics;
 
+import static br.com.inm.appesporte.mobile.utils.CapturaTela.capturaTela;
+
 import br.com.inm.appesporte.mobile.acceptance.pages.CadastroPageObject;
 import br.com.inm.appesporte.mobile.acceptance.pages.ListaProdutoPageObject;
 import br.com.inm.appesporte.mobile.acceptance.pages.LoginPageObject;
@@ -36,7 +38,7 @@ public class LoginLogics extends LogicsBase {
 	 */
 	public LoginLogics() {
 		loginpage = new LoginPageObject();
-		
+		capturaTela("Acessado tela de login");
 	}
 	
 	
@@ -60,7 +62,12 @@ public class LoginLogics extends LogicsBase {
 		log.mensagemGeral("Tentativa de login com usuário: "+usuario+" e senha: "+senha);
 		loginpage.preencherUsuario(usuario);
         loginpage.preencherSenha(senha);
+        
+        capturaTela("Usuario e Senha para login preenchidos");
+        
         listaprodutopage = loginpage.clicarNoBotaoLogin();
+        capturaTela("Tentativa de login realizada");
+        
         return new ListaProdutosLogics(listaprodutopage);
 	}
 
@@ -84,6 +91,7 @@ public class LoginLogics extends LogicsBase {
 	public CadastroLogics acessaCadastro() {
 		log.mensagemGeral("Acessando tela de cadastro");
 		cadastropage = loginpage.clicarCadastrar();
+		capturaTela("Acessado tela de cadastro");
 		return new CadastroLogics(cadastropage);
 	}
 
