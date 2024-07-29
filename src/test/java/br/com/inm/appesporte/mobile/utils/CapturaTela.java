@@ -20,6 +20,9 @@ public class CapturaTela {
 	
 	private static String caminhoevidencia;
 	
+	//Guardar a numeração da imagem
+	private static int numeroimagem;
+	
 	/**
 	 * Método responsável para tirar o print e gravá-lo
 	 * 
@@ -31,7 +34,19 @@ public class CapturaTela {
 		
 		log.mensagemGeral("Print de tela capturado");
 		
-		String nomearquivo = caminhoevidencia+"/"+nomeimagem+".png";
+		String texto_numeroimagem = Integer.toString(numeroimagem);
+		
+		//Ajusta numero de character
+		if(texto_numeroimagem.length()==1) {
+			texto_numeroimagem = "00"+texto_numeroimagem;
+		}
+		
+		//Ajusta numero de character
+		if(texto_numeroimagem.length()==2) {
+			texto_numeroimagem = "0"+texto_numeroimagem;
+		}
+		
+		String nomearquivo = caminhoevidencia+"/"+texto_numeroimagem+" - "+nomeimagem+".png";
 		
 		try (FileOutputStream outputStream = new FileOutputStream(nomearquivo)) {
 	            outputStream.write(Base64.getDecoder().decode(telacapturada));
@@ -45,6 +60,8 @@ public class CapturaTela {
 
 	public static void setCaminhoevidencia(String caminhoevidencia) {
 		CapturaTela.caminhoevidencia = caminhoevidencia;
+		
+		numeroimagem = 1;
 	}
 
 
