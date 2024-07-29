@@ -72,13 +72,15 @@ public class AppiumDriverFactory {
 	    		.setDeviceName("Nexus 4 API 28 - Teste curso")
 	    		.eventTimings()//Reporta o tempo das atividades do appium internament no app
 	    		.fullReset() //Re-instala sempre o app
+	    		.setAppPackage("br.com.alura.aluraesporte")// define o pacote do app para obter mais logs
+	    		.setAppActivity("br.com.alura.aluraesporte.ui.activity.MainActivity") // define a atividade para captura mais logs
 	    		.autoGrantPermissions(); //Garante sempre as permissões necessárias
 	    log.mensagemGeral("Configuracoes realizadas com sucesso");
 	        
 	    	    
 	    driver = new AppiumDriver(servico.getUrl(), configuracoes);
     	log.mensagemGeral("Driver inicializado com sucesso! URL Appium: "+servico.getUrl().toString()+", Aplicativo: "+apk.getAbsolutePath());
-	    // Se inicializar o appium server externamente
+    	// Se inicializar o appium server externamente
 	    /*    URL urlconexao = null;
 	    //Verifica a exception da URL
 	    try {
@@ -109,6 +111,8 @@ public class AppiumDriverFactory {
 	 * Fecha o serviço do appium server
 	 */
 	public static void fecharAppiumServer() {
+		Instance().getAppiumDriver().quit();
+		log.mensagemGeral("Driver finalizado com sucesso");
 		servico.stop();
 		log.mensagemGeral("Appium server finalizado com sucesso");
 	}
@@ -134,5 +138,9 @@ public class AppiumDriverFactory {
 		} else {
 			log.mensagemGeral("Appium server já inicializado");
 		}
+	}
+	
+	public static void iniciaGavacao() {
+		_instance.getAppiumDriver();
 	}
 }
