@@ -34,6 +34,7 @@ replay_pid*
 /target/Reportes/
 /target/classes/BancoDados/db_Execucao_Teste.bd
 /logs/
+/target/
 
 #Eclipse
 .classpath
