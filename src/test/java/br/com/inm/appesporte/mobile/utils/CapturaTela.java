@@ -51,6 +51,7 @@ public class CapturaTela {
 		try (FileOutputStream outputStream = new FileOutputStream(nomearquivo)) {
 	            outputStream.write(Base64.getDecoder().decode(telacapturada));
 	            log.mensagemGeral("Tela gravada!");
+	            numeroimagem=numeroimagem+1;
 	            
 	        } catch (IOException e) {
 	           log.erroExcecaoLancada(e);
