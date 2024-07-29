@@ -141,7 +141,4 @@ public class AppiumDriverFactory {
 		}
 	}
 	
-	public static void iniciaGavacao() {
-		_instance.getAppiumDriver();
-	}
 }
