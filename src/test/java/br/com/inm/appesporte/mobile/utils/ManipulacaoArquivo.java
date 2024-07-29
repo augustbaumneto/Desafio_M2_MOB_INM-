@@ -72,4 +72,20 @@ public class ManipulacaoArquivo {
 		}
 		
 	}
+	
+	/**
+	 * Método que renomeia uma pasta
+	 */
+	public static void renomeiaPasta(String nomeantigo, String nomenovo) {
+		File pasta = new File(nomeantigo);
+		
+		if(pasta.exists()) {
+			LOG.mensagemGeral("Diretório já existente: "+nomeantigo);
+			pasta.renameTo(new File(nomenovo));
+		}else {
+			  LOG.mensagemGeral("Pasta inexistente");
+            } 
+		}
+		
+	
 }
