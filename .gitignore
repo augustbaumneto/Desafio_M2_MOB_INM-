@@ -32,4 +32,12 @@ replay_pid*
 
 /src/main/resources/BancoDados/db_Execucao_Teste.bd
 /target/Reportes/
+/target/classes/BancoDados/db_Execucao_Teste.bd
 /logs/
+
+#Eclipse
+.classpath
+.factorypath
+.project
+.settings/org.eclipse.jdt.apt.core.prefs
+.settings/org.eclipse.jdt.core.prefs
