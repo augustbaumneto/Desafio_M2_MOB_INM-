@@ -93,7 +93,7 @@ public class GravadorTeste {
 		log.mensagemGeral("Teste inicializado");
 		esquema ="";
 		
-		caminhoevidencia = pastaevidenciassuite+"/"+cenario;
+		caminhoevidencia = pastaevidenciassuite+"/"+cenario.replace("/", "_").replace(" ", "_");
 		CapturaTela.setCaminhoevidencia(caminhoevidencia);
 		ManipulacaoArquivo.criaPasta(CapturaTela.getCaminhoEvidencia());
 		log.mensagemGeral("Local de gravação das evidências do cenario "+cenario+": "+caminhoevidencia);
@@ -108,7 +108,7 @@ public class GravadorTeste {
 		
 		if (!esquema.equals("")) {
 			querylogics.atualizaTeste(fim, status,esquema);
-			ManipulacaoArquivo.renomeiaPasta(caminhoevidencia, caminhoevidencia+"_"+esquema);
+			ManipulacaoArquivo.renomeiaPasta(caminhoevidencia, caminhoevidencia+"_"+esquema.replace("/", "_").replace(" ", "_"));
 		}
 		else
 			querylogics.atualizaTeste(fim,status);
