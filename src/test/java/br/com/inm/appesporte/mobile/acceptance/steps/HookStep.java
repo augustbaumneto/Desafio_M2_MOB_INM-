@@ -3,7 +3,6 @@
  */
 package br.com.inm.appesporte.mobile.acceptance.steps;
 
-import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverFactory;
 import br.com.inm.appesporte.mobile.config.ParametrosConfig;
 import br.com.inm.appesporte.mobile.resultadoteste.GravadorTeste;
 import br.com.inm.appesporte.mobile.utils.CapturaTela;

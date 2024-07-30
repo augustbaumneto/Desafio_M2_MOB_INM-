@@ -4,19 +4,12 @@
 package br.com.inm.appesporte.mobile.resultadoteste;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Base64;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.screenrecording.CanRecordScreen;
-
-import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverFactory;
 import br.com.inm.appesporte.mobile.banco.logics.QueryMakerDML;
 import br.com.inm.appesporte.mobile.config.ParametrosConfig;
 import br.com.inm.appesporte.mobile.utils.CapturaTela;

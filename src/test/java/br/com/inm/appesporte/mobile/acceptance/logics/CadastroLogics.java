@@ -91,6 +91,8 @@ public class CadastroLogics extends LogicsBase{
 	public void retornaLogin() {
 		log.mensagemGeral("Retorna para a tela de login");
 		cadastropage.voltarLogin();
+		//Espera até sair da tela de cadastro
+		while (estaNaTelaCadastro());
 		capturaTela("Retornado para a tela de Login");
 	}
 

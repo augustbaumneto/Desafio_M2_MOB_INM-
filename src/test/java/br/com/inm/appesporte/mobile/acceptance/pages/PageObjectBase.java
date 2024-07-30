@@ -4,6 +4,7 @@ import java.time.Duration;
 
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -50,7 +51,7 @@ public abstract class PageObjectBase {
 			elemento.isDisplayed();
 			LOG.mensagemElementoEncontrado(elemento);
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (NoSuchElementException | StaleElementReferenceException e) {
 			LOG.erroExcecaoLancada(e);
 			return false;
 		}
