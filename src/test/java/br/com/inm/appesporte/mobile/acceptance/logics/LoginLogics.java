@@ -38,7 +38,6 @@ public class LoginLogics extends LogicsBase {
 	 */
 	public LoginLogics() {
 		loginpage = new LoginPageObject();
-		capturaTela("Acessado tela de login");
 	}
 	
 	
@@ -49,6 +48,7 @@ public class LoginLogics extends LogicsBase {
 	public void abrirPaginaDeLogin() {
 		log.mensagemGeral("Acessando tela de login");
 		estaPaginaLogin();
+		capturaTela("Acessado tela de login");
 	}
 
 	/**

@@ -23,7 +23,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @SuiteDisplayName("Testes: Cadastro App Alura Esporte")	//Nome da suite para exibição
 @IncludeEngines("cucumber")						//Motor Executor
 @SelectClasspathResource("features")			//Caminho das features
-@IncludeTags("CT3")							//Tags executadas
+@IncludeTags("cadastrar")							//Tags executadas
 @ConfigurationParameter(key = PLUGIN_PUBLISH_QUIET_PROPERTY_NAME, value = "true") //Configura para não exibir o quadro do cucumber no console
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "me.jvt.cucumber.report.PrettyReports:target/Reportes/cucumber/cadastro,json:target/Reportes/jsons/cadastro.json") //Configura o reporte.
 //pretty imprime os steps no console. Summary: imprime o resumo no console. html:pasta/arquivo.html : gera um html simples do resultado na pasta dada.
