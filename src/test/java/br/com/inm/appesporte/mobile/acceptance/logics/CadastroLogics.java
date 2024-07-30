@@ -91,6 +91,7 @@ public class CadastroLogics extends LogicsBase{
 	public void retornaLogin() {
 		log.mensagemGeral("Retorna para a tela de login");
 		cadastropage.voltarLogin();
+		capturaTela("Retornado para a tela de Login");
 	}
 
 	/**
@@ -112,6 +113,7 @@ public class CadastroLogics extends LogicsBase{
 				log.erroParametroNaoValido("campo", campo);
 				break;
 		}
+		capturaTela("Campo preenchido");
 		
 	}
 
@@ -133,6 +135,7 @@ public class CadastroLogics extends LogicsBase{
 				log.erroParametroNaoValido("campo", campo);
 				break;
 		}
+		capturaTela("Botão visualizar pressionado");
 		
 	}
 

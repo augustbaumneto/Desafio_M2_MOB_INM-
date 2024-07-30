@@ -97,7 +97,7 @@ public class CadastroSteps {
 	@Dado("com o campo {string} preenchido")
 	public void comOCampoPreenchido(String campo) {
 		String dadopreencher = "";
-		GravadorTeste.setEsquema("Campo : "+campo+" preenchido");
+		GravadorTeste.setEsquema("Campo "+campo+" preenchido");
 		switch(campo) {
 			case "senha":
 				senha = massa.geraSenha();
@@ -140,7 +140,7 @@ public class CadastroSteps {
 	public void euTentoRealizarOCadastroComCampoVazioEDemaisDadosVálidos(String campo) {
 		usuario = massa.geraPrimeiroNome();
 		
-		GravadorTeste.setEsquema("Campo: "+campo+" vazio");
+		GravadorTeste.setEsquema("Campo "+campo+" vazio");
 		gravador.gravaMassa("Usuário", usuario);
 		
 		switch(campo) {

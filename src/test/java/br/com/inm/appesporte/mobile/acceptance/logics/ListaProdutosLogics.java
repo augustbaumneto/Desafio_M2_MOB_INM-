@@ -1,6 +1,8 @@
 package br.com.inm.appesporte.mobile.acceptance.logics;
 
 
+import static br.com.inm.appesporte.mobile.utils.CapturaTela.capturaTela;
+
 import br.com.inm.appesporte.mobile.acceptance.pages.ListaProdutoPageObject;
 import br.com.inm.appesporte.mobile.utils.Log;
 
@@ -56,6 +58,7 @@ public class ListaProdutosLogics extends LogicsBase {
 	 */
 	public LoginLogics sair() {
 		loginpage = listapage.clicarBotaoSair();
+		capturaTela("Usuário deslogado");
 		return new LoginLogics(loginpage);
 		
 	}
