@@ -16,10 +16,8 @@
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
       * [Baixando o projeto e preparando o ambiente](#baixando-e-preparando)
-	  * [Iniciando o Appium Server](#iniciando-o-appium)
 	  * [Criando o banco de dados](#criando-banco-dados)
       * [Rodando os Testes](#rodando-os-testes)
-      * [Alterando a porta do Appium](#alterando-porta)
    * [Autor](#autor)
    * [Licença](#licenca)   
 <!--te-->
@@ -82,7 +80,7 @@ Funcionalidade responsável por criar um usuário, o usuário não deve existir 
   
 Concluído a primeira versão. 🚀<br>
 O que não foi feito:
-  * Captura das evidências dos testes e devida organização;
+  * Captura das evidências dos testes e devida organização, embora o framework esteja pronto para o mesmo;
   * Testes de funcionalidades adicionais.
     
 <a id="tecnologias"></a>
@@ -112,7 +110,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## Como Usar🧐
 ------------------
   
-Para poder rodar os testes é necessário ter o Appium Server rodando e um dispositivo virtual conectado. Aqui foi utilizado o Virtual Device Manager do Android Studio para simular um dispositivo. É também necessário ter preparado o ambiente.  
+Para poder rodar os testes não é necessário ter o Appium Server rodando, a própria automação cuida da inicialização e fechamento do mesmo. No entanto é necessário ter um dispositivo conectado seja ele virtual ou físico. No caso de um dispositivo físico, é necessário ter instalado em sua máquina adb e seu dispositivo deve estar no modo desenvolvedor com a depuração ativada via USB.
+Nesse exemplo foi utilizado o Virtual Device Manager do Android Studio para simular um dispositivo. 
+É também necessário ter preparado o ambiente.  
   
 <a id="pre-requisitos"></a>  
 ### Pré-requisitos⛽
@@ -155,21 +155,6 @@ $ mvn install
   ![a](/src/main/resources/img/import-eclipse/passo5.PNG)
   
   6. Aguarde o projeto atualizar.  
-
-<a id="iniciando-o-appium"></a>
-### Iniciando o Appium Server 🧭
------------------------------------------------- 
-  
-  1. No cmd, de o comando para iniciar o appium, caso prefira escolha a porta. O projeto esta configurado para rodar na porta 4724.
-  
-```bash
-# Comando para iniciar o Appium
-$ appium
-
-# Comando para iniciar o Appium em uma porta em espeficio
-$ appium -p 4724
-
-``` 
 
 <a id="criando-banco-dados"></a>
 ### Criando o banco de dados 🧱
@@ -215,21 +200,8 @@ $ appium -p 4724
   ![a](/src/main/resources/img/rodar/Passo6.PNG)
   
   7. Todos os resultados são armazenados dentro do banco de dados __"db_Execucao_Teste.bd"__ dentro da pasta: "src" > "main" > "resources" > "BancoDados". Mais informações vê a sessão sobre o banco de dados.
-  <br>
   ![a](/src/main/resources/img/rodar/Passo7.PNG)
-  
-<a id="alterando-porta"></a>
-### Alterando a porta do Appium 🚪
--------------------------------
-  
-  1. Dentro do IDE, acesse a pasta (package) __"config"__ dentro do caminho: "src" > "test" > "java" > "br" > "com" > "inm" > "appesporte" > "mobile";  
-  ![a](/src/main/resources/img/alterar-porta/Passo1.PNG)
-  
-  2. Abra a classe __"ParametrosConfig.java"__;  
-  ![a](/src/main/resources/img/alterar-porta/Passo2.PNG)
-  
-  3. Altere a variável __"urlappium"__ trocando a porta, salve o arquivo e rode novamente. Lembrando que a porta deve ser a mesma em que o Appium server foi iniciado. 
-  ![a](/src/main/resources/img/alterar-porta/Passo3.PNG)
+  <br>
   
 <a id="autor"></a>
 ## Autor😉
