@@ -45,8 +45,8 @@ public class LoginSteps {
 
     @E("tenha um usuário já cadastrado")
     public void tenhaUmUsuarioJaCadastrado() {
-        usuario = massa.geraPrimeiroNome();
-        senha = massa.geraSenha();
+        usuario = massa.geraPrimeiroNome(1);
+        senha = massa.geraSenha(1);
         
         cadastrologics =loginlogics.acessaCadastro();
         loginlogics = cadastrologics.cadastraUsuario(usuario,senha);
@@ -72,7 +72,7 @@ public class LoginSteps {
     			usuariologin = usuario;
     			break;
     		case "inválido":
-    			usuariologin = massa.geraPrimeiroNome();
+    			usuariologin = massa.geraPrimeiroNome(2);
     			gravador.gravaMassa("Usuário Inválido", usuariologin);
     			break;
     		case "vazio":
@@ -89,7 +89,7 @@ public class LoginSteps {
 				senhalogin = senha;
 				break;
 			case "inválido":
-				senhalogin = massa.geraSenha();
+				senhalogin = massa.geraSenha(2);
 				gravador.gravaMassa("Senha Inválida", senhalogin);
 				break;
 			case "vazio":

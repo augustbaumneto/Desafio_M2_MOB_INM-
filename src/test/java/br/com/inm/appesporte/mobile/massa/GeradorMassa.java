@@ -42,22 +42,28 @@ public class GeradorMassa {
 	/**
 	 *   Gera o primeiro nome de uma pessoa
 	 * 
+	 * @param index: int indice da massa adicionada
+	 * 
 	 * @return primeiro nome
 	 */
-	public String geraPrimeiroNome() {
+	public String geraPrimeiroNome(int index) {
 		String nome = gerador.name().firstName();
 		log.mensagemElementoCriado("Primeiro nome", nome);
+		MassaDeTeste.adicionaMassa("nome", index, nome);
 		return nome;
 	}
 
 	/**
 	 *    Gera uma senha com um pokemon e uma cor
 	 * 
+	 * @param index: int indice da massa adicionada
+	 * 
 	 * @return senha
 	 */
-	public String geraSenha() {
+	public String geraSenha(int index) {
 		String senha = gerador.pokemon().name()+gerador.color().name();
 		log.mensagemElementoCriado("Senha", senha);
+		MassaDeTeste.adicionaMassa("senha", index, senha);
 		return senha;
 	}
 }

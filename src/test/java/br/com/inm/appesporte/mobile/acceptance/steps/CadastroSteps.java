@@ -41,8 +41,8 @@ public class CadastroSteps {
 
 	@Quando("eu tento realizar o cadastro com usuário válido e senha iguais")
 	public void euTentoRealizarOCadastroComUsuárioVálidoESenhaIguais() {
-		usuario = massa.geraPrimeiroNome();
-		senha = massa.geraSenha();
+		usuario = massa.geraPrimeiroNome(1);
+		senha = massa.geraSenha(1);
 		
 		gravador.gravaMassa("Usuário", usuario);
 		gravador.gravaMassa("Senha", senha);
@@ -69,9 +69,9 @@ public class CadastroSteps {
 
 	@Quando("eu tento realizar o cadastro com usuário válido e senhas diferentes")
 	public void euTentoRealizarOCadastroComUsuárioVálidoESenhasDiferentes() {
-		usuario = massa.geraPrimeiroNome();
-		senha = massa.geraSenha();
-		confirmarsenha=massa.geraSenha();
+		usuario = massa.geraPrimeiroNome(1);
+		senha = massa.geraSenha(1);
+		confirmarsenha=massa.geraSenha(2);
 		
 		gravador.gravaMassa("Usuário", usuario);
 		gravador.gravaMassa("Senha", senha);
@@ -100,14 +100,14 @@ public class CadastroSteps {
 		GravadorTeste.setEsquema("Campo "+campo+" preenchido");
 		switch(campo) {
 			case "senha":
-				senha = massa.geraSenha();
+				senha = massa.geraSenha(1);
 				
 				gravador.gravaMassa("Senha", senha);
 				
 				dadopreencher=senha;
 				break;
 			case "confirmarsenha":
-				confirmarsenha =massa.geraSenha();
+				confirmarsenha =massa.geraSenha(1);
 				
 				gravador.gravaMassa("ConfirmarSenha", confirmarsenha);
 				
@@ -138,7 +138,7 @@ public class CadastroSteps {
 
 	@Quando("eu tento realizar o cadastro com campo {string} vazio e demais dados válidos")
 	public void euTentoRealizarOCadastroComCampoVazioEDemaisDadosVálidos(String campo) {
-		usuario = massa.geraPrimeiroNome();
+		usuario = massa.geraPrimeiroNome(1);
 		
 		GravadorTeste.setEsquema("Campo "+campo+" vazio");
 		gravador.gravaMassa("Usuário", usuario);
@@ -146,14 +146,14 @@ public class CadastroSteps {
 		switch(campo) {
 			case "senha":
 				senha = "";
-				confirmarsenha=massa.geraSenha();
+				confirmarsenha=massa.geraSenha(1);
 				
 				gravador.gravaMassa("ConfirmarSenha", confirmarsenha);
 				
 				break;
 			case "confirmarsenha":
 				confirmarsenha ="";
-				senha=massa.geraSenha();
+				senha=massa.geraSenha(1);
 				
 				gravador.gravaMassa("Senha", senha);
 				
@@ -170,8 +170,8 @@ public class CadastroSteps {
 
 	@Dado("possua um usuário já cadastrado")
 	public void possuaUmUsuárioJáCadastrado() {
-		usuario = massa.geraPrimeiroNome();
-		senha = massa.geraSenha();
+		usuario = massa.geraPrimeiroNome(1);
+		senha = massa.geraSenha(1);
 		
 		gravador.gravaMassa("Usuario Cadastrado", usuario);
 		gravador.gravaMassa("senha do Usuario Cadastrado", senha);

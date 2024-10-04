@@ -30,11 +30,13 @@ replay_pid*
 # End of https://www.toptal.com/developers/gitignore/api/java
 
 
-/src/main/resources/BancoDados/db_Execucao_Teste.bd
-/target/Reportes/
-/target/classes/BancoDados/db_Execucao_Teste.bd
-/logs/
-/target/
+src/main/resources/BancoDados/db_Execucao_Teste.bd
+target/Reportes/
+target/classes/BancoDados/db_Execucao_Teste.bd
+logs/
+target/
+
+
 
 #Eclipse
 .classpath

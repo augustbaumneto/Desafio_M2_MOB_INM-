@@ -107,15 +107,28 @@ public class AppiumDriverFactory {
 		return this.driver;
 	}
 
+	/**
+	 * Finaliza o appium driver ao final do teste
+	 */
+	public static void fechaAppiumDriver() {
+		if (AppiumDriverFactory._instance!=null) {
+			Instance().getAppiumDriver().quit();
+			log.mensagemGeral("Driver finalizado com sucesso");
+			AppiumDriverFactory._instance =null;
+		}
+	}
+
 
 	/**
 	 * Fecha o serviço do appium server
 	 */
 	public static void fecharAppiumServer() {
-		Instance().getAppiumDriver().quit();
-		log.mensagemGeral("Driver finalizado com sucesso");
-		servico.stop();
-		log.mensagemGeral("Appium server finalizado com sucesso");
+		
+		if (servico!=null) {
+			servico.stop();
+			log.mensagemGeral("Appium server finalizado com sucesso");
+			servico =null;
+		}
 	}
 	
 	/**
@@ -129,7 +142,7 @@ public class AppiumDriverFactory {
 			servico = new AppiumServiceBuilder()
 	    			.withIPAddress(ParametrosConfig.getIPAppiumHost())
 	    			.usingPort(4735)
-	    		//	.withLogFile(new File(ParametrosConfig.getCaminhoLogAppiumServer()))
+	    			.withLogFile(new File(ParametrosConfig.getCaminhoLogAppiumServer()))
 	    			.build();    
 	    	log.mensagemGeral(servico.getUrl().toString());
 	    

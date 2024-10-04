@@ -3,10 +3,13 @@
  */
 package br.com.inm.appesporte.mobile.utils;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.HashMap;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 
 import br.com.inm.appesporte.mobile.acceptance.pages.AppiumDriverFactory;
@@ -22,6 +25,11 @@ public class CapturaTela {
 	
 	//Guardar a numeração da imagem
 	private static int numeroimagem;
+	
+	private static int index =0;
+	
+	private static HashMap<Integer,byte[]> telascapturadas = new HashMap<>(); 
+
 	
 	/**
 	 * Método responsável para tirar o print e gravá-lo
@@ -52,6 +60,7 @@ public class CapturaTela {
 	            outputStream.write(Base64.getDecoder().decode(telacapturada));
 	            log.mensagemGeral("Tela gravada!");
 	            numeroimagem=numeroimagem+1;
+	            adicionarCaptura(nomearquivo);
 	            
 	        } catch (IOException e) {
 	           log.erroExcecaoLancada(e);
@@ -68,6 +77,25 @@ public class CapturaTela {
 
 	public static String getCaminhoEvidencia() {
 		return caminhoevidencia;
+	}
+	
+	private static void adicionarCaptura(String caminhoimagem) throws IOException {
+		File imagem = new File(caminhoimagem);
+		
+		byte[] captura = FileUtils.readFileToByteArray(imagem);
+		
+		telascapturadas.put(index,captura);
+		index =index+1;
+		
+	}
+	
+	public static void limpaCaptura() {
+		telascapturadas.clear();
+		index = 0;
+	}
+	
+	public static HashMap<Integer,byte[]> getCapturas(){
+		return telascapturadas;
 	}
 	
 }

@@ -1,11 +1,14 @@
 package br.com.inm.appesporte.mobile.acceptance.pages;
 
 import java.time.Duration;
+import java.util.Arrays;
 
-
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 
 import br.com.inm.appesporte.mobile.utils.Log;
@@ -56,6 +59,24 @@ public abstract class PageObjectBase {
 			return false;
 		}
 		
+	}
+	
+	protected void swipeTo(double ySize, String direction) throws InterruptedException {
+		Dimension dimension = driver.manage().window().getSize();
+
+		int x = dimension.width / 2;
+		int y = (int) (dimension.height * ySize);
+		int end = direction.equals("down") ? 0 : dimension.height - 50;
+
+		
+	     PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+	        Sequence sequenciamovimentos = new Sequence(finger, 1);
+	        sequenciamovimentos.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+	        sequenciamovimentos.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg())); 
+	        sequenciamovimentos.addAction(finger.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), x, end));
+	        sequenciamovimentos.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg())); 
+	        driver.perform(Arrays.asList(sequenciamovimentos));
+
 	}
 	
 	/**
