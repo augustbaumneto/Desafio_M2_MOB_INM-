@@ -32,22 +32,24 @@ public class ManipulacaoArquivo {
 	 */
 	public void limpaPasta() {
 		File[] listaarquivos = arquivobase.listFiles();
-    	
-    	for (File tmp : listaarquivos) {
-    		String nome = tmp.getAbsolutePath();
+    	if (listaarquivos !=null) {
+    		
+    		for (File tmp : listaarquivos) {
+    			String nome = tmp.getAbsolutePath();
     		
     		
-    		if (tmp.isDirectory()) {
-    			try {
-    				FileUtils.cleanDirectory(tmp);
-    				FileUtils.deleteDirectory(tmp);
-    				LOG.mensagemGeral("Pasta excluída "+nome);
-    			} catch(IOException e) {
-    				LOG.erroExcecaoLancada(e);
+    			if (tmp.isDirectory()) {
+    				try {
+    					FileUtils.cleanDirectory(tmp);
+    					FileUtils.deleteDirectory(tmp);
+    					LOG.mensagemGeral("Pasta excluída "+nome);
+    				} catch(IOException e) {
+    					LOG.erroExcecaoLancada(e);
+    				}
+    			} else {
+    				LOG.mensagemGeral("Arquivo excluído "+nome);
+    				tmp.delete();
     			}
-    		} else {
-    			LOG.mensagemGeral("Arquivo excluído "+nome);
-    			tmp.delete();
     		}
     		
     	}

@@ -69,7 +69,7 @@ public class AppiumDriverFactory {
 	    //Cria as configurações para o driver
 	    UiAutomator2Options configuracoes = new UiAutomator2Options()
 	    		.setApp(apk.getAbsolutePath())
-	    		.setDeviceName("Nexus 4 API 28 - Teste curso")
+	    		.setDeviceName("Medium Phone API 35")
 	    		.eventTimings()//Reporta o tempo das atividades do appium internament no app
 	    		.fullReset() //Re-instala sempre o app
 	    		.setAppPackage("br.com.alura.aluraesporte")// define o pacote do app para obter mais logs
